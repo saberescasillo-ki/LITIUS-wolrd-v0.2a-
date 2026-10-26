@@ -1,0 +1,162 @@
+{
+  "format_version": "1.12.0",
+  "minecraft:geometry": [
+    {
+      "description": {
+        "identifier": "geometry.litius.capa_bufanda",
+        "texture_width": 64,
+        "texture_height": 32,
+        "visible_bounds_width": 2,
+        "visible_bounds_height": 3,
+        "visible_bounds_offset": [
+          0,
+          1,
+          0
+        ]
+      },
+      "bones": [
+        {
+          "name": "root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "body",
+          "parent": "root",
+          "pivot": [
+            0,
+            12,
+            0
+          ]
+        },
+        {
+          "name": "cape",
+          "parent": "body",
+          "pivot": [
+            0,
+            24,
+            2.1
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -5,
+                7,
+                2.1
+              ],
+              "size": [
+                10,
+                17,
+                1
+              ],
+              "uv": [
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "name": "scarf",
+          "parent": "body",
+          "pivot": [
+            0,
+            22,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -4.5,
+                21.5,
+                -2.5
+              ],
+              "size": [
+                9,
+                3,
+                5
+              ],
+              "uv": [
+                0,
+                20
+              ]
+            },
+            {
+              "origin": [
+                -3.5,
+                20,
+                -3.2
+              ],
+              "size": [
+                3,
+                2,
+                1
+              ],
+              "uv": [
+                32,
+                10
+              ]
+            }
+          ]
+        },
+        {
+          "name": "scarf_front",
+          "parent": "scarf",
+          "pivot": [
+            -2,
+            20.5,
+            -3.2
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -3,
+                13.5,
+                -3.4
+              ],
+              "size": [
+                2,
+                7,
+                1
+              ],
+              "uv": [
+                40,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "name": "scarf_tail",
+          "parent": "scarf",
+          "pivot": [
+            2.5,
+            22.5,
+            3.2
+          ],
+          "cubes": [
+            {
+              "origin": [
+                1.5,
+                15.5,
+                3.2
+              ],
+              "size": [
+                2,
+                7,
+                1
+              ],
+              "uv": [
+                32,
+                0
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

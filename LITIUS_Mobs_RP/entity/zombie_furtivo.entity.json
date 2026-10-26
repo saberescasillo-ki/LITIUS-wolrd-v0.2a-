@@ -1,0 +1,55 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "litius:zombie_furtivo",
+      "materials": {
+        "default": "entity_alphatest",
+        "capa": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/zombie/zombie",
+        "capa": "textures/entity/litius/capa_zombie"
+      },
+      "geometry": {
+        "default": "geometry.litius.zombie_furtivo",
+        "capa": "geometry.litius.capa_bufanda"
+      },
+      "particle_effects": {
+        "tierra": "litius:tierra_emerger"
+      },
+      "sound_effects": {
+        "excavar": "dig.gravel",
+        "gemido": "mob.zombie.say"
+      },
+      "scripts": {
+        "pre_animation": [
+          "v.emerging = q.property('litius:emerging');",
+          "v.speed = math.clamp(q.modified_move_speed, 0.0, 1.0);",
+          "v.tcos = math.cos(q.modified_distance_moved * 38.17) * q.modified_move_speed * 57.3;",
+          "v.blend = math.clamp(q.delta_time * 8.0, 0.0, 1.0);",
+          "v.lean = math.lerp(v.lean ?? 0.0, v.speed * (q.has_target ? 24.0 : 14.0), v.blend);",
+          "v.side = math.lerp(v.side ?? 0.0, math.clamp(q.yaw_speed * -0.4, -6.0, 6.0) * v.speed, v.blend);"
+        ],
+        "animate": ["cuerpo_ctrl", "brazos_ctrl"]
+      },
+      "animations": {
+        "cuerpo_ctrl": "controller.animation.litius.zombie_furtivo.cuerpo",
+        "brazos_ctrl": "controller.animation.litius.zombie_furtivo.brazos",
+        "mirar": "animation.litius.zombie_furtivo.mirar",
+        "piernas": "animation.litius.zombie_furtivo.piernas",
+        "inclinacion": "animation.litius.zombie_furtivo.inclinacion",
+        "brazos": "animation.litius.zombie_furtivo.brazos",
+        "rasguno": "animation.litius.zombie_furtivo.rasguno",
+        "emerger": "animation.litius.zombie_furtivo.emerger",
+        "capa": "animation.litius.capa_bufanda"
+      },
+      "render_controllers": ["controller.render.litius.base", "controller.render.litius.capa"],
+      "enable_attachables": true,
+      "spawn_egg": {
+        "base_color": "#00AFAF",
+        "overlay_color": "#3B3524"
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.litius.zombie_furtivo.cuerpo": {
+      "initial_state": "inicio",
+      "states": {
+        "inicio": {
+          "transitions": [
+            { "emerger": "v.emerging" },
+            { "suelo": "!v.emerging" }
+          ]
+        },
+        "emerger": {
+          "animations": ["emerger", "capa"],
+          "transitions": [{ "suelo": "!v.emerging" }],
+          "blend_transition": 0.35
+        },
+        "suelo": {
+          "animations": ["mirar", "piernas", "inclinacion", "capa"],
+          "transitions": [{ "emerger": "v.emerging" }],
+          "blend_transition": 0.35
+        }
+      }
+    },
+
+    "controller.animation.litius.zombie_furtivo.brazos": {
+      "initial_state": "emerger",
+      "states": {
+        "emerger": {
+          "transitions": [{ "brazos": "!v.emerging" }],
+          "blend_transition": 0.35
+        },
+        "brazos": {
+          "animations": ["brazos"],
+          "transitions": [
+            { "emerger": "v.emerging" },
+            { "rasguno": "q.is_delayed_attacking" }
+          ],
+          "blend_transition": 0.1
+        },
+        "rasguno": {
+          "animations": ["rasguno"],
+          "transitions": [{ "brazos": "q.any_animation_finished" }],
+          "blend_transition": 0.1
+        }
+      }
+    }
+  }
+}
