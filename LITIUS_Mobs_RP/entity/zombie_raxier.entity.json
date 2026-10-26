@@ -27,9 +27,7 @@
           "v.lean = math.lerp(v.lean ?? 0.0, v.accion >= 2 ? 0.0 : (v.speed > 0.1 ? 6.0 + v.speed * 10.0 : -6.0), math.clamp(q.delta_time * 6.0, 0.0, 1.0));"
         ],
         "animate": [
-          {
-            "mirar": "v.accion < 3"
-          },
+          "mirar",
           {
             "cuerpo": "v.accion < 2"
           },
@@ -46,7 +44,6 @@
         "disparo": "animation.litius.zombie_raxier.disparo",
         "golpe": "animation.litius.zombie_raxier.golpe",
         "agacharse": "animation.litius.zombie_raxier.agacharse",
-        "derrota": "animation.litius.zombie_raxier.derrota",
         "capa": "animation.litius.capa"
       },
       "render_controllers": [

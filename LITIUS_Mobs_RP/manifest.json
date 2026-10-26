@@ -4,20 +4,20 @@
     "name": "LITIUS Mobs - Recursos",
     "description": "Modelos, animaciones y texturas de las variantes de mobs de LITIUS World",
     "uuid": "c021c092-f337-491c-ad38-2c5c18a36ad0",
-    "version": [0, 5, 0],
-    "min_engine_version": [1, 21, 0]
+    "version": [0, 6, 0],
+    "min_engine_version": [1, 21, 40]
   },
   "modules": [
     {
       "type": "resources",
       "uuid": "69d6b0ab-6bf6-43f5-b786-6f72043af170",
-      "version": [0, 5, 0]
+      "version": [0, 6, 0]
     }
   ],
   "dependencies": [
     {
       "uuid": "e318a59c-0e73-410a-8a69-e5473d394ffa",
-      "version": [0, 5, 0]
+      "version": [0, 6, 0]
     }
   ]
 }

@@ -20,7 +20,7 @@
           "type": "int",
           "range": [
             0,
-            4
+            2
           ],
           "default": 0,
           "client_sync": true
@@ -92,28 +92,12 @@
         "minecraft:timer": {
           "looping": true,
           "time": [
-            7.0,
-            11.0
+            4.0,
+            7.0
           ],
           "randomInterval": true,
           "time_down_event": {
             "event": "litius:elegir_especial",
-            "target": "self"
-          }
-        }
-      },
-      "litius:muriendo": {
-        "minecraft:movement": {
-          "value": 0.0
-        },
-        "minecraft:knockback_resistance": {
-          "value": 1.0
-        },
-        "minecraft:timer": {
-          "looping": false,
-          "time": 2.4,
-          "time_down_event": {
-            "event": "litius:morir",
             "target": "self"
           }
         }
@@ -135,8 +119,8 @@
         "height": 1.8
       },
       "minecraft:health": {
-        "value": 150,
-        "max": 150
+        "value": 225,
+        "max": 225
       },
       "minecraft:movement": {
         "value": 0.3
@@ -153,11 +137,6 @@
       },
       "minecraft:shooter": {
         "def": "minecraft:breeze_wind_charge_projectile"
-      },
-      "minecraft:boss": {
-        "hud_range": 40,
-        "name": "Zombie Raxier",
-        "should_darken_sky": false
       },
       "minecraft:experience_reward": {
         "on_death": "50"
@@ -327,41 +306,6 @@
       "minecraft:damage_sensor": {
         "triggers": [
           {
-            "on_damage": {
-              "filters": {
-                "test": "int_property",
-                "domain": "litius:accion",
-                "operator": "==",
-                "value": 4
-              }
-            },
-            "deals_damage": true
-          },
-          {
-            "on_damage": {
-              "filters": {
-                "test": "int_property",
-                "domain": "litius:accion",
-                "operator": "==",
-                "value": 3
-              }
-            },
-            "deals_damage": false
-          },
-          {
-            "on_damage": {
-              "filters": {
-                "test": "actor_health",
-                "subject": "self",
-                "operator": "<=",
-                "value": 25
-              },
-              "event": "litius:derrota",
-              "target": "self"
-            },
-            "deals_damage": false
-          },
-          {
             "cause": "fall",
             "deals_damage": false
           }
@@ -524,9 +468,33 @@
             "queue_command": {
               "command": [
                 "playsound mob.breeze.charge @a[r=24] ~ ~ ~",
-                "execute at @a[r=20,m=!creative] run summon litius:pincho_aire ~ ~ ~",
-                "execute at @e[type=iron_golem,r=20] run summon litius:pincho_aire ~ ~ ~",
-                "execute at @e[type=snow_golem,r=20] run summon litius:pincho_aire ~ ~ ~"
+                "execute at @a[r=20,m=!creative] align xz positioned ~-0.5 ~ ~-0.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @a[r=20,m=!creative] align xz positioned ~-0.5 ~ ~0.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @a[r=20,m=!creative] align xz positioned ~-0.5 ~ ~1.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @a[r=20,m=!creative] align xz positioned ~0.5 ~ ~-0.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @a[r=20,m=!creative] align xz positioned ~0.5 ~ ~0.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @a[r=20,m=!creative] align xz positioned ~0.5 ~ ~1.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @a[r=20,m=!creative] align xz positioned ~1.5 ~ ~-0.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @a[r=20,m=!creative] align xz positioned ~1.5 ~ ~0.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @a[r=20,m=!creative] align xz positioned ~1.5 ~ ~1.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=iron_golem,r=20] align xz positioned ~-0.5 ~ ~-0.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=iron_golem,r=20] align xz positioned ~-0.5 ~ ~0.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=iron_golem,r=20] align xz positioned ~-0.5 ~ ~1.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=iron_golem,r=20] align xz positioned ~0.5 ~ ~-0.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=iron_golem,r=20] align xz positioned ~0.5 ~ ~0.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=iron_golem,r=20] align xz positioned ~0.5 ~ ~1.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=iron_golem,r=20] align xz positioned ~1.5 ~ ~-0.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=iron_golem,r=20] align xz positioned ~1.5 ~ ~0.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=iron_golem,r=20] align xz positioned ~1.5 ~ ~1.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=snow_golem,r=20] align xz positioned ~-0.5 ~ ~-0.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=snow_golem,r=20] align xz positioned ~-0.5 ~ ~0.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=snow_golem,r=20] align xz positioned ~-0.5 ~ ~1.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=snow_golem,r=20] align xz positioned ~0.5 ~ ~-0.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=snow_golem,r=20] align xz positioned ~0.5 ~ ~0.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=snow_golem,r=20] align xz positioned ~0.5 ~ ~1.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=snow_golem,r=20] align xz positioned ~1.5 ~ ~-0.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=snow_golem,r=20] align xz positioned ~1.5 ~ ~0.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=snow_golem,r=20] align xz positioned ~1.5 ~ ~1.5 run summon litius:pincho_aire ~ ~ ~"
               ]
             }
           }
@@ -569,51 +537,6 @@
             "set_property": {
               "litius:accion": 0,
               "litius:modo": 0
-            }
-          }
-        ]
-      },
-      "litius:derrota": {
-        "sequence": [
-          {
-            "remove": {
-              "component_groups": [
-                "litius:lejos",
-                "litius:cerca",
-                "litius:rafaga",
-                "litius:agachado",
-                "litius:mov_normal",
-                "litius:temporizadores"
-              ]
-            }
-          },
-          {
-            "add": {
-              "component_groups": [
-                "litius:muriendo"
-              ]
-            }
-          },
-          {
-            "set_property": {
-              "litius:accion": 3,
-              "litius:modo": 0
-            }
-          }
-        ]
-      },
-      "litius:morir": {
-        "sequence": [
-          {
-            "set_property": {
-              "litius:accion": 4
-            }
-          },
-          {
-            "queue_command": {
-              "command": [
-                "kill @s"
-              ]
             }
           }
         ]

@@ -62,6 +62,40 @@
         "Texture.default"
       ],
       "ignore_lighting": true
+    },
+    "controller.render.litius.caballo": {
+      "part_visibility": [
+        {
+          "*": true
+        },
+        {
+          "Saddle": false
+        },
+        {
+          "Bit*": false
+        },
+        {
+          "Bridle": false
+        },
+        {
+          "Reins*": false
+        },
+        {
+          "Bag*": false
+        },
+        {
+          "MuleEar*": false
+        }
+      ],
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Texture.default"
+      ]
     }
   }
 }

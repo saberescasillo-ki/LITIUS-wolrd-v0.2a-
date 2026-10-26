@@ -11,9 +11,6 @@
           "blend_transition": 0.3,
           "transitions": [
             {
-              "derrota": "v.accion >= 3"
-            },
-            {
               "agacharse": "v.accion == 2"
             },
             {
@@ -33,9 +30,6 @@
           ],
           "blend_transition": 0.3,
           "transitions": [
-            {
-              "derrota": "v.accion >= 3"
-            },
             {
               "agacharse": "v.accion == 2"
             },
@@ -57,9 +51,6 @@
           "blend_transition": 0.08,
           "transitions": [
             {
-              "derrota": "v.accion >= 3"
-            },
-            {
               "agacharse": "v.accion == 2"
             },
             {
@@ -73,9 +64,6 @@
           ],
           "blend_transition": 0.1,
           "transitions": [
-            {
-              "derrota": "v.accion >= 3"
-            },
             {
               "agacharse": "v.accion == 2"
             },
@@ -91,18 +79,9 @@
           "blend_transition": 0.15,
           "transitions": [
             {
-              "derrota": "v.accion >= 3"
-            },
-            {
               "caminar": "v.accion != 2"
             }
           ]
-        },
-        "derrota": {
-          "animations": [
-            "derrota"
-          ],
-          "blend_transition": 0.2
         }
       }
     }

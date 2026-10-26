@@ -21,10 +21,10 @@ la capa y la bufanda.
 | Creeper + | `litius:creeper_plus` | Patas ¼ de bloque más largas y torso más grueso. Se inclina ligeramente al caminar. Cabezazo rápido (0.5 s). Tras **1.7 s** cerca del objetivo enciende la mecha, tiembla y explota con potencia 5 (vanilla 3; cargado 9). Se apaga si pierde al objetivo. |
 | Wither Furtivo | `litius:wither_furtivo` | Modelo y textura del wither esqueleto, cicatriz en el ojo derecho, brazo derecho de cuchilla y capa. 40 de vida, 7 de daño por golpe + **Wither 5 s**. Ataque: slash épico (alza la cuchilla por detrás del hombro, se lanza hacia adelante con un tajo diagonal y una onda de ceniza). Camina apuntando la cuchilla hacia adelante; en reposo echa el cuerpo atrás con los brazos detrás de las piernas. Aparece en el Nether (valle de almas y, raro, desiertos del Nether). |
 | Esqueleto Exiliante | `litius:esqueleto_exiliante` | Esqueleto vanilla con capa muy rasgada y hombreras de cuero. No suelta objetos, solo experiencia. Solo cuerpo a cuerpo (cachetada exagerada con una mano, la otra detrás). Cuando tiene objetivo o recibe daño invoca **2 zombies** (enfriamiento de 30 s). Camina con los brazos a la espalda inclinado un poco hacia atrás; en reposo tiene los brazos extendidos, listo para invocar. |
-| Jinete Acorazado | `litius:jinete_acorazado` | Zombie vanilla con armadura de hierro completa y espada de hierro, montado en un caballo zombie (`litius:caballo_acorazado`), todo con texturas y animaciones vanilla. Armadura y espada **nunca se sueltan** (`drop_chance` 0). Aparece en llanuras, sabanas y praderas. |
+| Jinete Acorazado | `litius:jinete_acorazado` | Zombie vanilla con armadura de hierro completa y espada de hierro, montado en un caballo zombie (`litius:caballo_acorazado`, textura vanilla con modelo y animaciones propias). Armadura y espada **nunca se sueltan** (`drop_chance` 0). Aparece en llanuras, sabanas y praderas. |
 | Jinete Wither | `litius:jinete_wither` | Wither esqueleto vanilla (40 de vida) con espada de piedra (no la suelta) montado en un caballo esqueleto color wither (`litius:caballo_wither`). Aparece en el Nether. |
 | Creeze | `litius:creeze` | Breeze azul (fuego de alma), animaciones vanilla, 48 de vida (breeze: 30). Si su objetivo no es un monstruo, invoca **2 breezes** cada 25 s (`litius:breeze_invocada`: igual al breeze, muere de un golpe, desaparece a los 90 s). Aparece en biomas templados/fríos, cuevas profundas (y < 0) y en el Abedul Furtivo. |
-| Zombie Raxier (minijefe) | `litius:zombie_raxier` | Zombie con camiseta café/gris, pantalón café claro, guantes mágicos rojo→celeste, capa y sombrero plano de nieve. 150 de vida, barra de jefe, velocidad de un jugador corriendo, detecta a 40 bloques. 15–4.5 bloques: lanza cargas de viento (1/s). Menos de 4.4: puñetazos. A veces ráfaga de 4 cargas (cada 0.3 s) o se agacha 1 s e invoca **pinchos de aire** bajo cada jugador/golem cercano (5 de daño). Al morir extiende los brazos y se arrodilla. No suelta objetos; da 50 de experiencia (como 10 enemigos). Aparece raro en biomas fríos. |
+| Zombie Raxier (minijefe) | `litius:zombie_raxier` | Zombie vanilla con hombreras de cuero, capa, guantes de piedra, cicatriz en el ojo izquierdo y un aro de hierro oxidado en el cuello. 225 de vida, velocidad de un jugador corriendo, detecta a 40 bloques. 15–4.5 bloques: lanza cargas de viento (1/s). Menos de 4.4: puñetazos. Cada 4–7 s: ráfaga de 4 cargas (cada 0.3 s) o se agacha 1 s e invoca **pinchos de aire** de 2 bloques en un área de 3x3 alrededor de cada jugador/golem cercano (5 de daño). No suelta objetos; da 50 de experiencia (como 10 enemigos). Aparece raro en biomas fríos. |
 
 ### Bioma: Abedul Furtivo (`litius:abedul_furtivo`)
 
@@ -33,8 +33,9 @@ Tiene abedules con tronco 3 veces más alto (15–22 bloques) y hierba. Como no
 tiene las etiquetas `monster`/`animal`, ahí **solo aparecen los mobs furtivos, el Exiliante
 y el Creeze** (ni mobs vanilla, ni el Creeper +, ni el Wither Furtivo).
 
-> El bioma solo aparece en chunks nuevos (mejor en un mundo nuevo). En versiones
-> antiguas del juego puede requerir el experimento **"Custom Biomes"**.
+> **Requiere el experimento "Custom Biomes" / "Biomas personalizados"**: al crear
+> el mundo, en *Experimentos*, actívalo. Sin él el juego ignora el bioma y
+> `/locate` no lo reconoce. Solo aparece en chunks nuevos (mejor en un mundo nuevo).
 
 ### Instalación
 
