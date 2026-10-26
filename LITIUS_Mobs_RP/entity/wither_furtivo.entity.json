@@ -21,7 +21,12 @@
           "v.tcos = math.cos(q.modified_distance_moved * 38.17) * q.modified_move_speed * 57.3;",
           "v.lean = math.lerp(v.lean ?? 0.0, v.speed > 0.1 ? 4.0 + v.speed * 8.0 : -7.0, math.clamp(q.delta_time * 6.0, 0.0, 1.0));"
         ],
-        "animate": ["mirar", "cuerpo", "capa", "pose_ctrl"]
+        "animate": [
+          "mirar",
+          "cuerpo",
+          "capa",
+          "pose_ctrl"
+        ]
       },
       "animations": {
         "pose_ctrl": "controller.animation.litius.wither_furtivo.pose",
@@ -32,10 +37,20 @@
         "tajo": "animation.litius.wither_furtivo.tajo",
         "capa": "animation.litius.capa"
       },
-      "render_controllers": ["controller.render.litius.base", "controller.render.litius.capa"],
+      "render_controllers": [
+        "controller.render.litius.base",
+        "controller.render.litius.capa"
+      ],
       "spawn_egg": {
         "base_color": "#141414",
         "overlay_color": "#8A8F96"
+      },
+      "particle_effects": {
+        "tajo": "litius:tajo_ceniza"
+      },
+      "sound_effects": {
+        "alzar": "item.trident.throw",
+        "tajo": "game.player.attack.strong"
       }
     }
   }

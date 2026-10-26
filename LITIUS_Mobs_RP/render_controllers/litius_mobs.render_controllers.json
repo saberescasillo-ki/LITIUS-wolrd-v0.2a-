@@ -3,18 +3,36 @@
   "render_controllers": {
     "controller.render.litius.base": {
       "geometry": "Geometry.default",
-      "materials": [{ "*": "Material.default" }],
-      "textures": ["Texture.default"]
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Texture.default"
+      ]
     },
     "controller.render.litius.capa": {
       "geometry": "Geometry.capa",
-      "materials": [{ "*": "Material.capa" }],
-      "textures": ["Texture.capa"]
+      "materials": [
+        {
+          "*": "Material.capa"
+        }
+      ],
+      "textures": [
+        "Texture.capa"
+      ]
     },
     "controller.render.litius.creeper_plus": {
       "geometry": "Geometry.default",
-      "materials": [{ "*": "Material.default" }],
-      "textures": ["Texture.default"],
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Texture.default"
+      ],
       "overlay_color": {
         "r": "v.flash > 0.0 ? 1.0 : this",
         "g": "v.flash > 0.0 ? 1.0 : this",
@@ -24,8 +42,44 @@
     },
     "controller.render.litius.creeper_plus_armor": {
       "geometry": "Geometry.charged",
-      "materials": [{ "*": "Material.charged" }],
-      "textures": ["Texture.charged"]
+      "materials": [
+        {
+          "*": "Material.charged"
+        }
+      ],
+      "textures": [
+        "Texture.charged"
+      ]
+    },
+    "controller.render.litius.caballo": {
+      "part_visibility": [
+        {
+          "*saddle*": "query.is_saddled"
+        },
+        {
+          "SaddleMouthLine": "query.is_saddled && query.has_rider"
+        },
+        {
+          "SaddleMouthLineR": "query.is_saddled && query.has_rider"
+        },
+        {
+          "MuleEar*": false
+        },
+        {
+          "Bag*": false
+        }
+      ],
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Texture.base",
+        "Texture.markings",
+        "Texture.armor"
+      ]
     }
   }
 }
