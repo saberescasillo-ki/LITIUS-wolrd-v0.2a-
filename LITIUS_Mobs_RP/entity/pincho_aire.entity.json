@@ -1,0 +1,33 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "litius:pincho_aire",
+      "materials": {
+        "default": "entity_alphablend"
+      },
+      "textures": {
+        "default": "textures/entity/litius/pincho_aire"
+      },
+      "geometry": {
+        "default": "geometry.litius.pincho_aire"
+      },
+      "particle_effects": {
+        "viento": "litius:viento_raxier"
+      },
+      "scripts": {
+        "animate": [
+          "ctrl"
+        ]
+      },
+      "animations": {
+        "ctrl": "controller.animation.litius.pincho_aire",
+        "aviso": "animation.litius.pincho_aire.aviso",
+        "brotar": "animation.litius.pincho_aire.brotar"
+      },
+      "render_controllers": [
+        "controller.render.litius.pincho"
+      ]
+    }
+  }
+}

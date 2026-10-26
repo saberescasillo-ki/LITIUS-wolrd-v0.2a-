@@ -1,0 +1,623 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "litius:zombie_raxier",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false,
+      "properties": {
+        "litius:modo": {
+          "type": "int",
+          "range": [
+            0,
+            2
+          ],
+          "default": 0,
+          "client_sync": true
+        },
+        "litius:accion": {
+          "type": "int",
+          "range": [
+            0,
+            4
+          ],
+          "default": 0,
+          "client_sync": true
+        }
+      }
+    },
+    "component_groups": {
+      "litius:lejos": {
+        "minecraft:behavior.ranged_attack": {
+          "priority": 2,
+          "attack_interval_min": 1.0,
+          "attack_interval_max": 1.0,
+          "attack_radius": 15.0,
+          "attack_radius_min": 4.5,
+          "speed_multiplier": 1.85,
+          "swing": true
+        }
+      },
+      "litius:cerca": {
+        "minecraft:behavior.delayed_attack": {
+          "priority": 2,
+          "attack_duration": 0.7,
+          "hit_delay_pct": 0.55,
+          "reach_multiplier": 2.2,
+          "speed_multiplier": 1.85,
+          "track_target": true,
+          "require_complete_path": false
+        }
+      },
+      "litius:rafaga": {
+        "minecraft:behavior.ranged_attack": {
+          "priority": 1,
+          "attack_interval_min": 0.2,
+          "attack_interval_max": 0.2,
+          "attack_radius": 16.0,
+          "burst_shots": 4,
+          "burst_interval": 0.3,
+          "speed_multiplier": 1.0,
+          "swing": true
+        },
+        "minecraft:timer": {
+          "looping": false,
+          "time": 1.3,
+          "time_down_event": {
+            "event": "litius:fin_accion",
+            "target": "self"
+          }
+        }
+      },
+      "litius:agachado": {
+        "minecraft:movement": {
+          "value": 0.0
+        },
+        "minecraft:timer": {
+          "looping": false,
+          "time": 1.0,
+          "time_down_event": {
+            "event": "litius:levantarse",
+            "target": "self"
+          }
+        }
+      },
+      "litius:mov_normal": {
+        "minecraft:movement": {
+          "value": 0.3
+        }
+      },
+      "litius:temporizadores": {
+        "minecraft:timer": {
+          "looping": true,
+          "time": [
+            7.0,
+            11.0
+          ],
+          "randomInterval": true,
+          "time_down_event": {
+            "event": "litius:elegir_especial",
+            "target": "self"
+          }
+        }
+      },
+      "litius:muriendo": {
+        "minecraft:movement": {
+          "value": 0.0
+        },
+        "minecraft:knockback_resistance": {
+          "value": 1.0
+        },
+        "minecraft:timer": {
+          "looping": false,
+          "time": 2.4,
+          "time_down_event": {
+            "event": "litius:morir",
+            "target": "self"
+          }
+        }
+      }
+    },
+    "components": {
+      "minecraft:is_hidden_when_invisible": {},
+      "minecraft:type_family": {
+        "family": [
+          "zombie",
+          "undead",
+          "monster",
+          "mob",
+          "raxier"
+        ]
+      },
+      "minecraft:collision_box": {
+        "width": 0.6,
+        "height": 1.8
+      },
+      "minecraft:health": {
+        "value": 150,
+        "max": 150
+      },
+      "minecraft:movement": {
+        "value": 0.3
+      },
+      "minecraft:follow_range": {
+        "value": 64,
+        "max": 64
+      },
+      "minecraft:knockback_resistance": {
+        "value": 0.6
+      },
+      "minecraft:attack": {
+        "damage": 9
+      },
+      "minecraft:shooter": {
+        "def": "minecraft:breeze_wind_charge_projectile"
+      },
+      "minecraft:boss": {
+        "hud_range": 40,
+        "name": "Zombie Raxier",
+        "should_darken_sky": false
+      },
+      "minecraft:experience_reward": {
+        "on_death": "50"
+      },
+      "minecraft:navigation.walk": {
+        "is_amphibious": true,
+        "can_pass_doors": true
+      },
+      "minecraft:movement.basic": {},
+      "minecraft:jump.static": {},
+      "minecraft:can_climb": {},
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:nameable": {},
+      "minecraft:persistent": {},
+      "minecraft:breathable": {
+        "total_supply": 15,
+        "suffocate_time": 0,
+        "breathes_air": true,
+        "breathes_water": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {},
+      "minecraft:behavior.float": {
+        "priority": 0
+      },
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 1
+      },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 2,
+        "must_see": false,
+        "reselect_targets": true,
+        "within_radius": 40.0,
+        "entity_types": [
+          {
+            "filters": {
+              "any_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "player"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "snowgolem"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "irongolem"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "villager"
+                }
+              ]
+            },
+            "max_dist": 40
+          }
+        ]
+      },
+      "minecraft:behavior.random_stroll": {
+        "priority": 7,
+        "speed_multiplier": 0.8
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 8,
+        "look_distance": 12,
+        "probability": 0.05
+      },
+      "minecraft:behavior.random_look_around": {
+        "priority": 9
+      },
+      "minecraft:environment_sensor": {
+        "triggers": [
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "has_target",
+                  "subject": "self",
+                  "value": true
+                },
+                {
+                  "test": "target_distance",
+                  "subject": "self",
+                  "operator": ">",
+                  "value": 4.5
+                },
+                {
+                  "test": "int_property",
+                  "domain": "litius:modo",
+                  "operator": "!=",
+                  "value": 1
+                },
+                {
+                  "test": "int_property",
+                  "domain": "litius:accion",
+                  "operator": "==",
+                  "value": 0
+                }
+              ]
+            },
+            "event": "litius:modo_lejos"
+          },
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "has_target",
+                  "subject": "self",
+                  "value": true
+                },
+                {
+                  "test": "target_distance",
+                  "subject": "self",
+                  "operator": "<=",
+                  "value": 4.4
+                },
+                {
+                  "test": "int_property",
+                  "domain": "litius:modo",
+                  "operator": "!=",
+                  "value": 2
+                },
+                {
+                  "test": "int_property",
+                  "domain": "litius:accion",
+                  "operator": "==",
+                  "value": 0
+                }
+              ]
+            },
+            "event": "litius:modo_cerca"
+          },
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "has_target",
+                  "subject": "self",
+                  "value": false
+                },
+                {
+                  "test": "int_property",
+                  "domain": "litius:modo",
+                  "operator": "!=",
+                  "value": 0
+                },
+                {
+                  "test": "int_property",
+                  "domain": "litius:accion",
+                  "operator": "==",
+                  "value": 0
+                }
+              ]
+            },
+            "event": "litius:modo_nada"
+          }
+        ]
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "on_damage": {
+              "filters": {
+                "test": "int_property",
+                "domain": "litius:accion",
+                "operator": "==",
+                "value": 4
+              }
+            },
+            "deals_damage": true
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "test": "int_property",
+                "domain": "litius:accion",
+                "operator": "==",
+                "value": 3
+              }
+            },
+            "deals_damage": false
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "test": "actor_health",
+                "subject": "self",
+                "operator": "<=",
+                "value": 25
+              },
+              "event": "litius:derrota",
+              "target": "self"
+            },
+            "deals_damage": false
+          },
+          {
+            "cause": "fall",
+            "deals_damage": false
+          }
+        ]
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": [
+            "litius:mov_normal",
+            "litius:temporizadores"
+          ]
+        }
+      },
+      "litius:modo_lejos": {
+        "sequence": [
+          {
+            "remove": {
+              "component_groups": [
+                "litius:cerca"
+              ]
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "litius:lejos"
+              ]
+            }
+          },
+          {
+            "set_property": {
+              "litius:modo": 1
+            }
+          }
+        ]
+      },
+      "litius:modo_cerca": {
+        "sequence": [
+          {
+            "remove": {
+              "component_groups": [
+                "litius:lejos"
+              ]
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "litius:cerca"
+              ]
+            }
+          },
+          {
+            "set_property": {
+              "litius:modo": 2
+            }
+          }
+        ]
+      },
+      "litius:modo_nada": {
+        "sequence": [
+          {
+            "remove": {
+              "component_groups": [
+                "litius:lejos",
+                "litius:cerca"
+              ]
+            }
+          },
+          {
+            "set_property": {
+              "litius:modo": 0
+            }
+          }
+        ]
+      },
+      "litius:elegir_especial": {
+        "sequence": [
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "has_target",
+                  "subject": "self",
+                  "value": true
+                },
+                {
+                  "test": "int_property",
+                  "domain": "litius:accion",
+                  "operator": "==",
+                  "value": 0
+                }
+              ]
+            },
+            "randomize": [
+              {
+                "weight": 45,
+                "trigger": "litius:empezar_rafaga"
+              },
+              {
+                "weight": 55,
+                "trigger": "litius:agacharse"
+              }
+            ]
+          }
+        ]
+      },
+      "litius:empezar_rafaga": {
+        "sequence": [
+          {
+            "remove": {
+              "component_groups": [
+                "litius:lejos",
+                "litius:cerca"
+              ]
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "litius:rafaga"
+              ]
+            }
+          },
+          {
+            "set_property": {
+              "litius:accion": 1,
+              "litius:modo": 0
+            }
+          }
+        ]
+      },
+      "litius:agacharse": {
+        "sequence": [
+          {
+            "remove": {
+              "component_groups": [
+                "litius:lejos",
+                "litius:cerca",
+                "litius:mov_normal"
+              ]
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "litius:agachado"
+              ]
+            }
+          },
+          {
+            "set_property": {
+              "litius:accion": 2,
+              "litius:modo": 0
+            }
+          },
+          {
+            "queue_command": {
+              "command": [
+                "playsound mob.breeze.charge @a[r=24] ~ ~ ~",
+                "execute at @a[r=20,m=!creative] run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=iron_golem,r=20] run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=snow_golem,r=20] run summon litius:pincho_aire ~ ~ ~"
+              ]
+            }
+          }
+        ]
+      },
+      "litius:levantarse": {
+        "sequence": [
+          {
+            "remove": {
+              "component_groups": [
+                "litius:agachado"
+              ]
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "litius:mov_normal"
+              ]
+            }
+          },
+          {
+            "set_property": {
+              "litius:accion": 0,
+              "litius:modo": 0
+            }
+          }
+        ]
+      },
+      "litius:fin_accion": {
+        "sequence": [
+          {
+            "remove": {
+              "component_groups": [
+                "litius:rafaga"
+              ]
+            }
+          },
+          {
+            "set_property": {
+              "litius:accion": 0,
+              "litius:modo": 0
+            }
+          }
+        ]
+      },
+      "litius:derrota": {
+        "sequence": [
+          {
+            "remove": {
+              "component_groups": [
+                "litius:lejos",
+                "litius:cerca",
+                "litius:rafaga",
+                "litius:agachado",
+                "litius:mov_normal",
+                "litius:temporizadores"
+              ]
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "litius:muriendo"
+              ]
+            }
+          },
+          {
+            "set_property": {
+              "litius:accion": 3,
+              "litius:modo": 0
+            }
+          }
+        ]
+      },
+      "litius:morir": {
+        "sequence": [
+          {
+            "set_property": {
+              "litius:accion": 4
+            }
+          },
+          {
+            "queue_command": {
+              "command": [
+                "kill @s"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}

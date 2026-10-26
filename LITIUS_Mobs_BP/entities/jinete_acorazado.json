@@ -33,7 +33,7 @@
         "max": 35
       },
       "minecraft:attack": {
-        "damage": 4
+        "damage": 5
       },
       "minecraft:equipment": {
         "table": "loot_tables/entities/jinete_acorazado_armadura.json",
@@ -52,6 +52,10 @@
           },
           {
             "slot": "slot.armor.feet",
+            "drop_chance": 0.0
+          },
+          {
+            "slot": "slot.weapon.mainhand",
             "drop_chance": 0.0
           }
         ]

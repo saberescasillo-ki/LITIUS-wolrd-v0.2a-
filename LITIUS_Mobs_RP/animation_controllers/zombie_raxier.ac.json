@@ -1,0 +1,110 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.litius.zombie_raxier.pose": {
+      "initial_state": "reposo",
+      "states": {
+        "reposo": {
+          "animations": [
+            "reposo"
+          ],
+          "blend_transition": 0.3,
+          "transitions": [
+            {
+              "derrota": "v.accion >= 3"
+            },
+            {
+              "agacharse": "v.accion == 2"
+            },
+            {
+              "golpe": "q.is_delayed_attacking"
+            },
+            {
+              "disparo": "(v.attack_time ?? 0.0) > 0.0 && !q.is_delayed_attacking && (v.modo == 1 || v.accion == 1)"
+            },
+            {
+              "caminar": "v.speed > 0.12"
+            }
+          ]
+        },
+        "caminar": {
+          "animations": [
+            "caminar"
+          ],
+          "blend_transition": 0.3,
+          "transitions": [
+            {
+              "derrota": "v.accion >= 3"
+            },
+            {
+              "agacharse": "v.accion == 2"
+            },
+            {
+              "golpe": "q.is_delayed_attacking"
+            },
+            {
+              "disparo": "(v.attack_time ?? 0.0) > 0.0 && !q.is_delayed_attacking && (v.modo == 1 || v.accion == 1)"
+            },
+            {
+              "reposo": "v.speed < 0.08"
+            }
+          ]
+        },
+        "disparo": {
+          "animations": [
+            "disparo"
+          ],
+          "blend_transition": 0.08,
+          "transitions": [
+            {
+              "derrota": "v.accion >= 3"
+            },
+            {
+              "agacharse": "v.accion == 2"
+            },
+            {
+              "caminar": "q.any_animation_finished"
+            }
+          ]
+        },
+        "golpe": {
+          "animations": [
+            "golpe"
+          ],
+          "blend_transition": 0.1,
+          "transitions": [
+            {
+              "derrota": "v.accion >= 3"
+            },
+            {
+              "agacharse": "v.accion == 2"
+            },
+            {
+              "caminar": "q.any_animation_finished"
+            }
+          ]
+        },
+        "agacharse": {
+          "animations": [
+            "agacharse"
+          ],
+          "blend_transition": 0.15,
+          "transitions": [
+            {
+              "derrota": "v.accion >= 3"
+            },
+            {
+              "caminar": "v.accion != 2"
+            }
+          ]
+        },
+        "derrota": {
+          "animations": [
+            "derrota"
+          ],
+          "blend_transition": 0.2
+        }
+      }
+    }
+  }
+}

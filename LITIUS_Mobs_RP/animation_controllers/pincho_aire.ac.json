@@ -1,0 +1,25 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.litius.pincho_aire": {
+      "initial_state": "aviso",
+      "states": {
+        "aviso": {
+          "animations": [
+            "aviso"
+          ],
+          "transitions": [
+            {
+              "brotar": "q.property('litius:activo')"
+            }
+          ]
+        },
+        "brotar": {
+          "animations": [
+            "brotar"
+          ]
+        }
+      }
+    }
+  }
+}

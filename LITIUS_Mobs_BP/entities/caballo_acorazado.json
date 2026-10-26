@@ -7,44 +7,12 @@
       "is_summonable": true,
       "is_experimental": false
     },
-    "component_groups": {
-      "litius:esperando_jinete": {
-        "minecraft:timer": {
-          "looping": false,
-          "time": 3,
-          "time_down_event": {
-            "event": "litius:vigilar_jinete",
-            "target": "self"
-          }
-        }
-      },
-      "litius:vigilar_jinete": {
-        "minecraft:environment_sensor": {
-          "triggers": [
-            {
-              "filters": {
-                "test": "rider_count",
-                "subject": "self",
-                "operator": "==",
-                "value": 0
-              },
-              "event": "litius:sin_jinete"
-            }
-          ]
-        }
-      },
-      "litius:liberado": {
-        "minecraft:transformation": {
-          "into": "minecraft:horse",
-          "keep_level": true
-        }
-      }
-    },
     "components": {
       "minecraft:is_hidden_when_invisible": {},
       "minecraft:type_family": {
         "family": [
-          "horse",
+          "zombiehorse",
+          "undead",
           "mob"
         ]
       },
@@ -77,7 +45,7 @@
         "seats": {
           "position": [
             0.0,
-            1.1,
+            0.6,
             -0.2
           ]
         }
@@ -99,7 +67,7 @@
         "suffocate_time": 0
       },
       "minecraft:loot": {
-        "table": "loot_tables/entities/horse.json"
+        "table": "loot_tables/entities/zombie_horse.json"
       },
       "minecraft:experience_reward": {
         "on_death": "query.last_hit_by_player ? 3 : 0"
@@ -176,39 +144,6 @@
         "priority": 8
       }
     },
-    "events": {
-      "minecraft:entity_spawned": {
-        "add": {
-          "component_groups": [
-            "litius:esperando_jinete"
-          ]
-        }
-      },
-      "litius:vigilar_jinete": {
-        "sequence": [
-          {
-            "remove": {
-              "component_groups": [
-                "litius:esperando_jinete"
-              ]
-            }
-          },
-          {
-            "add": {
-              "component_groups": [
-                "litius:vigilar_jinete"
-              ]
-            }
-          }
-        ]
-      },
-      "litius:sin_jinete": {
-        "add": {
-          "component_groups": [
-            "litius:liberado"
-          ]
-        }
-      }
-    }
+    "events": {}
   }
 }

@@ -1,0 +1,62 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "litius:zombie_raxier",
+      "materials": {
+        "default": "entity_alphatest",
+        "capa": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/zombie/zombie",
+        "capa": "textures/entity/litius/raxier_ropa"
+      },
+      "geometry": {
+        "default": "geometry.litius.zombie_furtivo",
+        "capa": "geometry.litius.raxier_ropa"
+      },
+      "particle_effects": {
+        "viento": "litius:viento_raxier"
+      },
+      "scripts": {
+        "pre_animation": [
+          "v.modo = q.property('litius:modo');",
+          "v.accion = q.property('litius:accion');",
+          "v.speed = math.clamp(q.modified_move_speed, 0.0, 1.0);",
+          "v.tcos = math.cos(q.modified_distance_moved * 38.17) * q.modified_move_speed * 57.3;",
+          "v.lean = math.lerp(v.lean ?? 0.0, v.accion >= 2 ? 0.0 : (v.speed > 0.1 ? 6.0 + v.speed * 10.0 : -6.0), math.clamp(q.delta_time * 6.0, 0.0, 1.0));"
+        ],
+        "animate": [
+          {
+            "mirar": "v.accion < 3"
+          },
+          {
+            "cuerpo": "v.accion < 2"
+          },
+          "capa",
+          "pose_ctrl"
+        ]
+      },
+      "animations": {
+        "pose_ctrl": "controller.animation.litius.zombie_raxier.pose",
+        "mirar": "animation.litius.zombie_raxier.mirar",
+        "cuerpo": "animation.litius.zombie_raxier.cuerpo",
+        "reposo": "animation.litius.zombie_raxier.reposo",
+        "caminar": "animation.litius.zombie_raxier.caminar",
+        "disparo": "animation.litius.zombie_raxier.disparo",
+        "golpe": "animation.litius.zombie_raxier.golpe",
+        "agacharse": "animation.litius.zombie_raxier.agacharse",
+        "derrota": "animation.litius.zombie_raxier.derrota",
+        "capa": "animation.litius.capa"
+      },
+      "render_controllers": [
+        "controller.render.litius.base",
+        "controller.render.litius.capa"
+      ],
+      "spawn_egg": {
+        "base_color": "#62462E",
+        "overlay_color": "#96E4FF"
+      }
+    }
+  }
+}

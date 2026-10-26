@@ -32,16 +32,17 @@
               "birch_forest",
               "birch_forest_hills"
             ],
-            "amount": 0.45,
-            "noise_frequency_scale": 0.6
+            "amount": 0.5,
+            "noise_frequency_scale": 20
           },
           {
             "dimension": "minecraft:overworld",
             "targets": [
-              "forest"
+              "forest",
+              "flower_forest"
             ],
-            "amount": 0.12,
-            "noise_frequency_scale": 0.6
+            "amount": 0.2,
+            "noise_frequency_scale": 20
           }
         ]
       },

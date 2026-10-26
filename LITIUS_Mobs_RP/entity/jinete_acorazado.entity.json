@@ -15,12 +15,14 @@
       "scripts": {
         "pre_animation": [
           "variable.gliding_speed_value = 1.0;",
-          "variable.tcos0 = (math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;"
+          "variable.tcos0 = (math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;",
+          "variable.riding_y_offset = 1.0;"
         ],
         "animate": [
           "look_at_target_controller",
           "move_controller",
           "riding_controller",
+          "holding_controller",
           "attack_controller",
           "bob_controller",
           "zombie_attack_bare_hand_controller"
@@ -43,7 +45,9 @@
         "riding_controller": "controller.animation.humanoid.riding",
         "attack_controller": "controller.animation.humanoid.attack",
         "bob_controller": "controller.animation.humanoid.bob",
-        "zombie_attack_bare_hand_controller": "controller.animation.zombie.attack_bare_hand"
+        "zombie_attack_bare_hand_controller": "controller.animation.zombie.attack_bare_hand",
+        "holding": "animation.humanoid.holding",
+        "holding_controller": "controller.animation.humanoid.holding"
       },
       "render_controllers": [
         "controller.render.litius.base"

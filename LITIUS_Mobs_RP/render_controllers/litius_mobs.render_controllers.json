@@ -51,24 +51,7 @@
         "Texture.charged"
       ]
     },
-    "controller.render.litius.caballo": {
-      "part_visibility": [
-        {
-          "*saddle*": "query.is_saddled"
-        },
-        {
-          "SaddleMouthLine": "query.is_saddled && query.has_rider"
-        },
-        {
-          "SaddleMouthLineR": "query.is_saddled && query.has_rider"
-        },
-        {
-          "MuleEar*": false
-        },
-        {
-          "Bag*": false
-        }
-      ],
+    "controller.render.litius.pincho": {
       "geometry": "Geometry.default",
       "materials": [
         {
@@ -76,10 +59,9 @@
         }
       ],
       "textures": [
-        "Texture.base",
-        "Texture.markings",
-        "Texture.armor"
-      ]
+        "Texture.default"
+      ],
+      "ignore_lighting": true
     }
   }
 }
