@@ -510,6 +510,20 @@
             }
           },
           {
+            "remove": {
+              "component_groups": [
+                "litius:temporizadores"
+              ]
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "litius:temporizadores"
+              ]
+            }
+          },
+          {
             "add": {
               "component_groups": [
                 "litius:mov_normal"
@@ -530,6 +544,20 @@
             "remove": {
               "component_groups": [
                 "litius:rafaga"
+              ]
+            }
+          },
+          {
+            "remove": {
+              "component_groups": [
+                "litius:temporizadores"
+              ]
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "litius:temporizadores"
               ]
             }
           },

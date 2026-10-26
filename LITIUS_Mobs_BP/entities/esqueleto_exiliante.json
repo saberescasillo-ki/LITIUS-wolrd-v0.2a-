@@ -241,7 +241,6 @@
             },
             "add": {
               "component_groups": [
-                "litius:recarga",
                 "litius:invocando",
                 "litius:fin_invocacion"
               ]
@@ -270,6 +269,13 @@
               "component_groups": [
                 "litius:invocando",
                 "litius:fin_invocacion"
+              ]
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "litius:recarga"
               ]
             }
           },

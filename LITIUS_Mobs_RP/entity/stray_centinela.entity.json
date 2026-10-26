@@ -1,0 +1,54 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "litius:stray_centinela",
+      "materials": {
+        "default": "entity_alphatest",
+        "extra": "entity_alphatest",
+        "capa": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/skeleton/stray",
+        "extra": "textures/entity/skeleton/stray_overlay",
+        "capa": "textures/entity/litius/capa_stray"
+      },
+      "geometry": {
+        "default": "geometry.litius.esqueleto_furtivo",
+        "extra": "geometry.litius.stray_ropa",
+        "capa": "geometry.litius.capa_bufanda"
+      },
+      "scripts": {
+        "pre_animation": [
+          "v.speed = math.clamp(q.modified_move_speed, 0.0, 1.0);",
+          "v.tcos = math.cos(q.modified_distance_moved * 38.17) * q.modified_move_speed * 57.3;",
+          "v.blend = math.clamp(q.delta_time * 7.0, 0.0, 1.0);",
+          "v.lean = math.lerp(v.lean ?? 0.0, v.speed > 0.1 ? 8.0 * v.speed + 3.0 : 0.0, v.blend);",
+          "v.side = math.lerp(v.side ?? 0.0, math.clamp(q.yaw_speed * -0.4, -6.0, 6.0) * v.speed, v.blend);"
+        ],
+        "animate": [
+          "capa_anim",
+          "pose_ctrl"
+        ]
+      },
+      "animations": {
+        "base": "animation.litius.humanoide.base",
+        "capa_anim": "animation.litius.capa_bufanda",
+        "arco_reposo": "animation.litius.esqueleto_furtivo.arco_reposo",
+        "arco_apuntar": "animation.litius.esqueleto_furtivo.arco_apuntar",
+        "arrodillado": "animation.litius.stray.arrodillado",
+        "pose_ctrl": "controller.animation.litius.stray.pose"
+      },
+      "render_controllers": [
+        "controller.render.litius.base",
+        "controller.render.litius.capa",
+        "controller.render.litius.extra"
+      ],
+      "spawn_egg": {
+        "base_color": "#617677",
+        "overlay_color": "#2E3E5C"
+      },
+      "enable_attachables": true
+    }
+  }
+}

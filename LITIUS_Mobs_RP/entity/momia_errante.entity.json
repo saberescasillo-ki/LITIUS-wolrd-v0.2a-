@@ -1,0 +1,58 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "litius:momia_errante",
+      "materials": {
+        "default": "entity_alphatest",
+        "capa": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/zombie/husk",
+        "capa": "textures/entity/litius/momia_extras"
+      },
+      "geometry": {
+        "default": "geometry.litius.zombie_furtivo",
+        "capa": "geometry.litius.momia_extras"
+      },
+      "scripts": {
+        "pre_animation": [
+          "v.emerging = q.property('litius:emerging');",
+          "v.speed = math.clamp(q.modified_move_speed, 0.0, 1.0);",
+          "v.tcos = math.cos(q.modified_distance_moved * 38.17) * q.modified_move_speed * 57.3;",
+          "v.blend = math.clamp(q.delta_time * 7.0, 0.0, 1.0);",
+          "v.lean = math.lerp(v.lean ?? 0.0, v.speed > 0.1 ? 14.0 * v.speed + 3.0 : 0.0, v.blend);",
+          "v.side = math.lerp(v.side ?? 0.0, math.clamp(q.yaw_speed * -0.4, -6.0, 6.0) * v.speed, v.blend);"
+        ],
+        "animate": [
+          "cuerpo_ctrl",
+          "brazos_ctrl"
+        ]
+      },
+      "animations": {
+        "base": "animation.litius.humanoide.base",
+        "bufanda": "animation.litius.bufanda",
+        "emerger": "animation.litius.zombie_furtivo.emerger",
+        "brazos": "animation.litius.momia.brazos",
+        "zarpazo": "animation.litius.momia.zarpazo",
+        "cuerpo_ctrl": "controller.animation.litius.momia.cuerpo",
+        "brazos_ctrl": "controller.animation.litius.momia.brazos"
+      },
+      "render_controllers": [
+        "controller.render.litius.base",
+        "controller.render.litius.capa"
+      ],
+      "spawn_egg": {
+        "base_color": "#C9B27C",
+        "overlay_color": "#8C6A3E"
+      },
+      "particle_effects": {
+        "tierra": "litius:arena_emerger"
+      },
+      "sound_effects": {
+        "excavar": "dig.sand",
+        "gemido": "mob.husk.ambient"
+      }
+    }
+  }
+}

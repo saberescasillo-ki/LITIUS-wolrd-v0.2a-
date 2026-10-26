@@ -1,0 +1,48 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "litius:zombie_minero",
+      "materials": {
+        "default": "entity_alphatest",
+        "capa": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/zombie/zombie",
+        "capa": "textures/entity/litius/minero_extras"
+      },
+      "geometry": {
+        "default": "geometry.litius.zombie_furtivo",
+        "capa": "geometry.litius.minero_extras"
+      },
+      "scripts": {
+        "pre_animation": [
+          "v.speed = math.clamp(q.modified_move_speed, 0.0, 1.0);",
+          "v.tcos = math.cos(q.modified_distance_moved * 38.17) * q.modified_move_speed * 57.3;",
+          "v.blend = math.clamp(q.delta_time * 7.0, 0.0, 1.0);",
+          "v.lean = math.lerp(v.lean ?? 0.0, v.speed > 0.1 ? 10.0 * v.speed + 3.0 : 0.0, v.blend);",
+          "v.side = math.lerp(v.side ?? 0.0, math.clamp(q.yaw_speed * -0.4, -6.0, 6.0) * v.speed, v.blend);"
+        ],
+        "animate": [
+          "base",
+          "brazos_ctrl"
+        ]
+      },
+      "animations": {
+        "base": "animation.litius.humanoide.base",
+        "brazos": "animation.litius.minero.brazos",
+        "picazo": "animation.litius.minero.picazo",
+        "brazos_ctrl": "controller.animation.litius.minero.brazos"
+      },
+      "render_controllers": [
+        "controller.render.litius.base",
+        "controller.render.litius.capa"
+      ],
+      "spawn_egg": {
+        "base_color": "#00AFAF",
+        "overlay_color": "#6E4A28"
+      },
+      "enable_attachables": true
+    }
+  }
+}

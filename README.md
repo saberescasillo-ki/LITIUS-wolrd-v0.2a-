@@ -25,13 +25,20 @@ la capa y la bufanda.
 | Jinete Wither | `litius:jinete_wither` | Wither esqueleto vanilla (40 de vida) con espada de piedra (no la suelta) montado en un caballo esqueleto color wither (`litius:caballo_wither`). Aparece en el Nether. |
 | Creeze | `litius:creeze` | Breeze azul (fuego de alma), animaciones vanilla, 48 de vida (breeze: 30). Si su objetivo no es un monstruo, invoca **2 breezes** cada 25 s (`litius:breeze_invocada`: igual al breeze, muere de un golpe, desaparece a los 90 s). Aparece en biomas templados/fríos, cuevas profundas (y < 0) y en el Abedul Furtivo. |
 | Zombie Raxier (minijefe) | `litius:zombie_raxier` | Zombie vanilla con hombreras de cuero, capa, guantes de piedra, cicatriz en el ojo izquierdo y un aro de hierro oxidado en el cuello. 225 de vida, velocidad de un jugador corriendo, detecta a 40 bloques. 15–4.5 bloques: lanza cargas de viento (1/s). Menos de 4.4: puñetazos. Cada 4–7 s: ráfaga de 4 cargas (cada 0.3 s) o se agacha 1 s e invoca **pinchos de aire** de 2 bloques en un área de 3x3 alrededor de cada jugador/golem cercano (5 de daño). No suelta objetos; da 50 de experiencia (como 10 enemigos). Aparece raro en biomas fríos. |
+| Ahogado Furtivo | `litius:ahogado_furtivo` | Drowned vanilla con bufanda y tiras de algas. Brazos alzados al nadar/caminar; agarrón con las dos manos que aplica **Lentitud 3 s**. Aparece en ríos y océanos. |
+| Momia Errante | `litius:momia_errante` | Husk vanilla con vendas, turbante y chal de arena. Sale de la arena arrastrándose; camina tambaleándose; doble zarpazo que aplica **Hambre 8 s**. No se quema al sol. Aparece en desiertos y mesas. |
+| Stray Centinela | `litius:stray_centinela` | Stray vanilla (con su ropa) más capa de piel y bufanda de lana. Francotirador: detecta a 30 bloques y **se arrodilla para disparar** flechas de Lentitud cada 2.5 s. Aparece en biomas fríos. |
+| Creeper Musgoso | `litius:creeper_musgoso` | Creeper vanilla cubierto de musgo, con lianas que se mueven y un hongo en la cabeza. Su explosión es pequeña, pero antes suelta una **nube de esporas** (Veneno 6 s + Náusea 8 s, radio 5). Aparece en junglas, pantanos y cuevas frondosas. |
+| Zombie Minero | `litius:zombie_minero` | Zombie con casco de cuero, vela y saco, armado con un pico de hierro (8 % de soltarlo). Golpe de pico desde arriba que aplica **Fatiga minera 8 s**. Puede soltar carbón o hierro crudo. Aparece en cuevas (y < 40). |
+| Rey Exiliado (minijefe) | `litius:rey_exiliado` | Esqueleto con corona de oro viejo, capa real carmesí y cetro de calavera. 200 de vida. Golpe de cetro a dos manos. Cada 8–12 s: **invoca 2 Esqueletos Furtivos** (salen del suelo) o lanza un **grito** (Debilidad 6 s + Lentitud, radio 10). 60 de experiencia. Aparece raro en bosques/llanuras y en el Abedul Furtivo. |
+| Guardián de Abedul (minijefe) | `litius:guardian_abedul` | Criatura de abedul de ~3 bloques, con copa de hojas, ramas y ojos verdes. 250 de vida, inmune al empuje. Golpe a dos brazos (10 + Lentitud). Cada 6–10 s: **raíces** que brotan bajo cada jugador/golem cercano (6 + Lentitud) o **tormenta de hojas** girando (Ceguera + Lentitud, radio 8). Suelta troncos, palos y brotes de abedul; 70 de experiencia. Aparece raro en bosques de abedul y en el Abedul Furtivo. |
 
 ### Bioma: Abedul Furtivo (`litius:abedul_furtivo`)
 
 Reemplaza parte de los bosques de abedul (y un poco de los bosques normales).
 Tiene abedules con tronco 3 veces más alto (15–22 bloques) y hierba. Como no
-tiene las etiquetas `monster`/`animal`, ahí **solo aparecen los mobs furtivos, el Exiliante
-y el Creeze** (ni mobs vanilla, ni el Creeper +, ni el Wither Furtivo).
+tiene las etiquetas `monster`/`animal`, ahí **solo aparecen los mobs furtivos, el Exiliante,
+el Creeze, el Rey Exiliado y el Guardián de Abedul** (ni mobs vanilla, ni el Creeper +, ni el Wither Furtivo).
 
 > **Requiere el experimento "Custom Biomes" / "Biomas personalizados"**: al crear
 > el mundo, en *Experimentos*, actívalo. Sin él el juego ignora el bioma y
@@ -52,7 +59,10 @@ y el Creeze** (ni mobs vanilla, ni el Creeper +, ni el Wither Furtivo).
 Para probar: `/summon litius:esqueleto_furtivo`, `/summon litius:zombie_furtivo`,
 `/summon litius:creeper_plus`, `/summon litius:wither_furtivo`,
 `/summon litius:esqueleto_exiliante`, `/summon litius:jinete_acorazado`,
-`/summon litius:creeze`, `/summon litius:jinete_wither`, `/summon litius:zombie_raxier`. Para el bioma: `/locate biome litius:abedul_furtivo`.
+`/summon litius:creeze`, `/summon litius:jinete_wither`, `/summon litius:zombie_raxier`,
+`/summon litius:ahogado_furtivo`, `/summon litius:momia_errante`, `/summon litius:stray_centinela`,
+`/summon litius:creeper_musgoso`, `/summon litius:zombie_minero`, `/summon litius:rey_exiliado`,
+`/summon litius:guardian_abedul`. Para el bioma: `/locate biome litius:abedul_furtivo`.
 
 ### Notas técnicas
 

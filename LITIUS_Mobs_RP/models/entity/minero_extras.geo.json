@@ -1,0 +1,131 @@
+{
+  "format_version": "1.12.0",
+  "minecraft:geometry": [
+    {
+      "description": {
+        "identifier": "geometry.litius.minero_extras",
+        "texture_width": 64,
+        "texture_height": 32,
+        "visible_bounds_width": 2,
+        "visible_bounds_height": 3,
+        "visible_bounds_offset": [
+          0,
+          1,
+          0
+        ]
+      },
+      "bones": [
+        {
+          "name": "root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "body",
+          "parent": "root",
+          "pivot": [
+            0,
+            12,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -3,
+                14,
+                2.2
+              ],
+              "size": [
+                6,
+                8,
+                3
+              ],
+              "uv": [
+                0,
+                14
+              ]
+            }
+          ]
+        },
+        {
+          "name": "head",
+          "parent": "body",
+          "pivot": [
+            0,
+            24,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -4.6,
+                29.5,
+                -4.6
+              ],
+              "size": [
+                9,
+                3,
+                9
+              ],
+              "uv": [
+                0,
+                0
+              ]
+            },
+            {
+              "origin": [
+                -4.6,
+                29.5,
+                -6.6
+              ],
+              "size": [
+                9,
+                1,
+                2
+              ],
+              "uv": [
+                36,
+                0
+              ]
+            },
+            {
+              "origin": [
+                -0.5,
+                32.5,
+                -4.4
+              ],
+              "size": [
+                1,
+                3,
+                1
+              ],
+              "uv": [
+                36,
+                4
+              ]
+            },
+            {
+              "origin": [
+                -0.5,
+                35.5,
+                -4.4
+              ],
+              "size": [
+                1,
+                1,
+                1
+              ],
+              "uv": [
+                40,
+                4
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

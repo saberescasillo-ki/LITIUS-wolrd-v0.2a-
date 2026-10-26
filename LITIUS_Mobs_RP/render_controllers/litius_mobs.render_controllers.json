@@ -96,6 +96,17 @@
       "textures": [
         "Texture.default"
       ]
+    },
+    "controller.render.litius.extra": {
+      "geometry": "Geometry.extra",
+      "materials": [
+        {
+          "*": "Material.extra"
+        }
+      ],
+      "textures": [
+        "Texture.extra"
+      ]
     }
   }
 }

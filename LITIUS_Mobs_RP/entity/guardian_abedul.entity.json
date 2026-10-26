@@ -1,0 +1,49 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "litius:guardian_abedul",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/litius/guardian_abedul"
+      },
+      "geometry": {
+        "default": "geometry.litius.guardian_abedul"
+      },
+      "scripts": {
+        "pre_animation": [
+          "v.accion = q.property('litius:accion');",
+          "v.speed = math.clamp(q.modified_move_speed, 0.0, 1.0);",
+          "v.lean = math.lerp(v.lean ?? 0.0, v.speed > 0.1 ? 6.0 : 0.0, math.clamp(q.delta_time * 5.0, 0.0, 1.0));"
+        ],
+        "animate": [
+          {
+            "base": "v.accion != 2"
+          },
+          "pose_ctrl"
+        ]
+      },
+      "animations": {
+        "base": "animation.litius.guardian.base",
+        "reposo": "animation.litius.guardian.reposo",
+        "caminar": "animation.litius.guardian.caminar",
+        "golpe": "animation.litius.guardian.golpe",
+        "raices": "animation.litius.guardian.raices",
+        "hojas": "animation.litius.guardian.hojas",
+        "pose_ctrl": "controller.animation.litius.guardian.pose"
+      },
+      "render_controllers": [
+        "controller.render.litius.base"
+      ],
+      "spawn_egg": {
+        "base_color": "#D8D8CC",
+        "overlay_color": "#5E8A34"
+      },
+      "particle_effects": {
+        "tierra": "litius:tierra_emerger"
+      }
+    }
+  }
+}

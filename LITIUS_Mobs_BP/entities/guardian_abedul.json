@@ -1,0 +1,356 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "litius:guardian_abedul",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false,
+      "properties": {
+        "litius:accion": {
+          "type": "int",
+          "range": [
+            0,
+            2
+          ],
+          "default": 0,
+          "client_sync": true
+        }
+      }
+    },
+    "component_groups": {
+      "litius:combate": {
+        "minecraft:behavior.delayed_attack": {
+          "priority": 3,
+          "attack_duration": 1.0,
+          "hit_delay_pct": 0.6,
+          "reach_multiplier": 1.8,
+          "speed_multiplier": 1.25,
+          "track_target": true,
+          "require_complete_path": false
+        }
+      },
+      "litius:mov_normal": {
+        "minecraft:movement": {
+          "value": 0.2
+        }
+      },
+      "litius:temporizadores": {
+        "minecraft:timer": {
+          "looping": true,
+          "time": [
+            6.0,
+            10.0
+          ],
+          "randomInterval": true,
+          "time_down_event": {
+            "event": "litius:elegir_especial",
+            "target": "self"
+          }
+        }
+      },
+      "litius:ritual": {
+        "minecraft:movement": {
+          "value": 0.0
+        },
+        "minecraft:knockback_resistance": {
+          "value": 1.0
+        }
+      },
+      "litius:dur_raices": {
+        "minecraft:timer": {
+          "looping": false,
+          "time": 1.2,
+          "time_down_event": {
+            "event": "litius:fin_especial",
+            "target": "self"
+          }
+        }
+      },
+      "litius:dur_hojas": {
+        "minecraft:timer": {
+          "looping": false,
+          "time": 1.5,
+          "time_down_event": {
+            "event": "litius:fin_especial",
+            "target": "self"
+          }
+        }
+      }
+    },
+    "components": {
+      "minecraft:is_hidden_when_invisible": {},
+      "minecraft:type_family": {
+        "family": [
+          "guardian_abedul",
+          "monster",
+          "mob"
+        ]
+      },
+      "minecraft:collision_box": {
+        "width": 1.2,
+        "height": 2.9
+      },
+      "minecraft:health": {
+        "value": 250,
+        "max": 250
+      },
+      "minecraft:movement": {
+        "value": 0.2
+      },
+      "minecraft:follow_range": {
+        "value": 40,
+        "max": 40
+      },
+      "minecraft:navigation.walk": {
+        "avoid_water": true
+      },
+      "minecraft:movement.basic": {},
+      "minecraft:jump.static": {},
+      "minecraft:can_climb": {},
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:nameable": {},
+      "minecraft:breathable": {
+        "total_supply": 15,
+        "suffocate_time": 0
+      },
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "filters": {
+              "test": "in_lava",
+              "subject": "self",
+              "operator": "==",
+              "value": true
+            },
+            "cause": "lava",
+            "damage_per_tick": 4
+          }
+        ]
+      },
+      "minecraft:conditional_bandwidth_optimization": {},
+      "minecraft:behavior.float": {
+        "priority": 0
+      },
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 1
+      },
+      "minecraft:behavior.random_stroll": {
+        "priority": 7,
+        "speed_multiplier": 1.0
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 8,
+        "look_distance": 8,
+        "probability": 0.02
+      },
+      "minecraft:behavior.random_look_around": {
+        "priority": 9
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1.0
+      },
+      "minecraft:attack": {
+        "damage": 10,
+        "effect_name": "slowness",
+        "effect_duration": 3
+      },
+      "minecraft:loot": {
+        "table": "loot_tables/entities/guardian_abedul.json"
+      },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 2,
+        "must_see": true,
+        "reselect_targets": true,
+        "within_radius": 32,
+        "entity_types": [
+          {
+            "filters": {
+              "any_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "player"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "snowgolem"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "irongolem"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "villager"
+                }
+              ]
+            },
+            "max_dist": 32
+          }
+        ]
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "fall",
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:persistent": {},
+      "minecraft:experience_reward": {
+        "on_death": "70"
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": [
+            "litius:mov_normal",
+            "litius:temporizadores",
+            "litius:combate"
+          ]
+        }
+      },
+      "litius:elegir_especial": {
+        "sequence": [
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "has_target",
+                  "subject": "self",
+                  "value": true
+                },
+                {
+                  "test": "int_property",
+                  "domain": "litius:accion",
+                  "operator": "==",
+                  "value": 0
+                }
+              ]
+            },
+            "randomize": [
+              {
+                "weight": 60,
+                "trigger": "litius:raices"
+              },
+              {
+                "weight": 40,
+                "trigger": "litius:hojas"
+              }
+            ]
+          }
+        ]
+      },
+      "litius:fin_especial": {
+        "sequence": [
+          {
+            "remove": {
+              "component_groups": [
+                "litius:ritual",
+                "litius:dur_raices",
+                "litius:dur_hojas",
+                "litius:temporizadores"
+              ]
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "litius:mov_normal",
+                "litius:combate",
+                "litius:temporizadores"
+              ]
+            }
+          },
+          {
+            "set_property": {
+              "litius:accion": 0
+            }
+          }
+        ]
+      },
+      "litius:raices": {
+        "sequence": [
+          {
+            "remove": {
+              "component_groups": [
+                "litius:mov_normal",
+                "litius:combate",
+                "litius:temporizadores"
+              ]
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "litius:ritual",
+                "litius:dur_raices"
+              ]
+            }
+          },
+          {
+            "set_property": {
+              "litius:accion": 1
+            }
+          },
+          {
+            "queue_command": {
+              "command": [
+                "playsound mob.ravager.stun @a[r=24] ~ ~ ~",
+                "execute at @a[r=24,m=!creative] run summon litius:raiz_guardian ~ ~ ~",
+                "execute at @e[type=iron_golem,r=24] run summon litius:raiz_guardian ~ ~ ~",
+                "execute at @e[type=snow_golem,r=24] run summon litius:raiz_guardian ~ ~ ~"
+              ]
+            }
+          }
+        ]
+      },
+      "litius:hojas": {
+        "sequence": [
+          {
+            "remove": {
+              "component_groups": [
+                "litius:mov_normal",
+                "litius:combate",
+                "litius:temporizadores"
+              ]
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "litius:ritual",
+                "litius:dur_hojas"
+              ]
+            }
+          },
+          {
+            "set_property": {
+              "litius:accion": 2
+            }
+          },
+          {
+            "queue_command": {
+              "command": [
+                "particle litius:hojas_tormenta ~ ~1.5 ~",
+                "playsound mob.breeze.whirl @a[r=24] ~ ~ ~",
+                "effect @a[r=8] blindness 3 0",
+                "effect @a[r=8] slowness 3 1"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "litius:ahogado_furtivo",
+      "materials": {
+        "default": "entity_alphatest",
+        "capa": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/zombie/drowned",
+        "capa": "textures/entity/litius/ahogado_extras"
+      },
+      "geometry": {
+        "default": "geometry.litius.ahogado",
+        "capa": "geometry.litius.ahogado_extras"
+      },
+      "scripts": {
+        "pre_animation": [
+          "v.speed = math.clamp(q.modified_move_speed, 0.0, 1.0);",
+          "v.tcos = math.cos(q.modified_distance_moved * 38.17) * q.modified_move_speed * 57.3;",
+          "v.blend = math.clamp(q.delta_time * 7.0, 0.0, 1.0);",
+          "v.lean = math.lerp(v.lean ?? 0.0, v.speed > 0.1 ? 16.0 * v.speed + 3.0 : 0.0, v.blend);",
+          "v.side = math.lerp(v.side ?? 0.0, math.clamp(q.yaw_speed * -0.4, -6.0, 6.0) * v.speed, v.blend);"
+        ],
+        "animate": [
+          "base",
+          "bufanda",
+          "brazos_ctrl"
+        ]
+      },
+      "animations": {
+        "base": "animation.litius.humanoide.base",
+        "bufanda": "animation.litius.bufanda",
+        "brazos": "animation.litius.ahogado.brazos",
+        "agarre": "animation.litius.ahogado.agarre",
+        "brazos_ctrl": "controller.animation.litius.ahogado.brazos"
+      },
+      "render_controllers": [
+        "controller.render.litius.base",
+        "controller.render.litius.capa"
+      ],
+      "spawn_egg": {
+        "base_color": "#2E6E66",
+        "overlay_color": "#4C7A2E"
+      },
+      "enable_attachables": true
+    }
+  }
+}

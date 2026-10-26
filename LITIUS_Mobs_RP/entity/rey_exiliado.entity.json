@@ -1,0 +1,57 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "litius:rey_exiliado",
+      "materials": {
+        "default": "entity_alphatest",
+        "capa": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/skeleton/skeleton",
+        "capa": "textures/entity/litius/rey_extras"
+      },
+      "geometry": {
+        "default": "geometry.litius.esqueleto_furtivo",
+        "capa": "geometry.litius.rey_extras"
+      },
+      "scripts": {
+        "pre_animation": [
+          "v.accion = q.property('litius:accion');",
+          "v.speed = math.clamp(q.modified_move_speed, 0.0, 1.0);",
+          "v.tcos = math.cos(q.modified_distance_moved * 38.17) * q.modified_move_speed * 57.3;",
+          "v.blend = math.clamp(q.delta_time * 7.0, 0.0, 1.0);",
+          "v.lean = math.lerp(v.lean ?? 0.0, v.speed > 0.1 ? 5.0 * v.speed + 3.0 : -3.0, v.blend);",
+          "v.side = math.lerp(v.side ?? 0.0, math.clamp(q.yaw_speed * -0.4, -6.0, 6.0) * v.speed, v.blend);"
+        ],
+        "animate": [
+          "base",
+          "capa_anim",
+          "pose_ctrl"
+        ]
+      },
+      "animations": {
+        "base": "animation.litius.humanoide.base",
+        "capa_anim": "animation.litius.capa",
+        "reposo": "animation.litius.rey.reposo",
+        "caminar": "animation.litius.rey.caminar",
+        "golpe": "animation.litius.rey.golpe",
+        "invocar": "animation.litius.rey.invocar",
+        "grito": "animation.litius.rey.grito",
+        "pose_ctrl": "controller.animation.litius.rey.pose"
+      },
+      "render_controllers": [
+        "controller.render.litius.base",
+        "controller.render.litius.capa"
+      ],
+      "spawn_egg": {
+        "base_color": "#C1C1C1",
+        "overlay_color": "#C4A048"
+      },
+      "particle_effects": {
+        "tierra": "litius:tierra_emerger",
+        "onda": "litius:onda_grito"
+      }
+    }
+  }
+}

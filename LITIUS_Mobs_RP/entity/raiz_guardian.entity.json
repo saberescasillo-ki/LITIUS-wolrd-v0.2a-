@@ -1,0 +1,33 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "litius:raiz_guardian",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/litius/raiz_guardian"
+      },
+      "geometry": {
+        "default": "geometry.litius.raiz_guardian"
+      },
+      "particle_effects": {
+        "viento": "litius:tierra_emerger"
+      },
+      "scripts": {
+        "animate": [
+          "ctrl"
+        ]
+      },
+      "animations": {
+        "ctrl": "controller.animation.litius.pincho_aire",
+        "aviso": "animation.litius.pincho_aire.aviso",
+        "brotar": "animation.litius.pincho_aire.brotar"
+      },
+      "render_controllers": [
+        "controller.render.litius.pincho"
+      ]
+    }
+  }
+}

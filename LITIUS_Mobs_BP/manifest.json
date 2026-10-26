@@ -4,20 +4,20 @@
     "name": "LITIUS Mobs - Comportamiento",
     "description": "Variantes de mobs para LITIUS World: Esqueleto Furtivo, Zombie Furtivo y Creeper +",
     "uuid": "e318a59c-0e73-410a-8a69-e5473d394ffa",
-    "version": [0, 6, 0],
+    "version": [0, 7, 0],
     "min_engine_version": [1, 21, 40]
   },
   "modules": [
     {
       "type": "data",
       "uuid": "1d401569-a176-4066-ae1f-56149ce0241c",
-      "version": [0, 6, 0]
+      "version": [0, 7, 0]
     }
   ],
   "dependencies": [
     {
       "uuid": "c021c092-f337-491c-ad38-2c5c18a36ad0",
-      "version": [0, 6, 0]
+      "version": [0, 7, 0]
     }
   ]
 }

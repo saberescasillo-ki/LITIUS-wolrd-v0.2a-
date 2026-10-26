@@ -1,0 +1,334 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.litius.ahogado.brazos": {
+      "initial_state": "brazos",
+      "states": {
+        "brazos": {
+          "animations": [
+            "brazos"
+          ],
+          "transitions": [
+            {
+              "agarre": "q.is_delayed_attacking"
+            }
+          ],
+          "blend_transition": 0.1
+        },
+        "agarre": {
+          "animations": [
+            "agarre"
+          ],
+          "transitions": [
+            {
+              "brazos": "q.any_animation_finished"
+            }
+          ],
+          "blend_transition": 0.1
+        }
+      }
+    },
+    "controller.animation.litius.momia.cuerpo": {
+      "initial_state": "inicio",
+      "states": {
+        "inicio": {
+          "transitions": [
+            {
+              "emerger": "v.emerging"
+            },
+            {
+              "suelo": "!v.emerging"
+            }
+          ]
+        },
+        "emerger": {
+          "animations": [
+            "emerger",
+            "bufanda"
+          ],
+          "transitions": [
+            {
+              "suelo": "!v.emerging"
+            }
+          ],
+          "blend_transition": 0.3
+        },
+        "suelo": {
+          "animations": [
+            "base",
+            "bufanda"
+          ],
+          "transitions": [
+            {
+              "emerger": "v.emerging"
+            }
+          ],
+          "blend_transition": 0.3
+        }
+      }
+    },
+    "controller.animation.litius.momia.brazos": {
+      "initial_state": "emerger",
+      "states": {
+        "emerger": {
+          "transitions": [
+            {
+              "brazos": "!v.emerging"
+            }
+          ],
+          "blend_transition": 0.3
+        },
+        "brazos": {
+          "animations": [
+            "brazos"
+          ],
+          "transitions": [
+            {
+              "emerger": "v.emerging"
+            },
+            {
+              "zarpazo": "q.is_delayed_attacking"
+            }
+          ],
+          "blend_transition": 0.1
+        },
+        "zarpazo": {
+          "animations": [
+            "zarpazo"
+          ],
+          "transitions": [
+            {
+              "brazos": "q.any_animation_finished"
+            }
+          ],
+          "blend_transition": 0.1
+        }
+      }
+    },
+    "controller.animation.litius.stray.pose": {
+      "initial_state": "reposo",
+      "states": {
+        "reposo": {
+          "animations": [
+            "base",
+            "arco_reposo"
+          ],
+          "transitions": [
+            {
+              "apuntar": "q.has_target && v.speed < 0.1"
+            }
+          ],
+          "blend_transition": 0.3
+        },
+        "apuntar": {
+          "animations": [
+            "base",
+            "arrodillado",
+            "arco_apuntar"
+          ],
+          "transitions": [
+            {
+              "reposo": "!q.has_target || v.speed > 0.2"
+            }
+          ],
+          "blend_transition": 0.35
+        }
+      }
+    },
+    "controller.animation.litius.minero.brazos": {
+      "initial_state": "brazos",
+      "states": {
+        "brazos": {
+          "animations": [
+            "brazos"
+          ],
+          "transitions": [
+            {
+              "picazo": "q.is_delayed_attacking"
+            }
+          ],
+          "blend_transition": 0.1
+        },
+        "picazo": {
+          "animations": [
+            "picazo"
+          ],
+          "transitions": [
+            {
+              "brazos": "q.any_animation_finished"
+            }
+          ],
+          "blend_transition": 0.1
+        }
+      }
+    },
+    "controller.animation.litius.rey.pose": {
+      "initial_state": "reposo",
+      "states": {
+        "reposo": {
+          "animations": [
+            "reposo"
+          ],
+          "blend_transition": 0.3,
+          "transitions": [
+            {
+              "invocar": "v.accion == 1"
+            },
+            {
+              "grito": "v.accion == 2"
+            },
+            {
+              "golpe": "q.is_delayed_attacking"
+            },
+            {
+              "caminar": "v.speed > 0.12"
+            }
+          ]
+        },
+        "caminar": {
+          "animations": [
+            "caminar"
+          ],
+          "blend_transition": 0.3,
+          "transitions": [
+            {
+              "invocar": "v.accion == 1"
+            },
+            {
+              "grito": "v.accion == 2"
+            },
+            {
+              "golpe": "q.is_delayed_attacking"
+            },
+            {
+              "reposo": "v.speed < 0.08"
+            }
+          ]
+        },
+        "golpe": {
+          "animations": [
+            "golpe"
+          ],
+          "blend_transition": 0.1,
+          "transitions": [
+            {
+              "invocar": "v.accion == 1"
+            },
+            {
+              "grito": "v.accion == 2"
+            },
+            {
+              "caminar": "q.any_animation_finished"
+            }
+          ]
+        },
+        "invocar": {
+          "animations": [
+            "invocar"
+          ],
+          "blend_transition": 0.15,
+          "transitions": [
+            {
+              "reposo": "v.accion != 1"
+            }
+          ]
+        },
+        "grito": {
+          "animations": [
+            "grito"
+          ],
+          "blend_transition": 0.15,
+          "transitions": [
+            {
+              "reposo": "v.accion != 2"
+            }
+          ]
+        }
+      }
+    },
+    "controller.animation.litius.guardian.pose": {
+      "initial_state": "reposo",
+      "states": {
+        "reposo": {
+          "animations": [
+            "reposo"
+          ],
+          "blend_transition": 0.3,
+          "transitions": [
+            {
+              "raices": "v.accion == 1"
+            },
+            {
+              "hojas": "v.accion == 2"
+            },
+            {
+              "golpe": "q.is_delayed_attacking"
+            },
+            {
+              "caminar": "v.speed > 0.12"
+            }
+          ]
+        },
+        "caminar": {
+          "animations": [
+            "caminar"
+          ],
+          "blend_transition": 0.3,
+          "transitions": [
+            {
+              "raices": "v.accion == 1"
+            },
+            {
+              "hojas": "v.accion == 2"
+            },
+            {
+              "golpe": "q.is_delayed_attacking"
+            },
+            {
+              "reposo": "v.speed < 0.08"
+            }
+          ]
+        },
+        "golpe": {
+          "animations": [
+            "golpe"
+          ],
+          "blend_transition": 0.1,
+          "transitions": [
+            {
+              "raices": "v.accion == 1"
+            },
+            {
+              "hojas": "v.accion == 2"
+            },
+            {
+              "caminar": "q.any_animation_finished"
+            }
+          ]
+        },
+        "raices": {
+          "animations": [
+            "raices"
+          ],
+          "blend_transition": 0.15,
+          "transitions": [
+            {
+              "reposo": "v.accion != 1"
+            }
+          ]
+        },
+        "hojas": {
+          "animations": [
+            "hojas"
+          ],
+          "blend_transition": 0.15,
+          "transitions": [
+            {
+              "reposo": "v.accion != 2"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
