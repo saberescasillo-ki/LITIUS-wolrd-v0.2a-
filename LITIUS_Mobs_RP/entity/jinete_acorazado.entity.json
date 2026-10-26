@@ -16,16 +16,20 @@
         "pre_animation": [
           "variable.gliding_speed_value = 1.0;",
           "variable.tcos0 = (math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;",
-          "variable.riding_y_offset = 1.0;"
+          "variable.riding_y_offset = 1.0;",
+          "v.lanza = q.property('litius:lanza');"
         ],
         "animate": [
           "look_at_target_controller",
           "move_controller",
           "riding_controller",
           "holding_controller",
-          "attack_controller",
+          {
+            "attack_controller": "!v.lanza"
+          },
           "bob_controller",
-          "zombie_attack_bare_hand_controller"
+          "zombie_attack_bare_hand_controller",
+          "lanza_ctrl"
         ]
       },
       "animations": {
@@ -47,7 +51,10 @@
         "bob_controller": "controller.animation.humanoid.bob",
         "zombie_attack_bare_hand_controller": "controller.animation.zombie.attack_bare_hand",
         "holding": "animation.humanoid.holding",
-        "holding_controller": "controller.animation.humanoid.holding"
+        "holding_controller": "controller.animation.humanoid.holding",
+        "lanza_pose": "animation.litius.lanza.pose",
+        "lanza_estocada": "animation.litius.lanza.estocada",
+        "lanza_ctrl": "controller.animation.litius.lanza"
       },
       "render_controllers": [
         "controller.render.litius.base"

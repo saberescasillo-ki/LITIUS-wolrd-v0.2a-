@@ -2,15 +2,15 @@
   "format_version": "1.10.0",
   "minecraft:client_entity": {
     "description": {
-      "identifier": "litius:raiz_guardian",
+      "identifier": "litius:rama_guardian",
       "materials": {
         "default": "entity_alphatest"
       },
       "textures": {
-        "default": "textures/entity/litius/raiz_guardian"
+        "default": "textures/entity/litius/rama_guardian"
       },
       "geometry": {
-        "default": "geometry.litius.raiz_guardian"
+        "default": "geometry.litius.rama_guardian"
       },
       "particle_effects": {
         "viento": "litius:tierra_emerger"

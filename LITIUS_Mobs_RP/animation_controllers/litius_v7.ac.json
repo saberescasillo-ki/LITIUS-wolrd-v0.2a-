@@ -8,23 +8,37 @@
           "animations": [
             "brazos"
           ],
+          "blend_transition": 0.1,
           "transitions": [
             {
               "agarre": "q.is_delayed_attacking"
+            },
+            {
+              "lanzar": "(v.attack_time ?? 0.0) > 0.0 && v.modo == 1"
             }
-          ],
-          "blend_transition": 0.1
+          ]
         },
         "agarre": {
           "animations": [
             "agarre"
           ],
+          "blend_transition": 0.1,
           "transitions": [
             {
               "brazos": "q.any_animation_finished"
             }
+          ]
+        },
+        "lanzar": {
+          "animations": [
+            "lanzar"
           ],
-          "blend_transition": 0.1
+          "blend_transition": 0.1,
+          "transitions": [
+            {
+              "brazos": "q.any_animation_finished"
+            }
+          ]
         }
       }
     },
@@ -256,10 +270,10 @@
           "blend_transition": 0.3,
           "transitions": [
             {
-              "raices": "v.accion == 1"
+              "golpe_suelo": "v.accion == 1"
             },
             {
-              "hojas": "v.accion == 2"
+              "hilera": "v.accion == 2"
             },
             {
               "golpe": "q.is_delayed_attacking"
@@ -276,10 +290,10 @@
           "blend_transition": 0.3,
           "transitions": [
             {
-              "raices": "v.accion == 1"
+              "golpe_suelo": "v.accion == 1"
             },
             {
-              "hojas": "v.accion == 2"
+              "hilera": "v.accion == 2"
             },
             {
               "golpe": "q.is_delayed_attacking"
@@ -296,19 +310,19 @@
           "blend_transition": 0.1,
           "transitions": [
             {
-              "raices": "v.accion == 1"
+              "golpe_suelo": "v.accion == 1"
             },
             {
-              "hojas": "v.accion == 2"
+              "hilera": "v.accion == 2"
             },
             {
               "caminar": "q.any_animation_finished"
             }
           ]
         },
-        "raices": {
+        "golpe_suelo": {
           "animations": [
-            "raices"
+            "golpe_suelo"
           ],
           "blend_transition": 0.15,
           "transitions": [
@@ -317,9 +331,9 @@
             }
           ]
         },
-        "hojas": {
+        "hilera": {
           "animations": [
-            "hojas"
+            "hilera"
           ],
           "blend_transition": 0.15,
           "transitions": [
@@ -327,6 +341,68 @@
               "reposo": "v.accion != 2"
             }
           ]
+        }
+      }
+    },
+    "controller.animation.litius.jinete_arana.brazos": {
+      "initial_state": "reposo",
+      "states": {
+        "reposo": {
+          "animations": [
+            "arco_reposo"
+          ],
+          "transitions": [
+            {
+              "apuntar": "q.has_target"
+            }
+          ],
+          "blend_transition": 0.25
+        },
+        "apuntar": {
+          "animations": [
+            "arco_apuntar"
+          ],
+          "transitions": [
+            {
+              "reposo": "!q.has_target"
+            }
+          ],
+          "blend_transition": 0.2
+        }
+      }
+    },
+    "controller.animation.litius.lanza": {
+      "initial_state": "nada",
+      "states": {
+        "nada": {
+          "transitions": [
+            {
+              "pose": "v.lanza"
+            }
+          ]
+        },
+        "pose": {
+          "animations": [
+            "lanza_pose"
+          ],
+          "transitions": [
+            {
+              "estocada": "(v.attack_time ?? 0.0) > 0.0"
+            }
+          ],
+          "blend_transition": 0.2
+        },
+        "estocada": {
+          "animations": [
+            "lanza_pose",
+            "lanza_estocada"
+          ],
+          "transitions": [
+            {
+              "pose": "q.any_animation_finished"
+            }
+          ],
+          "blend_transition": 0.08
         }
       }
     }

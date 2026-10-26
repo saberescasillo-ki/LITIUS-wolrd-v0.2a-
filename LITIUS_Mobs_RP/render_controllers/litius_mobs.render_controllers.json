@@ -107,6 +107,18 @@
       "textures": [
         "Texture.extra"
       ]
+    },
+    "controller.render.litius.ojos": {
+      "geometry": "Geometry.ojos",
+      "materials": [
+        {
+          "*": "Material.ojos"
+        }
+      ],
+      "textures": [
+        "Texture.ojos"
+      ],
+      "ignore_lighting": true
     }
   }
 }

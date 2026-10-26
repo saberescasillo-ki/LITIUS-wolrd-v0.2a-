@@ -9,7 +9,7 @@
         "charged": "charged_creeper"
       },
       "textures": {
-        "default": "textures/entity/creeper/creeper",
+        "default": "textures/entity/litius/creeper_musgoso",
         "capa": "textures/entity/litius/creeper_musgo",
         "charged": "textures/entity/creeper/creeper_armor"
       },

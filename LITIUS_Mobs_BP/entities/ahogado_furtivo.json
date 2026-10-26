@@ -5,7 +5,18 @@
       "identifier": "litius:ahogado_furtivo",
       "is_spawnable": true,
       "is_summonable": true,
-      "is_experimental": false
+      "is_experimental": false,
+      "properties": {
+        "litius:modo": {
+          "type": "int",
+          "range": [
+            0,
+            2
+          ],
+          "default": 0,
+          "client_sync": true
+        }
+      }
     },
     "components": {
       "minecraft:is_hidden_when_invisible": {},
@@ -143,16 +154,172 @@
           }
         ]
       },
-      "minecraft:behavior.delayed_attack": {
-        "priority": 3,
-        "attack_duration": 0.6,
-        "hit_delay_pct": 0.6,
-        "reach_multiplier": 2.4,
-        "speed_multiplier": 1.2,
-        "track_target": true,
-        "require_complete_path": false
+      "minecraft:equipment": {
+        "table": "loot_tables/entities/ahogado_tridente.json",
+        "slot_drop_chance": [
+          {
+            "slot": "slot.weapon.mainhand",
+            "drop_chance": 0.05
+          }
+        ]
+      },
+      "minecraft:equip_item": {},
+      "minecraft:shooter": {
+        "def": "minecraft:thrown_trident"
+      },
+      "minecraft:environment_sensor": {
+        "triggers": [
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "has_target",
+                  "value": true
+                },
+                {
+                  "test": "target_distance",
+                  "operator": ">",
+                  "value": 5
+                },
+                {
+                  "test": "int_property",
+                  "domain": "litius:modo",
+                  "operator": "!=",
+                  "value": 1
+                }
+              ]
+            },
+            "event": "litius:modo_lejos"
+          },
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "has_target",
+                  "value": true
+                },
+                {
+                  "test": "target_distance",
+                  "operator": "<=",
+                  "value": 4.5
+                },
+                {
+                  "test": "int_property",
+                  "domain": "litius:modo",
+                  "operator": "!=",
+                  "value": 2
+                }
+              ]
+            },
+            "event": "litius:modo_cerca"
+          },
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "has_target",
+                  "value": false
+                },
+                {
+                  "test": "int_property",
+                  "domain": "litius:modo",
+                  "operator": "!=",
+                  "value": 0
+                }
+              ]
+            },
+            "event": "litius:modo_nada"
+          }
+        ]
       }
     },
-    "events": {}
+    "events": {
+      "litius:modo_lejos": {
+        "sequence": [
+          {
+            "remove": {
+              "component_groups": [
+                "litius:cerca"
+              ]
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "litius:lejos"
+              ]
+            }
+          },
+          {
+            "set_property": {
+              "litius:modo": 1
+            }
+          }
+        ]
+      },
+      "litius:modo_cerca": {
+        "sequence": [
+          {
+            "remove": {
+              "component_groups": [
+                "litius:lejos"
+              ]
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "litius:cerca"
+              ]
+            }
+          },
+          {
+            "set_property": {
+              "litius:modo": 2
+            }
+          }
+        ]
+      },
+      "litius:modo_nada": {
+        "sequence": [
+          {
+            "remove": {
+              "component_groups": [
+                "litius:lejos",
+                "litius:cerca"
+              ]
+            }
+          },
+          {
+            "set_property": {
+              "litius:modo": 0
+            }
+          }
+        ]
+      }
+    },
+    "component_groups": {
+      "litius:cerca": {
+        "minecraft:behavior.delayed_attack": {
+          "priority": 3,
+          "attack_duration": 0.6,
+          "hit_delay_pct": 0.6,
+          "reach_multiplier": 2.4,
+          "speed_multiplier": 1.2,
+          "track_target": true,
+          "require_complete_path": false
+        }
+      },
+      "litius:lejos": {
+        "minecraft:behavior.ranged_attack": {
+          "priority": 3,
+          "attack_interval_min": 3.0,
+          "attack_interval_max": 3.5,
+          "attack_radius": 14.0,
+          "speed_multiplier": 1.0,
+          "swing": true
+        }
+      }
+    }
   }
 }

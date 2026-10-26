@@ -1,0 +1,48 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "litius:jinete_arana",
+      "materials": {
+        "default": "entity_alphatest",
+        "capa": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/skeleton/skeleton",
+        "capa": "textures/entity/litius/capa_esqueleto"
+      },
+      "geometry": {
+        "default": "geometry.litius.esqueleto_furtivo",
+        "capa": "geometry.litius.capa_bufanda"
+      },
+      "scripts": {
+        "pre_animation": [
+          "v.speed = math.clamp(q.modified_move_speed, 0.0, 1.0);",
+          "v.lean = 0.0;",
+          "v.side = 0.0;"
+        ],
+        "animate": [
+          "montado",
+          "capa",
+          "brazos_ctrl"
+        ]
+      },
+      "animations": {
+        "montado": "animation.litius.jinete_arana.montado",
+        "capa": "animation.litius.capa_bufanda",
+        "arco_reposo": "animation.litius.esqueleto_furtivo.arco_reposo",
+        "arco_apuntar": "animation.litius.esqueleto_furtivo.arco_apuntar",
+        "brazos_ctrl": "controller.animation.litius.jinete_arana.brazos"
+      },
+      "render_controllers": [
+        "controller.render.litius.base",
+        "controller.render.litius.capa"
+      ],
+      "enable_attachables": true,
+      "spawn_egg": {
+        "base_color": "#C1C1C1",
+        "overlay_color": "#342D27"
+      }
+    }
+  }
+}

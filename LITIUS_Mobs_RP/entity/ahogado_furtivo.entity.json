@@ -17,6 +17,7 @@
       },
       "scripts": {
         "pre_animation": [
+          "v.modo = q.property('litius:modo');",
           "v.speed = math.clamp(q.modified_move_speed, 0.0, 1.0);",
           "v.tcos = math.cos(q.modified_distance_moved * 38.17) * q.modified_move_speed * 57.3;",
           "v.blend = math.clamp(q.delta_time * 7.0, 0.0, 1.0);",
@@ -34,7 +35,8 @@
         "bufanda": "animation.litius.bufanda",
         "brazos": "animation.litius.ahogado.brazos",
         "agarre": "animation.litius.ahogado.agarre",
-        "brazos_ctrl": "controller.animation.litius.ahogado.brazos"
+        "brazos_ctrl": "controller.animation.litius.ahogado.brazos",
+        "lanzar": "animation.litius.ahogado.lanzar"
       },
       "render_controllers": [
         "controller.render.litius.base",

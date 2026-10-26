@@ -1,0 +1,27 @@
+{
+  "format_version": "1.21.40",
+  "minecraft:item": {
+    "description": {
+      "identifier": "litius:llave_islas",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:icon": "litius_llave_islas",
+      "minecraft:display_name": {
+        "value": "item.litius:llave_islas"
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:glint": true,
+      "minecraft:cooldown": {
+        "category": "litius:llave_islas",
+        "duration": 3.0
+      },
+      "minecraft:use_modifiers": {
+        "use_duration": 0.2,
+        "movement_modifier": 1.0
+      }
+    }
+  }
+}

@@ -251,7 +251,8 @@
                 "particle litius:tierra_emerger ~-1.5 ~ ~",
                 "playsound mob.evocation_illager.prepare_summon @a[r=24] ~ ~ ~",
                 "summon minecraft:zombie ~1.5 ~ ~",
-                "summon minecraft:zombie ~-1.5 ~ ~"
+                "summon minecraft:zombie ~-1.5 ~ ~",
+                "tag @e[type=zombie,r=4,tag=!litius_invocado] add litius_invocado"
               ]
             },
             "remove": {

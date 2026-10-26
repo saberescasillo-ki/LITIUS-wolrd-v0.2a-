@@ -1,0 +1,361 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "litius:rama_guardian",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "properties": {
+        "litius:activo": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        },
+        "litius:tipo": {
+          "type": "int",
+          "range": [
+            0,
+            2
+          ],
+          "default": 0,
+          "client_sync": false
+        }
+      }
+    },
+    "component_groups": {
+      "litius:aviso_aura": {
+        "minecraft:timer": {
+          "looping": false,
+          "time": 0.5,
+          "time_down_event": {
+            "event": "litius:brotar",
+            "target": "self"
+          }
+        }
+      },
+      "litius:aviso_golpe": {
+        "minecraft:timer": {
+          "looping": false,
+          "time": 0.55,
+          "time_down_event": {
+            "event": "litius:brotar",
+            "target": "self"
+          }
+        }
+      },
+      "litius:aviso_hilera_1": {
+        "minecraft:timer": {
+          "looping": false,
+          "time": 0.4,
+          "time_down_event": {
+            "event": "litius:brotar",
+            "target": "self"
+          }
+        }
+      },
+      "litius:aviso_hilera_2": {
+        "minecraft:timer": {
+          "looping": false,
+          "time": 0.55,
+          "time_down_event": {
+            "event": "litius:brotar",
+            "target": "self"
+          }
+        }
+      },
+      "litius:aviso_hilera_3": {
+        "minecraft:timer": {
+          "looping": false,
+          "time": 0.7,
+          "time_down_event": {
+            "event": "litius:brotar",
+            "target": "self"
+          }
+        }
+      },
+      "litius:aviso_hilera_4": {
+        "minecraft:timer": {
+          "looping": false,
+          "time": 0.85,
+          "time_down_event": {
+            "event": "litius:brotar",
+            "target": "self"
+          }
+        }
+      },
+      "litius:aviso_hilera_5": {
+        "minecraft:timer": {
+          "looping": false,
+          "time": 1.0,
+          "time_down_event": {
+            "event": "litius:brotar",
+            "target": "self"
+          }
+        }
+      },
+      "litius:brotado": {
+        "minecraft:timer": {
+          "looping": false,
+          "time": 0.7,
+          "time_down_event": {
+            "event": "litius:desaparecer",
+            "target": "self"
+          }
+        }
+      },
+      "litius:desaparecer": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "inanimate",
+          "rama_guardian"
+        ]
+      },
+      "minecraft:collision_box": {
+        "width": 0.2,
+        "height": 0.2
+      },
+      "minecraft:physics": {
+        "has_gravity": true,
+        "has_collision": true
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:health": {
+        "value": 1,
+        "max": 1
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "all",
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1.0
+      },
+      "minecraft:conditional_bandwidth_optimization": {}
+    },
+    "events": {
+      "litius:aura": {
+        "sequence": [
+          {
+            "set_property": {
+              "litius:tipo": 0
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "litius:aviso_aura"
+              ]
+            }
+          }
+        ]
+      },
+      "litius:golpe": {
+        "sequence": [
+          {
+            "set_property": {
+              "litius:tipo": 1
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "litius:aviso_golpe"
+              ]
+            }
+          }
+        ]
+      },
+      "litius:hilera_1": {
+        "sequence": [
+          {
+            "set_property": {
+              "litius:tipo": 2
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "litius:aviso_hilera_1"
+              ]
+            }
+          }
+        ]
+      },
+      "litius:hilera_2": {
+        "sequence": [
+          {
+            "set_property": {
+              "litius:tipo": 2
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "litius:aviso_hilera_2"
+              ]
+            }
+          }
+        ]
+      },
+      "litius:hilera_3": {
+        "sequence": [
+          {
+            "set_property": {
+              "litius:tipo": 2
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "litius:aviso_hilera_3"
+              ]
+            }
+          }
+        ]
+      },
+      "litius:hilera_4": {
+        "sequence": [
+          {
+            "set_property": {
+              "litius:tipo": 2
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "litius:aviso_hilera_4"
+              ]
+            }
+          }
+        ]
+      },
+      "litius:hilera_5": {
+        "sequence": [
+          {
+            "set_property": {
+              "litius:tipo": 2
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "litius:aviso_hilera_5"
+              ]
+            }
+          }
+        ]
+      },
+      "minecraft:entity_spawned": {
+        "sequence": [
+          {
+            "set_property": {
+              "litius:tipo": 0
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "litius:aviso_aura"
+              ]
+            }
+          }
+        ]
+      },
+      "litius:brotar": {
+        "sequence": [
+          {
+            "remove": {
+              "component_groups": [
+                "litius:aviso_aura",
+                "litius:aviso_golpe",
+                "litius:aviso_hilera_1",
+                "litius:aviso_hilera_2",
+                "litius:aviso_hilera_3",
+                "litius:aviso_hilera_4",
+                "litius:aviso_hilera_5"
+              ]
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "litius:brotado"
+              ]
+            }
+          },
+          {
+            "set_property": {
+              "litius:activo": true
+            }
+          },
+          {
+            "queue_command": {
+              "command": [
+                "particle litius:tierra_emerger ~ ~ ~"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:tipo",
+              "operator": "==",
+              "value": 0
+            },
+            "queue_command": {
+              "command": [
+                "damage @e[r=1.1,type=!litius:rama_guardian,type=!litius:guardian_abedul] 5 magic"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:tipo",
+              "operator": "==",
+              "value": 1
+            },
+            "queue_command": {
+              "command": [
+                "damage @e[r=1.1,type=!litius:rama_guardian,type=!litius:guardian_abedul] 8 magic",
+                "effect @e[r=1.1,type=!litius:rama_guardian,type=!litius:guardian_abedul] slowness 3 1"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:tipo",
+              "operator": "==",
+              "value": 2
+            },
+            "queue_command": {
+              "command": [
+                "damage @e[r=1.1,type=!litius:rama_guardian,type=!litius:guardian_abedul] 10 magic"
+              ]
+            }
+          }
+        ]
+      },
+      "litius:desaparecer": {
+        "add": {
+          "component_groups": [
+            "litius:desaparecer"
+          ]
+        }
+      }
+    }
+  }
+}

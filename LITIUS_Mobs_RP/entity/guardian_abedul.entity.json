@@ -4,13 +4,16 @@
     "description": {
       "identifier": "litius:guardian_abedul",
       "materials": {
-        "default": "entity_alphatest"
+        "default": "entity_alphatest",
+        "ojos": "entity_alphatest"
       },
       "textures": {
-        "default": "textures/entity/litius/guardian_abedul"
+        "default": "textures/entity/litius/guardian_abedul",
+        "ojos": "textures/entity/litius/guardian_ojos"
       },
       "geometry": {
-        "default": "geometry.litius.guardian_abedul"
+        "default": "geometry.litius.guardian_abedul",
+        "ojos": "geometry.litius.guardian_ojos"
       },
       "scripts": {
         "pre_animation": [
@@ -19,9 +22,7 @@
           "v.lean = math.lerp(v.lean ?? 0.0, v.speed > 0.1 ? 6.0 : 0.0, math.clamp(q.delta_time * 5.0, 0.0, 1.0));"
         ],
         "animate": [
-          {
-            "base": "v.accion != 2"
-          },
+          "base",
           "pose_ctrl"
         ]
       },
@@ -30,12 +31,13 @@
         "reposo": "animation.litius.guardian.reposo",
         "caminar": "animation.litius.guardian.caminar",
         "golpe": "animation.litius.guardian.golpe",
-        "raices": "animation.litius.guardian.raices",
-        "hojas": "animation.litius.guardian.hojas",
-        "pose_ctrl": "controller.animation.litius.guardian.pose"
+        "pose_ctrl": "controller.animation.litius.guardian.pose",
+        "golpe_suelo": "animation.litius.guardian.golpe_suelo",
+        "hilera": "animation.litius.guardian.hilera"
       },
       "render_controllers": [
-        "controller.render.litius.base"
+        "controller.render.litius.base",
+        "controller.render.litius.ojos"
       ],
       "spawn_egg": {
         "base_color": "#D8D8CC",
