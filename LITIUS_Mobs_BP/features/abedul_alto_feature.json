@@ -1,0 +1,74 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:tree_feature": {
+    "description": {
+      "identifier": "litius:abedul_alto_feature"
+    },
+    "base_block": [
+      "minecraft:dirt"
+    ],
+    "may_grow_on": [
+      "minecraft:grass_block",
+      "minecraft:dirt",
+      "minecraft:coarse_dirt",
+      "minecraft:podzol"
+    ],
+    "may_replace": [
+      "minecraft:air",
+      "minecraft:birch_leaves",
+      "minecraft:oak_leaves",
+      "minecraft:short_grass",
+      "minecraft:tall_grass",
+      "minecraft:fern",
+      "minecraft:large_fern",
+      "minecraft:vine"
+    ],
+    "may_grow_through": [
+      "minecraft:dirt",
+      "minecraft:grass_block",
+      "minecraft:short_grass",
+      "minecraft:fern"
+    ],
+    "trunk": {
+      "trunk_height": {
+        "range_min": 15,
+        "range_max": 22
+      },
+      "trunk_block": "minecraft:birch_log"
+    },
+    "canopy": {
+      "canopy_offset": {
+        "min": -4,
+        "max": 0
+      },
+      "min_width": 0,
+      "canopy_slope": {
+        "rise": 1,
+        "run": 2
+      },
+      "variation_chance": [
+        {
+          "numerator": 1,
+          "denominator": 2
+        },
+        {
+          "numerator": 1,
+          "denominator": 2
+        },
+        {
+          "numerator": 1,
+          "denominator": 2
+        },
+        {
+          "numerator": 1,
+          "denominator": 2
+        },
+        {
+          "numerator": 1,
+          "denominator": 1
+        }
+      ],
+      "leaf_block": "minecraft:birch_leaves"
+    }
+  }
+}

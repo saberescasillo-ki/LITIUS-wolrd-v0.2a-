@@ -1,0 +1,42 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "litius:wither_furtivo",
+      "materials": {
+        "default": "entity_alphatest",
+        "capa": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/skeleton/wither_skeleton",
+        "capa": "textures/entity/litius/wither_furtivo_extras"
+      },
+      "geometry": {
+        "default": "geometry.litius.wither_furtivo",
+        "capa": "geometry.litius.wither_furtivo_extras"
+      },
+      "scripts": {
+        "pre_animation": [
+          "v.speed = math.clamp(q.modified_move_speed, 0.0, 1.0);",
+          "v.tcos = math.cos(q.modified_distance_moved * 38.17) * q.modified_move_speed * 57.3;",
+          "v.lean = math.lerp(v.lean ?? 0.0, v.speed > 0.1 ? 4.0 + v.speed * 8.0 : -7.0, math.clamp(q.delta_time * 6.0, 0.0, 1.0));"
+        ],
+        "animate": ["mirar", "cuerpo", "capa", "pose_ctrl"]
+      },
+      "animations": {
+        "pose_ctrl": "controller.animation.litius.wither_furtivo.pose",
+        "mirar": "animation.litius.wither_furtivo.mirar",
+        "cuerpo": "animation.litius.wither_furtivo.cuerpo",
+        "reposo": "animation.litius.wither_furtivo.reposo",
+        "mover": "animation.litius.wither_furtivo.mover",
+        "tajo": "animation.litius.wither_furtivo.tajo",
+        "capa": "animation.litius.capa"
+      },
+      "render_controllers": ["controller.render.litius.base", "controller.render.litius.capa"],
+      "spawn_egg": {
+        "base_color": "#141414",
+        "overlay_color": "#8A8F96"
+      }
+    }
+  }
+}

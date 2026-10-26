@@ -19,7 +19,7 @@
         "pre_animation": [
           "v.speed = math.clamp(q.modified_move_speed, 0.0, 1.0);",
           "v.tcos = math.cos(q.modified_distance_moved * 38.17) * q.modified_move_speed * 57.3;",
-          "v.lean = math.lerp(v.lean ?? 0.0, v.speed * 5.0, math.clamp(q.delta_time * 8.0, 0.0, 1.0));",
+          "v.lean = math.lerp(v.lean ?? 0.0, v.speed * 6.25, math.clamp(q.delta_time * 8.0, 0.0, 1.0));",
           "v.fuse = q.is_ignited ? (v.fuse ?? 0.0) + q.delta_time : 0.0;",
           "v.swell = math.max(q.swell_amount, math.clamp(v.fuse / 1.5, 0.0, 1.0));",
           "v.tremble = (v.fuse > 0.0 ? 0.25 : 0.0) + v.swell * 0.6;",

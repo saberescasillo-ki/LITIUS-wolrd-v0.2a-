@@ -1,0 +1,311 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "litius:esqueleto_exiliante",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false,
+      "properties": {
+        "litius:recargando": {
+          "type": "bool",
+          "default": false,
+          "client_sync": false
+        },
+        "litius:invocando": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        }
+      }
+    },
+    "component_groups": {
+      "litius:recarga": {
+        "minecraft:timer": {
+          "looping": false,
+          "time": 30,
+          "time_down_event": {
+            "event": "litius:recargado",
+            "target": "self"
+          }
+        }
+      },
+      "litius:invocando": {
+        "minecraft:movement": {
+          "value": 0.0
+        },
+        "minecraft:knockback_resistance": {
+          "value": 1.0
+        }
+      },
+      "litius:fin_invocacion": {
+        "minecraft:timer": {
+          "looping": false,
+          "time": 1.2,
+          "time_down_event": {
+            "event": "litius:invocacion_terminada",
+            "target": "self"
+          }
+        }
+      },
+      "litius:mov_normal": {
+        "minecraft:movement": {
+          "value": 0.26
+        }
+      }
+    },
+    "components": {
+      "minecraft:is_hidden_when_invisible": {},
+      "minecraft:type_family": {
+        "family": [
+          "skeleton",
+          "undead",
+          "monster",
+          "mob"
+        ]
+      },
+      "minecraft:collision_box": {
+        "width": 0.6,
+        "height": 1.9
+      },
+      "minecraft:health": {
+        "value": 24,
+        "max": 24
+      },
+      "minecraft:movement": {
+        "value": 0.26
+      },
+      "minecraft:follow_range": {
+        "value": 24,
+        "max": 24
+      },
+      "minecraft:attack": {
+        "damage": 4
+      },
+      "minecraft:navigation.walk": {
+        "is_amphibious": true,
+        "avoid_sun": true,
+        "avoid_water": true
+      },
+      "minecraft:movement.basic": {},
+      "minecraft:jump.static": {},
+      "minecraft:can_climb": {},
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:nameable": {},
+      "minecraft:breathable": {
+        "total_supply": 15,
+        "suffocate_time": 0,
+        "breathes_air": true,
+        "breathes_water": true
+      },
+      "minecraft:burns_in_daylight": {},
+      "minecraft:loot": {
+        "table": "loot_tables/entities/skeleton.json"
+      },
+      "minecraft:experience_reward": {
+        "on_death": "query.last_hit_by_player ? 8 : 0"
+      },
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "filters": {
+              "test": "in_lava",
+              "subject": "self",
+              "operator": "==",
+              "value": true
+            },
+            "cause": "lava",
+            "damage_per_tick": 4
+          }
+        ]
+      },
+      "minecraft:despawn": {
+        "despawn_from_distance": {}
+      },
+      "minecraft:conditional_bandwidth_optimization": {},
+      "minecraft:behavior.float": {
+        "priority": 0
+      },
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 1
+      },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 2,
+        "must_see": true,
+        "reselect_targets": true,
+        "within_radius": 20.0,
+        "entity_types": [
+          {
+            "filters": {
+              "any_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "player"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "snowgolem"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "irongolem"
+                }
+              ]
+            },
+            "max_dist": 20
+          }
+        ]
+      },
+      "minecraft:behavior.delayed_attack": {
+        "priority": 3,
+        "attack_duration": 0.6,
+        "hit_delay_pct": 0.5,
+        "reach_multiplier": 2.4,
+        "speed_multiplier": 1.15,
+        "track_target": true,
+        "require_complete_path": false
+      },
+      "minecraft:behavior.flee_sun": {
+        "priority": 4,
+        "speed_multiplier": 1.0
+      },
+      "minecraft:behavior.random_stroll": {
+        "priority": 6,
+        "speed_multiplier": 0.9
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 7,
+        "look_distance": 8,
+        "probability": 0.02
+      },
+      "minecraft:behavior.random_look_around": {
+        "priority": 8
+      },
+      "minecraft:environment_sensor": {
+        "triggers": [
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "has_target",
+                  "subject": "self",
+                  "value": true
+                },
+                {
+                  "test": "bool_property",
+                  "domain": "litius:recargando",
+                  "operator": "==",
+                  "value": false
+                }
+              ]
+            },
+            "event": "litius:invocar"
+          }
+        ]
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "on_damage": {
+              "filters": {
+                "test": "bool_property",
+                "subject": "self",
+                "domain": "litius:recargando",
+                "operator": "==",
+                "value": false
+              },
+              "event": "litius:invocar",
+              "target": "self"
+            }
+          }
+        ]
+      }
+    },
+    "events": {
+      "litius:invocar": {
+        "sequence": [
+          {
+            "filters": {
+              "test": "bool_property",
+              "domain": "litius:recargando",
+              "operator": "==",
+              "value": false
+            },
+            "set_property": {
+              "litius:recargando": true,
+              "litius:invocando": true
+            },
+            "add": {
+              "component_groups": [
+                "litius:recarga",
+                "litius:invocando",
+                "litius:fin_invocacion"
+              ]
+            },
+            "queue_command": {
+              "command": [
+                "particle litius:tierra_emerger ~1.5 ~ ~",
+                "particle litius:tierra_emerger ~-1.5 ~ ~",
+                "playsound mob.evocation_illager.prepare_summon @a[r=24] ~ ~ ~",
+                "summon minecraft:zombie ~1.5 ~ ~",
+                "summon minecraft:zombie ~-1.5 ~ ~"
+              ]
+            },
+            "remove": {
+              "component_groups": [
+                "litius:mov_normal"
+              ]
+            }
+          }
+        ]
+      },
+      "litius:invocacion_terminada": {
+        "sequence": [
+          {
+            "remove": {
+              "component_groups": [
+                "litius:invocando",
+                "litius:fin_invocacion"
+              ]
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "litius:mov_normal"
+              ]
+            }
+          },
+          {
+            "set_property": {
+              "litius:invocando": false
+            }
+          }
+        ]
+      },
+      "litius:recargado": {
+        "sequence": [
+          {
+            "remove": {
+              "component_groups": [
+                "litius:recarga"
+              ]
+            }
+          },
+          {
+            "set_property": {
+              "litius:recargando": false
+            }
+          }
+        ]
+      }
+    }
+  }
+}

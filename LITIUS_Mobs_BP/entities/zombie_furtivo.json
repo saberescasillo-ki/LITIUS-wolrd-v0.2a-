@@ -31,9 +31,9 @@
         "minecraft:behavior.float": { "priority": 0 },
         "minecraft:behavior.delayed_attack": {
           "priority": 3,
-          "attack_duration": 0.6,
-          "hit_delay_pct": 0.55,
-          "reach_multiplier": 1.8,
+          "attack_duration": 0.4,
+          "hit_delay_pct": 0.5,
+          "reach_multiplier": 3.0,
           "speed_multiplier": 1.2,
           "track_target": true,
           "require_complete_path": false

@@ -1,0 +1,47 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "litius:esqueleto_exiliante",
+      "materials": {
+        "default": "entity_alphatest",
+        "capa": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/skeleton/skeleton",
+        "capa": "textures/entity/litius/exiliante_extras"
+      },
+      "geometry": {
+        "default": "geometry.litius.esqueleto_furtivo",
+        "capa": "geometry.litius.exiliante_extras"
+      },
+      "particle_effects": {
+        "tierra": "litius:tierra_emerger"
+      },
+      "scripts": {
+        "pre_animation": [
+          "v.invocando = q.property('litius:invocando');",
+          "v.speed = math.clamp(q.modified_move_speed, 0.0, 1.0);",
+          "v.tcos = math.cos(q.modified_distance_moved * 38.17) * q.modified_move_speed * 57.3;",
+          "v.lean = math.lerp(v.lean ?? 0.0, v.speed > 0.1 ? -4.0 : 0.0, math.clamp(q.delta_time * 6.0, 0.0, 1.0));"
+        ],
+        "animate": ["mirar", "cuerpo", "capa", "pose_ctrl"]
+      },
+      "animations": {
+        "pose_ctrl": "controller.animation.litius.esqueleto_exiliante.pose",
+        "mirar": "animation.litius.esqueleto_exiliante.mirar",
+        "cuerpo": "animation.litius.esqueleto_exiliante.cuerpo",
+        "reposo": "animation.litius.esqueleto_exiliante.reposo",
+        "caminar": "animation.litius.esqueleto_exiliante.caminar",
+        "bofetada": "animation.litius.esqueleto_exiliante.bofetada",
+        "invocar": "animation.litius.esqueleto_exiliante.invocar",
+        "capa": "animation.litius.capa"
+      },
+      "render_controllers": ["controller.render.litius.base", "controller.render.litius.capa"],
+      "spawn_egg": {
+        "base_color": "#C1C1C1",
+        "overlay_color": "#6E4A2A"
+      }
+    }
+  }
+}

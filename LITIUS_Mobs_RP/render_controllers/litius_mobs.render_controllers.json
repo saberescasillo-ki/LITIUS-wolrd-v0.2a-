@@ -16,10 +16,10 @@
       "materials": [{ "*": "Material.default" }],
       "textures": ["Texture.default"],
       "overlay_color": {
-        "r": 1.0,
-        "g": 1.0,
-        "b": 1.0,
-        "a": "v.flash"
+        "r": "v.flash > 0.0 ? 1.0 : this",
+        "g": "v.flash > 0.0 ? 1.0 : this",
+        "b": "v.flash > 0.0 ? 1.0 : this",
+        "a": "v.flash > 0.0 ? 0.5 : this"
       }
     },
     "controller.render.litius.creeper_plus_armor": {

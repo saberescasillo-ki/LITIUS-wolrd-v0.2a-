@@ -1,0 +1,31 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.litius.wither_furtivo.pose": {
+      "initial_state": "reposo",
+      "states": {
+        "reposo": {
+          "animations": ["reposo"],
+          "transitions": [
+            { "tajo": "q.is_delayed_attacking" },
+            { "mover": "v.speed > 0.12" }
+          ],
+          "blend_transition": 0.3
+        },
+        "mover": {
+          "animations": ["mover"],
+          "transitions": [
+            { "tajo": "q.is_delayed_attacking" },
+            { "reposo": "v.speed < 0.08" }
+          ],
+          "blend_transition": 0.3
+        },
+        "tajo": {
+          "animations": ["tajo"],
+          "transitions": [{ "mover": "q.any_animation_finished" }],
+          "blend_transition": 0.1
+        }
+      }
+    }
+  }
+}

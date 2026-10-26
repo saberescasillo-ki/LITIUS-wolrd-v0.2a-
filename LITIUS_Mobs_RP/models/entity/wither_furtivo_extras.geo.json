@@ -1,0 +1,168 @@
+{
+  "format_version": "1.12.0",
+  "minecraft:geometry": [
+    {
+      "description": {
+        "identifier": "geometry.litius.wither_furtivo_extras",
+        "texture_width": 64,
+        "texture_height": 64,
+        "visible_bounds_width": 3,
+        "visible_bounds_height": 3.5,
+        "visible_bounds_offset": [
+          0,
+          1.25,
+          0
+        ]
+      },
+      "bones": [
+        {
+          "name": "root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "body",
+          "parent": "root",
+          "pivot": [
+            0,
+            12,
+            0
+          ]
+        },
+        {
+          "name": "head",
+          "parent": "body",
+          "pivot": [
+            0,
+            24,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -3.6,
+                25,
+                -4.06
+              ],
+              "size": [
+                3,
+                6,
+                0
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    48,
+                    0
+                  ],
+                  "uv_size": [
+                    3,
+                    6
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "rightArm",
+          "parent": "body",
+          "pivot": [
+            -5,
+            22,
+            0
+          ]
+        },
+        {
+          "name": "blade",
+          "parent": "rightArm",
+          "pivot": [
+            -5,
+            17,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -6.5,
+                15,
+                -1.5
+              ],
+              "size": [
+                3,
+                3,
+                3
+              ],
+              "uv": [
+                24,
+                0
+              ]
+            },
+            {
+              "origin": [
+                -5.5,
+                1,
+                -2
+              ],
+              "size": [
+                1,
+                14,
+                4
+              ],
+              "uv": [
+                0,
+                20
+              ]
+            },
+            {
+              "origin": [
+                -5.5,
+                -1,
+                -1
+              ],
+              "size": [
+                1,
+                2,
+                2
+              ],
+              "uv": [
+                12,
+                20
+              ]
+            }
+          ]
+        },
+        {
+          "name": "cape",
+          "parent": "body",
+          "pivot": [
+            0,
+            24,
+            2.1
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -5,
+                6,
+                2.1
+              ],
+              "size": [
+                10,
+                18,
+                1
+              ],
+              "uv": [
+                0,
+                0
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

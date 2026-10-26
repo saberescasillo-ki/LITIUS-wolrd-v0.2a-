@@ -1,0 +1,41 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.litius.esqueleto_exiliante.pose": {
+      "initial_state": "reposo",
+      "states": {
+        "reposo": {
+          "animations": ["reposo"],
+          "transitions": [
+            { "invocar": "v.invocando" },
+            { "bofetada": "q.is_delayed_attacking" },
+            { "caminar": "v.speed > 0.12" }
+          ],
+          "blend_transition": 0.3
+        },
+        "caminar": {
+          "animations": ["caminar"],
+          "transitions": [
+            { "invocar": "v.invocando" },
+            { "bofetada": "q.is_delayed_attacking" },
+            { "reposo": "v.speed < 0.08" }
+          ],
+          "blend_transition": 0.3
+        },
+        "bofetada": {
+          "animations": ["bofetada"],
+          "transitions": [
+            { "invocar": "v.invocando" },
+            { "reposo": "q.any_animation_finished" }
+          ],
+          "blend_transition": 0.12
+        },
+        "invocar": {
+          "animations": ["invocar"],
+          "transitions": [{ "reposo": "!v.invocando" }],
+          "blend_transition": 0.2
+        }
+      }
+    }
+  }
+}

@@ -8,28 +8,89 @@
     "conditions": [
       {
         "minecraft:spawns_on_surface": {},
-        "minecraft:brightness_filter": { "min": 0, "max": 7, "adjust_for_weather": true },
-        "minecraft:difficulty_filter": { "min": "easy", "max": "hard" },
-        "minecraft:weight": { "default": 15 },
-        "minecraft:herd": { "min_size": 1, "max_size": 2 },
+        "minecraft:brightness_filter": {
+          "min": 0,
+          "max": 7,
+          "adjust_for_weather": true
+        },
+        "minecraft:difficulty_filter": {
+          "min": "easy",
+          "max": "hard"
+        },
+        "minecraft:weight": {
+          "default": 15
+        },
+        "minecraft:herd": {
+          "min_size": 1,
+          "max_size": 2
+        },
         "minecraft:biome_filter": {
           "all_of": [
-            { "test": "has_biome_tag", "value": "monster" },
-            { "test": "has_biome_tag", "operator": "!=", "value": "mushroom_island" }
+            {
+              "test": "has_biome_tag",
+              "value": "monster"
+            },
+            {
+              "test": "has_biome_tag",
+              "operator": "!=",
+              "value": "mushroom_island"
+            }
           ]
         }
       },
       {
         "minecraft:spawns_underground": {},
-        "minecraft:brightness_filter": { "min": 0, "max": 7, "adjust_for_weather": true },
-        "minecraft:difficulty_filter": { "min": "easy", "max": "hard" },
-        "minecraft:weight": { "default": 10 },
-        "minecraft:herd": { "min_size": 1, "max_size": 1 },
+        "minecraft:brightness_filter": {
+          "min": 0,
+          "max": 7,
+          "adjust_for_weather": true
+        },
+        "minecraft:difficulty_filter": {
+          "min": "easy",
+          "max": "hard"
+        },
+        "minecraft:weight": {
+          "default": 10
+        },
+        "minecraft:herd": {
+          "min_size": 1,
+          "max_size": 1
+        },
         "minecraft:biome_filter": {
           "all_of": [
-            { "test": "has_biome_tag", "value": "monster" },
-            { "test": "has_biome_tag", "operator": "!=", "value": "deep_dark" }
+            {
+              "test": "has_biome_tag",
+              "value": "monster"
+            },
+            {
+              "test": "has_biome_tag",
+              "operator": "!=",
+              "value": "deep_dark"
+            }
           ]
+        }
+      },
+      {
+        "minecraft:spawns_on_surface": {},
+        "minecraft:brightness_filter": {
+          "min": 0,
+          "max": 7,
+          "adjust_for_weather": true
+        },
+        "minecraft:difficulty_filter": {
+          "min": "easy",
+          "max": "hard"
+        },
+        "minecraft:weight": {
+          "default": 60
+        },
+        "minecraft:herd": {
+          "min_size": 1,
+          "max_size": 2
+        },
+        "minecraft:biome_filter": {
+          "test": "has_biome_tag",
+          "value": "abedul_furtivo"
         }
       }
     ]
