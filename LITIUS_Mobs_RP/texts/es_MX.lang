@@ -1,0 +1,6 @@
+entity.litius:esqueleto_furtivo.name=Esqueleto Furtivo
+entity.litius:zombie_furtivo.name=Zombie Furtivo
+entity.litius:creeper_plus.name=Creeper +
+item.spawn_egg.entity.litius:esqueleto_furtivo.name=Generar Esqueleto Furtivo
+item.spawn_egg.entity.litius:zombie_furtivo.name=Generar Zombie Furtivo
+item.spawn_egg.entity.litius:creeper_plus.name=Generar Creeper +

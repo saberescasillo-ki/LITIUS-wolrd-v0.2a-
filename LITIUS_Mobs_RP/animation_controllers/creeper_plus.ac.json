@@ -1,0 +1,19 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.litius.creeper_plus.ataque": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [{ "cabezazo": "q.is_delayed_attacking" }],
+          "blend_transition": 0.1
+        },
+        "cabezazo": {
+          "animations": ["cabezazo"],
+          "transitions": [{ "default": "q.any_animation_finished" }],
+          "blend_transition": 0.1
+        }
+      }
+    }
+  }
+}

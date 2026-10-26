@@ -1,0 +1,63 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.litius.esqueleto_furtivo.cuerpo": {
+      "initial_state": "inicio",
+      "states": {
+        "inicio": {
+          "transitions": [
+            { "emerger": "v.emerging" },
+            { "suelo": "!v.emerging" }
+          ]
+        },
+        "emerger": {
+          "animations": ["emerger", "capa"],
+          "transitions": [{ "suelo": "!v.emerging" }],
+          "blend_transition": 0.35
+        },
+        "suelo": {
+          "animations": ["mirar", "piernas", "inclinacion", "capa"],
+          "transitions": [{ "emerger": "v.emerging" }],
+          "blend_transition": 0.35
+        }
+      }
+    },
+
+    "controller.animation.litius.esqueleto_furtivo.brazos": {
+      "initial_state": "emerger",
+      "states": {
+        "emerger": {
+          "transitions": [{ "reposo": "!v.emerging" }],
+          "blend_transition": 0.35
+        },
+        "reposo": {
+          "animations": ["arco_reposo"],
+          "transitions": [
+            { "emerger": "v.emerging" },
+            { "apuntar": "q.has_target && v.speed < 0.2" },
+            { "correr": "q.has_target && v.speed >= 0.2" }
+          ],
+          "blend_transition": 0.25
+        },
+        "correr": {
+          "animations": ["arco_correr"],
+          "transitions": [
+            { "emerger": "v.emerging" },
+            { "reposo": "!q.has_target" },
+            { "apuntar": "v.speed < 0.2" }
+          ],
+          "blend_transition": 0.25
+        },
+        "apuntar": {
+          "animations": ["arco_apuntar"],
+          "transitions": [
+            { "emerger": "v.emerging" },
+            { "reposo": "!q.has_target" },
+            { "correr": "v.speed >= 0.3" }
+          ],
+          "blend_transition": 0.2
+        }
+      }
+    }
+  }
+}

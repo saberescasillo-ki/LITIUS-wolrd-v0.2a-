@@ -1,0 +1,31 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.litius.capa_bufanda": {
+      "loop": true,
+      "bones": {
+        "cape": {
+          "rotation": [
+            "4.0 + v.speed * 42.0 + math.sin(q.life_time * 150.0) * (1.5 + v.speed * 4.0)",
+            0,
+            "math.sin(q.life_time * 95.0) * (1.0 + v.speed * 2.0)"
+          ]
+        },
+        "scarf_tail": {
+          "rotation": [
+            "6.0 + v.speed * 55.0 + math.sin(q.life_time * 210.0) * (2.0 + v.speed * 6.0)",
+            "math.sin(q.life_time * 130.0) * 4.0",
+            "-4.0 + math.sin(q.life_time * 170.0) * 3.0"
+          ]
+        },
+        "scarf_front": {
+          "rotation": [
+            "-v.lean * 0.8 + math.sin(q.life_time * 180.0) * (1.5 + v.speed * 3.0)",
+            0,
+            "math.sin(q.life_time * 120.0) * 2.0"
+          ]
+        }
+      }
+    }
+  }
+}

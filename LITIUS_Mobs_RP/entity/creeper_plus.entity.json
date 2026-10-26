@@ -1,0 +1,48 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "litius:creeper_plus",
+      "materials": {
+        "default": "entity_alphatest",
+        "charged": "charged_creeper"
+      },
+      "textures": {
+        "default": "textures/entity/creeper/creeper",
+        "charged": "textures/entity/creeper/creeper_armor"
+      },
+      "geometry": {
+        "default": "geometry.litius.creeper_plus",
+        "charged": "geometry.litius.creeper_plus.charged"
+      },
+      "scripts": {
+        "pre_animation": [
+          "v.speed = math.clamp(q.modified_move_speed, 0.0, 1.0);",
+          "v.tcos = math.cos(q.modified_distance_moved * 38.17) * q.modified_move_speed * 57.3;",
+          "v.lean = math.lerp(v.lean ?? 0.0, v.speed * 5.0, math.clamp(q.delta_time * 8.0, 0.0, 1.0));",
+          "v.fuse = q.is_ignited ? (v.fuse ?? 0.0) + q.delta_time : 0.0;",
+          "v.swell = math.max(q.swell_amount, math.clamp(v.fuse / 1.5, 0.0, 1.0));",
+          "v.tremble = (v.fuse > 0.0 ? 0.25 : 0.0) + v.swell * 0.6;",
+          "v.flash = math.mod(math.floor(v.swell * 10.0), 2.0) == 1.0 ? 0.6 : 0.0;"
+        ],
+        "animate": ["mirar", "piernas", "inclinacion", "temblor", "ataque_ctrl"]
+      },
+      "animations": {
+        "ataque_ctrl": "controller.animation.litius.creeper_plus.ataque",
+        "mirar": "animation.litius.creeper_plus.mirar",
+        "piernas": "animation.litius.creeper_plus.piernas",
+        "inclinacion": "animation.litius.creeper_plus.inclinacion",
+        "temblor": "animation.litius.creeper_plus.temblor",
+        "cabezazo": "animation.litius.creeper_plus.cabezazo"
+      },
+      "render_controllers": [
+        "controller.render.litius.creeper_plus",
+        { "controller.render.litius.creeper_plus_armor": "q.is_powered" }
+      ],
+      "spawn_egg": {
+        "base_color": "#0DA70B",
+        "overlay_color": "#1A1A1A"
+      }
+    }
+  }
+}
