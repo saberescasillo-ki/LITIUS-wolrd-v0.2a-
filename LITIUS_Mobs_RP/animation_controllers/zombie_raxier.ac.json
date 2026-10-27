@@ -11,6 +11,9 @@
           "blend_transition": 0.3,
           "transitions": [
             {
+              "rugido": "v.accion == 3"
+            },
+            {
               "agacharse": "v.accion == 2"
             },
             {
@@ -30,6 +33,9 @@
           ],
           "blend_transition": 0.3,
           "transitions": [
+            {
+              "rugido": "v.accion == 3"
+            },
             {
               "agacharse": "v.accion == 2"
             },
@@ -51,6 +57,9 @@
           "blend_transition": 0.08,
           "transitions": [
             {
+              "rugido": "v.accion == 3"
+            },
+            {
               "agacharse": "v.accion == 2"
             },
             {
@@ -64,6 +73,9 @@
           ],
           "blend_transition": 0.1,
           "transitions": [
+            {
+              "rugido": "v.accion == 3"
+            },
             {
               "agacharse": "v.accion == 2"
             },
@@ -80,6 +92,17 @@
           "transitions": [
             {
               "caminar": "v.accion != 2"
+            }
+          ]
+        },
+        "rugido": {
+          "animations": [
+            "rugido"
+          ],
+          "blend_transition": 0.12,
+          "transitions": [
+            {
+              "caminar": "v.accion != 3"
             }
           ]
         }

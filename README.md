@@ -24,7 +24,7 @@ la capa y la bufanda.
 | Jinete Acorazado | `litius:jinete_acorazado` | Zombie vanilla con armadura de hierro completa y espada de hierro, montado en un caballo zombie (`litius:caballo_acorazado`). Armadura y arma **nunca se sueltan**. **Mutación (25 %): lancero** con lanza de hierro, más alcance y daño. Aparece en llanuras, sabanas y praderas. |
 | Jinete Wither | `litius:jinete_wither` | Wither esqueleto vanilla (40 de vida) con espada de piedra (no la suelta) montado en un caballo esqueleto color wither (`litius:caballo_wither`). **Mutación (25 %): lancero** con lanza de piedra. Aparece en el Nether. |
 | Creeze | `litius:creeze` | Breeze azul (fuego de alma), animaciones vanilla, 48 de vida (breeze: 30). Si su objetivo no es un monstruo, invoca **2 breezes** cada 25 s (`litius:breeze_invocada`: igual al breeze, muere de un golpe, desaparece a los 90 s). Aparece en biomas templados/fríos, cuevas profundas (y < 0). |
-| Zombie Raxier (minijefe) | `litius:zombie_raxier` | Zombie vanilla con hombreras de cuero, capa, guantes de piedra, cicatriz en el ojo izquierdo y un aro de hierro oxidado en el cuello. 225 de vida, velocidad de un jugador corriendo, detecta a 40 bloques. 15–4.5 bloques: lanza cargas de viento (1/s). Menos de 4.4: puñetazos. Cada 4–7 s: ráfaga de 4 cargas (cada 0.3 s) o se agacha 1 s e invoca **pinchos de aire** de 2 bloques en un área de 3x3 alrededor de cada jugador/golem cercano (5 de daño). No suelta objetos; da 50 de experiencia (como 10 enemigos). Aparece raro en biomas fríos. |
+| Zombie Raxier (minijefe) | `litius:zombie_raxier` | Zombie vanilla con hombreras de cuero, capa, guantes de piedra, cicatriz en el ojo izquierdo y un aro de hierro oxidado en el cuello. 225 de vida, velocidad de un jugador corriendo, detecta a 40 bloques. 15–4.5 bloques: lanza cargas de viento (1/s). Menos de 4.4: puñetazos. Cada 4–7 s: **ruge 1 s y suelta 2 ráfagas de 4 cargas**, o se agacha 1 s e invoca **pinchos de aire** de 2 bloques en un área de **5x5** alrededor de cada jugador/golem cercano (5 de daño; solo se esquivan corriendo desde el primer momento). No suelta objetos; da 50 de experiencia. Aparece raro en biomas fríos. |
 | Ahogado Furtivo | `litius:ahogado_furtivo` | Drowned vanilla con bufanda y tiras de algas, **siempre con tridente** (5 % de soltarlo). De cerca agarra con las dos manos (**Lentitud 3 s**); de lejos lanza el tridente. Aparece en ríos y océanos. |
 | Momia Errante | `litius:momia_errante` | Husk vanilla con vendas, turbante y chal de arena. Sale de la arena arrastrándose; camina tambaleándose; doble zarpazo que aplica **Hambre 8 s**. No se quema al sol. Aparece en desiertos y mesas. |
 | Stray Centinela | `litius:stray_centinela` | Stray vanilla (con su ropa) más capa de piel y bufanda de lana. Francotirador: detecta a 30 bloques y **se arrodilla para disparar** flechas de Lentitud cada 2.5 s. Aparece en biomas fríos. |
@@ -36,12 +36,33 @@ la capa y la bufanda.
 
 ### Dimensión: Islas Flotantes (`litius:islas`)
 
-Una dimensión nueva con islas flotantes parecidas a las del End pero más pequeñas:
-**musgo por arriba, piedra por abajo** (en forma de cono) y **árboles gigantes de
-abedul y roble**. Las islas se generan solas alrededor del jugador mientras explora.
-Ahí **solo aparecen los mobs de este addon** (incluidos los minijefes, uno a la vez);
-cualquier otro mob se elimina. Los no-muertos del addon no se queman al sol en las islas.
+Una dimensión con islas flotantes parecidas a las del End pero más pequeñas:
+**musgo por arriba, piedra por abajo** (en forma de cono, con algo de carbón, hierro y
+cobre) y **árboles gigantes de abedul y roble**. Las islas se generan solas alrededor del
+jugador mientras explora, con 7 tipos distintos:
 
+| Tipo | Cómo es |
+|------|---------|
+| Pradera | Isla de musgo con hierba, flores y algún árbol gigante (a veces dos islas juntas) |
+| Bosque | Muchos abedules y robles gigantes, helechos y raíces colgando por debajo |
+| Lago | Estanque en el centro con nenúfares y árboles en la orilla |
+| Pico | Montaña de piedra que sube hacia el centro, con musgo en las faldas |
+| Rocas | Archipiélago de 4–7 rocas pequeñas a distintas alturas |
+| Ruinas | Pilares rotos y suelo de ladrillo de piedra musgoso |
+| Azalea | Arbolitos de azalea en flor sobre tierra con raíces |
+
+Las islas pueden ser redondas o alargadas y aparecen entre las alturas 72 y 128.
+
+**Isla del spawn:** siempre apareces en **0 99 0**, en el centro de una plaza de piedra
+tallada con 8 pilares y faroles, sobre una isla mucho más grande que las demás con un
+**árbol ancestral** (tronco 3x3, 26 bloques), un estanque con **cascada que cae al vacío**
+y 7 rocas satélite flotando alrededor.
+
+- **Simulación:** alrededor de cada jugador en la dimensión se mantiene un área de
+  simulación de **4 chunks de radio**, para que mobs y bloques sigan activos.
+- **Mobs:** puede aparecer **cualquier mob**: los del addon (incluidos los minijefes, uno
+  a la vez), monstruos vanilla y animales. De noche dominan los monstruos y de día los
+  animales. Los no-muertos del addon no se queman al sol en las islas.
 - **Cómo entrar:** fabrica la **Llave de las Islas Flotantes** (musgo arriba, a los lados
   y en medio una brújula, perla de ender abajo) y úsala. Úsala otra vez para volver al
   lugar desde el que saliste. Con trucos: `/litius:islas`.

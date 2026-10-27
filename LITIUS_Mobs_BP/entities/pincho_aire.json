@@ -108,8 +108,8 @@
           {
             "queue_command": {
               "command": [
-                "damage @e[r=0.9,type=!litius:pincho_aire,type=!litius:zombie_raxier] 5 magic",
-                "playsound mob.breeze.wind_burst @a[r=16] ~ ~ ~"
+                "damage @e[r=1.1,type=!litius:pincho_aire,type=!litius:zombie_raxier] 5 magic",
+                "playsound mob.breeze.wind_burst @a[r=16] ~ ~ ~ 0.4"
               ]
             }
           }

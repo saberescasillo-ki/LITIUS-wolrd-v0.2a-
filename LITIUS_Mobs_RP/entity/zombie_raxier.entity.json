@@ -16,7 +16,8 @@
         "capa": "geometry.litius.raxier_ropa"
       },
       "particle_effects": {
-        "viento": "litius:viento_raxier"
+        "viento": "litius:viento_raxier",
+        "onda": "litius:onda_grito"
       },
       "scripts": {
         "pre_animation": [
@@ -44,7 +45,8 @@
         "disparo": "animation.litius.zombie_raxier.disparo",
         "golpe": "animation.litius.zombie_raxier.golpe",
         "agacharse": "animation.litius.zombie_raxier.agacharse",
-        "capa": "animation.litius.capa"
+        "capa": "animation.litius.capa",
+        "rugido": "animation.litius.zombie_raxier.rugido"
       },
       "render_controllers": [
         "controller.render.litius.base",

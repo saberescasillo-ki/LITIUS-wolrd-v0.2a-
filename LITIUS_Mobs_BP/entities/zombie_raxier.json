@@ -20,7 +20,7 @@
           "type": "int",
           "range": [
             0,
-            2
+            3
           ],
           "default": 0,
           "client_sync": true
@@ -53,8 +53,8 @@
       "litius:rafaga": {
         "minecraft:behavior.ranged_attack": {
           "priority": 1,
-          "attack_interval_min": 0.2,
-          "attack_interval_max": 0.2,
+          "attack_interval_min": 0.5,
+          "attack_interval_max": 0.5,
           "attack_radius": 16.0,
           "burst_shots": 4,
           "burst_interval": 0.3,
@@ -63,7 +63,7 @@
         },
         "minecraft:timer": {
           "looping": false,
-          "time": 1.3,
+          "time": 2.7,
           "time_down_event": {
             "event": "litius:fin_accion",
             "target": "self"
@@ -98,6 +98,19 @@
           "randomInterval": true,
           "time_down_event": {
             "event": "litius:elegir_especial",
+            "target": "self"
+          }
+        }
+      },
+      "litius:rugido": {
+        "minecraft:movement": {
+          "value": 0.0
+        },
+        "minecraft:timer": {
+          "looping": false,
+          "time": 1.0,
+          "time_down_event": {
+            "event": "litius:empezar_rafaga",
             "target": "self"
           }
         }
@@ -405,7 +418,7 @@
             "randomize": [
               {
                 "weight": 45,
-                "trigger": "litius:empezar_rafaga"
+                "trigger": "litius:empezar_rugido"
               },
               {
                 "weight": 55,
@@ -420,6 +433,7 @@
           {
             "remove": {
               "component_groups": [
+                "litius:rugido",
                 "litius:lejos",
                 "litius:cerca"
               ]
@@ -428,6 +442,7 @@
           {
             "add": {
               "component_groups": [
+                "litius:mov_normal",
                 "litius:rafaga"
               ]
             }
@@ -468,33 +483,81 @@
             "queue_command": {
               "command": [
                 "playsound mob.breeze.charge @a[r=24] ~ ~ ~",
+                "execute at @a[r=20,m=!creative] align xz positioned ~-1.5 ~ ~-1.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @a[r=20,m=!creative] align xz positioned ~-1.5 ~ ~-0.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @a[r=20,m=!creative] align xz positioned ~-1.5 ~ ~0.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @a[r=20,m=!creative] align xz positioned ~-1.5 ~ ~1.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @a[r=20,m=!creative] align xz positioned ~-1.5 ~ ~2.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @a[r=20,m=!creative] align xz positioned ~-0.5 ~ ~-1.5 run summon litius:pincho_aire ~ ~ ~",
                 "execute at @a[r=20,m=!creative] align xz positioned ~-0.5 ~ ~-0.5 run summon litius:pincho_aire ~ ~ ~",
                 "execute at @a[r=20,m=!creative] align xz positioned ~-0.5 ~ ~0.5 run summon litius:pincho_aire ~ ~ ~",
                 "execute at @a[r=20,m=!creative] align xz positioned ~-0.5 ~ ~1.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @a[r=20,m=!creative] align xz positioned ~-0.5 ~ ~2.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @a[r=20,m=!creative] align xz positioned ~0.5 ~ ~-1.5 run summon litius:pincho_aire ~ ~ ~",
                 "execute at @a[r=20,m=!creative] align xz positioned ~0.5 ~ ~-0.5 run summon litius:pincho_aire ~ ~ ~",
                 "execute at @a[r=20,m=!creative] align xz positioned ~0.5 ~ ~0.5 run summon litius:pincho_aire ~ ~ ~",
                 "execute at @a[r=20,m=!creative] align xz positioned ~0.5 ~ ~1.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @a[r=20,m=!creative] align xz positioned ~0.5 ~ ~2.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @a[r=20,m=!creative] align xz positioned ~1.5 ~ ~-1.5 run summon litius:pincho_aire ~ ~ ~",
                 "execute at @a[r=20,m=!creative] align xz positioned ~1.5 ~ ~-0.5 run summon litius:pincho_aire ~ ~ ~",
                 "execute at @a[r=20,m=!creative] align xz positioned ~1.5 ~ ~0.5 run summon litius:pincho_aire ~ ~ ~",
                 "execute at @a[r=20,m=!creative] align xz positioned ~1.5 ~ ~1.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @a[r=20,m=!creative] align xz positioned ~1.5 ~ ~2.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @a[r=20,m=!creative] align xz positioned ~2.5 ~ ~-1.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @a[r=20,m=!creative] align xz positioned ~2.5 ~ ~-0.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @a[r=20,m=!creative] align xz positioned ~2.5 ~ ~0.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @a[r=20,m=!creative] align xz positioned ~2.5 ~ ~1.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @a[r=20,m=!creative] align xz positioned ~2.5 ~ ~2.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=iron_golem,r=20] align xz positioned ~-1.5 ~ ~-1.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=iron_golem,r=20] align xz positioned ~-1.5 ~ ~-0.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=iron_golem,r=20] align xz positioned ~-1.5 ~ ~0.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=iron_golem,r=20] align xz positioned ~-1.5 ~ ~1.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=iron_golem,r=20] align xz positioned ~-1.5 ~ ~2.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=iron_golem,r=20] align xz positioned ~-0.5 ~ ~-1.5 run summon litius:pincho_aire ~ ~ ~",
                 "execute at @e[type=iron_golem,r=20] align xz positioned ~-0.5 ~ ~-0.5 run summon litius:pincho_aire ~ ~ ~",
                 "execute at @e[type=iron_golem,r=20] align xz positioned ~-0.5 ~ ~0.5 run summon litius:pincho_aire ~ ~ ~",
                 "execute at @e[type=iron_golem,r=20] align xz positioned ~-0.5 ~ ~1.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=iron_golem,r=20] align xz positioned ~-0.5 ~ ~2.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=iron_golem,r=20] align xz positioned ~0.5 ~ ~-1.5 run summon litius:pincho_aire ~ ~ ~",
                 "execute at @e[type=iron_golem,r=20] align xz positioned ~0.5 ~ ~-0.5 run summon litius:pincho_aire ~ ~ ~",
                 "execute at @e[type=iron_golem,r=20] align xz positioned ~0.5 ~ ~0.5 run summon litius:pincho_aire ~ ~ ~",
                 "execute at @e[type=iron_golem,r=20] align xz positioned ~0.5 ~ ~1.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=iron_golem,r=20] align xz positioned ~0.5 ~ ~2.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=iron_golem,r=20] align xz positioned ~1.5 ~ ~-1.5 run summon litius:pincho_aire ~ ~ ~",
                 "execute at @e[type=iron_golem,r=20] align xz positioned ~1.5 ~ ~-0.5 run summon litius:pincho_aire ~ ~ ~",
                 "execute at @e[type=iron_golem,r=20] align xz positioned ~1.5 ~ ~0.5 run summon litius:pincho_aire ~ ~ ~",
                 "execute at @e[type=iron_golem,r=20] align xz positioned ~1.5 ~ ~1.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=iron_golem,r=20] align xz positioned ~1.5 ~ ~2.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=iron_golem,r=20] align xz positioned ~2.5 ~ ~-1.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=iron_golem,r=20] align xz positioned ~2.5 ~ ~-0.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=iron_golem,r=20] align xz positioned ~2.5 ~ ~0.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=iron_golem,r=20] align xz positioned ~2.5 ~ ~1.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=iron_golem,r=20] align xz positioned ~2.5 ~ ~2.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=snow_golem,r=20] align xz positioned ~-1.5 ~ ~-1.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=snow_golem,r=20] align xz positioned ~-1.5 ~ ~-0.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=snow_golem,r=20] align xz positioned ~-1.5 ~ ~0.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=snow_golem,r=20] align xz positioned ~-1.5 ~ ~1.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=snow_golem,r=20] align xz positioned ~-1.5 ~ ~2.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=snow_golem,r=20] align xz positioned ~-0.5 ~ ~-1.5 run summon litius:pincho_aire ~ ~ ~",
                 "execute at @e[type=snow_golem,r=20] align xz positioned ~-0.5 ~ ~-0.5 run summon litius:pincho_aire ~ ~ ~",
                 "execute at @e[type=snow_golem,r=20] align xz positioned ~-0.5 ~ ~0.5 run summon litius:pincho_aire ~ ~ ~",
                 "execute at @e[type=snow_golem,r=20] align xz positioned ~-0.5 ~ ~1.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=snow_golem,r=20] align xz positioned ~-0.5 ~ ~2.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=snow_golem,r=20] align xz positioned ~0.5 ~ ~-1.5 run summon litius:pincho_aire ~ ~ ~",
                 "execute at @e[type=snow_golem,r=20] align xz positioned ~0.5 ~ ~-0.5 run summon litius:pincho_aire ~ ~ ~",
                 "execute at @e[type=snow_golem,r=20] align xz positioned ~0.5 ~ ~0.5 run summon litius:pincho_aire ~ ~ ~",
                 "execute at @e[type=snow_golem,r=20] align xz positioned ~0.5 ~ ~1.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=snow_golem,r=20] align xz positioned ~0.5 ~ ~2.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=snow_golem,r=20] align xz positioned ~1.5 ~ ~-1.5 run summon litius:pincho_aire ~ ~ ~",
                 "execute at @e[type=snow_golem,r=20] align xz positioned ~1.5 ~ ~-0.5 run summon litius:pincho_aire ~ ~ ~",
                 "execute at @e[type=snow_golem,r=20] align xz positioned ~1.5 ~ ~0.5 run summon litius:pincho_aire ~ ~ ~",
-                "execute at @e[type=snow_golem,r=20] align xz positioned ~1.5 ~ ~1.5 run summon litius:pincho_aire ~ ~ ~"
+                "execute at @e[type=snow_golem,r=20] align xz positioned ~1.5 ~ ~1.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=snow_golem,r=20] align xz positioned ~1.5 ~ ~2.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=snow_golem,r=20] align xz positioned ~2.5 ~ ~-1.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=snow_golem,r=20] align xz positioned ~2.5 ~ ~-0.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=snow_golem,r=20] align xz positioned ~2.5 ~ ~0.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=snow_golem,r=20] align xz positioned ~2.5 ~ ~1.5 run summon litius:pincho_aire ~ ~ ~",
+                "execute at @e[type=snow_golem,r=20] align xz positioned ~2.5 ~ ~2.5 run summon litius:pincho_aire ~ ~ ~"
               ]
             }
           }
@@ -543,7 +606,8 @@
           {
             "remove": {
               "component_groups": [
-                "litius:rafaga"
+                "litius:rafaga",
+                "litius:rugido"
               ]
             }
           },
@@ -565,6 +629,40 @@
             "set_property": {
               "litius:accion": 0,
               "litius:modo": 0
+            }
+          }
+        ]
+      },
+      "litius:empezar_rugido": {
+        "sequence": [
+          {
+            "remove": {
+              "component_groups": [
+                "litius:lejos",
+                "litius:cerca",
+                "litius:mov_normal"
+              ]
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "litius:rugido"
+              ]
+            }
+          },
+          {
+            "set_property": {
+              "litius:accion": 3,
+              "litius:modo": 0
+            }
+          },
+          {
+            "queue_command": {
+              "command": [
+                "playsound mob.ravager.roar @a[r=32] ~ ~ ~ 1 0.8",
+                "particle litius:onda_grito ~ ~1.2 ~"
+              ]
             }
           }
         ]
