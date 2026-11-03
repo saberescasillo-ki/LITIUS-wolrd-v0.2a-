@@ -2,22 +2,22 @@
   "format_version": "1.26.0",
   "minecraft:client_entity": {
     "description": {
-      "identifier": "litius:jinete_ancestro",
+      "identifier": "litius:dummy",
       "min_engine_version": "1.8.0",
       "materials": {
-        "default": "zombie"
+        "default": "entity_alphatest"
       },
       "textures": {
-        "default": "textures/entity/zombie/zombie",
-        "baby": "textures/entity/zombie/zombie_baby"
+        "steve": "textures/entity/steve",
+        "alex": "textures/entity/alex"
       },
       "geometry": {
-        "default": "geometry.zombie.v1.8",
-        "baby": "geometry.zombie.baby"
+        "default": "geometry.humanoid.custom",
+        "slim": "geometry.humanoid.customSlim"
       },
       "spawn_egg": {
-        "base_color": "#2F5A3A",
-        "overlay_color": "#B4B4B4"
+        "base_color": "#3BA9D6",
+        "overlay_color": "#5A3D29"
       },
       "scripts": {
         "pre_animation": [
@@ -80,16 +80,12 @@
             "bow_and_arrow_controller": "!v.melee_spear_equipped"
           },
           "use_item_progress_controller",
-          {
-            "zombie_attack_bare_hand_controller": "!v.melee_spear_equipped"
-          },
           "swimming_controller",
           {
             "melee_spear_controller": "v.melee_spear_equipped"
           }
         ],
-        "should_update_effects_offscreen": "1.0",
-        "scale": "query.is_baby ? 2.0 : 1.0"
+        "should_update_effects_offscreen": "1.0"
       },
       "animations": {
         "humanoid_big_head": "animation.humanoid.big_head",
@@ -132,7 +128,7 @@
         "baby_zombie_attack_bare_hand": "animation.zombie.baby_attack_bare_hand"
       },
       "render_controllers": [
-        "controller.render.zombie.v2"
+        "controller.render.litius.dummy"
       ],
       "enable_attachables": true
     }

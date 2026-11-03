@@ -2,12 +2,13 @@
   "format_version": "1.8.0",
   "minecraft:spawn_rules": {
     "description": {
-      "identifier": "litius:jinete_ancestro",
+      "identifier": "minecraft:spider",
       "population_control": "monster"
     },
     "conditions": [
       {
         "minecraft:spawns_on_surface": {},
+        "minecraft:spawns_underground": {},
         "minecraft:brightness_filter": {
           "min": 0,
           "max": 7,
@@ -18,35 +19,24 @@
           "max": "hard"
         },
         "minecraft:weight": {
-          "default": 2
-        },
-        "minecraft:herd": {
-          "min_size": 1,
-          "max_size": 1
+          "default": 100
         },
         "minecraft:biome_filter": {
           "all_of": [
             {
               "test": "has_biome_tag",
-              "operator": "==",
               "value": "monster"
             },
             {
               "test": "has_biome_tag",
-              "operator": "==",
-              "value": "overworld"
-            },
-            {
-              "test": "has_biome_tag",
               "operator": "!=",
-              "value": "ocean"
-            },
-            {
-              "test": "has_biome_tag",
-              "operator": "!=",
-              "value": "desert"
+              "value": "sulfur_caves"
             }
           ]
+        },
+        "minecraft:herd": {
+          "min_size": 1,
+          "max_size": 3
         }
       }
     ]

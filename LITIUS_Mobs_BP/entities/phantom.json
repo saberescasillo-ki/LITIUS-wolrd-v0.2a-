@@ -14,7 +14,7 @@
             2
           ],
           "default": 0,
-          "client_sync": false
+          "client_sync": true
         },
         "litius:tirada": {
           "type": "bool",
@@ -178,6 +178,23 @@
           }
         ]
       },
+      "litius:mutar_escalador": {
+        "sequence": [
+          {
+            "set_property": {
+              "litius:mutacion": 2,
+              "litius:tirada": true
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "litius:cuatro_alas"
+              ]
+            }
+          }
+        ]
+      },
       "minecraft:entity_spawned": {
         "sequence": [
           {
@@ -189,7 +206,7 @@
             },
             "randomize": [
               {
-                "weight": 75,
+                "weight": 65,
                 "set_property": {
                   "litius:tirada": true
                 }
@@ -197,6 +214,10 @@
               {
                 "weight": 25,
                 "trigger": "litius:mutar"
+              },
+              {
+                "weight": 10,
+                "trigger": "litius:mutar_escalador"
               }
             ]
           }
@@ -220,6 +241,25 @@
         },
         "minecraft:movement": {
           "value": 2.3
+        }
+      },
+      "litius:cuatro_alas": {
+        "minecraft:scale": {
+          "value": 3.0
+        },
+        "minecraft:collision_box": {
+          "width": 2.03,
+          "height": 1.12
+        },
+        "minecraft:movement": {
+          "value": 2.4
+        },
+        "minecraft:health": {
+          "value": 40,
+          "max": 40
+        },
+        "minecraft:attack": {
+          "damage": 22
         }
       }
     }

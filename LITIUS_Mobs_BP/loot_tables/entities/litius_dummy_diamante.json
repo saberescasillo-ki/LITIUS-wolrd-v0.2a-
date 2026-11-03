@@ -5,7 +5,7 @@
       "entries": [
         {
           "type": "item",
-          "name": "minecraft:iron_spear",
+          "name": "minecraft:diamond_helmet",
           "weight": 1
         }
       ]
@@ -15,7 +15,7 @@
       "entries": [
         {
           "type": "item",
-          "name": "minecraft:iron_helmet",
+          "name": "minecraft:diamond_chestplate",
           "weight": 1
         }
       ]
@@ -25,7 +25,7 @@
       "entries": [
         {
           "type": "item",
-          "name": "minecraft:iron_chestplate",
+          "name": "minecraft:diamond_leggings",
           "weight": 1
         }
       ]
@@ -35,7 +35,7 @@
       "entries": [
         {
           "type": "item",
-          "name": "minecraft:iron_leggings",
+          "name": "minecraft:diamond_boots",
           "weight": 1
         }
       ]
@@ -45,7 +45,12 @@
       "entries": [
         {
           "type": "item",
-          "name": "minecraft:iron_boots",
+          "name": "minecraft:diamond_sword",
+          "weight": 2
+        },
+        {
+          "type": "item",
+          "name": "minecraft:diamond_axe",
           "weight": 1
         }
       ]

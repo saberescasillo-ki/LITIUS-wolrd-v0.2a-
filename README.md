@@ -27,13 +27,22 @@ hay un **25 %** de que salga **mejorado**; el 75 % restante es el mob vanilla de
 | Enderman | +0.3 bloques, +30 % de vida, +20 % de velocidad. **Ojos verdes**, piel algo más pálida y un **cristal verde brillante** incrustado en el pecho. |
 | Piglin zombie | +0.3 bloques, +35 % de vida, algo más rápido, siempre espada de oro y armadura de oro posible (suelta poco). |
 | Vaca → Toro | Modelo y texturas propios del toro, según el clima (templado, cálido o frío; cada toro elige uno de sus pelajes). **Siempre aparece con 3 vacas.** Se enfurece y te persigue 30 s si **le pegas a él o a una vaca cercana**. |
-| Stray | 25 %: dispara **3 flechas seguidas** de Lentitud. |
+| Stray | 25 %: dispara **3 flechas seguidas** de Lentitud y su paleta es algo más pálida. |
+| Bogged | 25 %: dispara **3 flechas seguidas** y tiene el **doble de vida**. |
+| Calamar | 25 %: +1 bloque, **aletas (timón)** en el manto, más rápido que un jugador nadando; solo ataca jugadores y deja **Ceguera 5 s**. |
+| Phantom de 4 alas | 10 %: dos pares de alas, +1 bloque, y su golpe **mata de un golpe sin armadura** (22 de daño). |
 | Phantom | +0.5 bloques (el doble de tamaño, hitbox un 25 % más pequeña), más rápido, más vida, **mismo daño**. |
+
+### Dummies (`litius:dummy`, con huevo propio)
+
+Mobs con aspecto de jugador (Steve o Alex) y estadísticas de jugador: 20 de vida, velocidad de caminar/correr de un jugador, sin resistencia al empuje y puño de 1 de daño (más el arma que lleven). Del mismo huevo salen: **sin nada (25 %)**, que **recoge objetos y armaduras del suelo y se las pone**; o equipados con armadura completa de **cuero (25 %)**, **malla (20 %)**, **hierro (20 %)** o **diamante (10 %)** y su arma. Se defienden si les pegas y atacan a los monstruos. Aparecen a veces en llanuras, bosques, praderas, sabanas y taigas.
 
 ### Aparición natural
 
 - **Bogged:** además de pantanos y manglares, aparece en junglas, bosques oscuros y cuevas frondosas.
-- **Vex:** aparece de noche en biomas fríos y nevados.
+- **Animales de granja** (cerdo, oveja, cabra, vaca, pollo, conejo, llama, caballo, burro, champiñaca): aparecen en manadas más grandes.
+- **Arañas:** pueden aparecer en grupos de hasta 3.
+- **Arañas de cueva:** aparecen naturalmente en cuevas (~25 % de los monstruos de cueva).
 
 ### Creeper (todos)
 
@@ -46,11 +55,10 @@ Usan el comportamiento y el aspecto vanilla de cada mob; las monturas tienen **a
 
 | Mob | Montura | Detalles |
 |-----|---------|----------|
-| Esqueleto Espadachín en Araña (`litius:esqueleto_arana`) | Araña | Esqueleto con espada (sin arco), puede llevar armadura. Aparece de noche en el Overworld. |
+| Esqueleto Espadachín en Araña (`litius:esqueleto_arana`) | Araña | Esqueleto con **capa** y espada (sin arco), puede llevar armadura. Aparece de noche en el Overworld. |
 | Jinete Wither (`litius:jinete_wither`) | Caballo esqueleto color wither | Wither esqueleto con espada. Caballo del **color del wither esqueleto**, **15 % más rápido que un hoglin corriendo**. Aparece en el Nether. |
 | Jinete Zombie (`litius:jinete_zombie`) | Caballo zombie | Zombie con espada y armadura posible. Caballo **10 % más rápido que un jugador corriendo**. Aparece de noche en el Overworld. |
 | Jinete Esqueleto (`litius:jinete_esqueleto`) | Caballo esqueleto | Casco de hierro y espada (70 %); mutaciones del mismo huevo: **hacha** (15 %) o **arco** (15 %). Aparece de noche en el Overworld. |
-| Jinete Ancestro (`litius:jinete_ancestro`) | Sniffer zombificado | Zombie con **armadura de hierro completa** y espada. Mutaciones del mismo huevo: zombie con **lanza** (20 %) o un **esqueleto** en vez del zombie (20 %). El sniffer es más rápido que el jugador. |
 | Jinete Husk (`litius:jinete_husk`) | Camello zombie | Husk con espada y armadura posible. Camello **un poco más rápido que un jugador**. Aparece en desiertos. |
 
 > Las velocidades de las monturas se calcularon tomando que un hoglin corriendo va

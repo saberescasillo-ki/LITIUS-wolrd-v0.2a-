@@ -606,6 +606,65 @@
           }
         }
       }
+    },
+    "animation.litius.caballo.andar": {
+      "loop": true,
+      "bones": {
+        "LegFL": {
+          "rotation": [
+            "math.cos(q.modified_distance_moved * 38.38 + 180.0) * 45.8 * q.modified_move_speed",
+            0,
+            0
+          ]
+        },
+        "LegFR": {
+          "rotation": [
+            "-math.cos(q.modified_distance_moved * 38.38 + 180.0) * 45.8 * q.modified_move_speed",
+            0,
+            0
+          ]
+        },
+        "LegBL": {
+          "rotation": [
+            "-math.cos(q.modified_distance_moved * 38.38 + 180.0) * 28.6 * q.modified_move_speed",
+            0,
+            0
+          ]
+        },
+        "LegBR": {
+          "rotation": [
+            "math.cos(q.modified_distance_moved * 38.38 + 180.0) * 28.6 * q.modified_move_speed",
+            0,
+            0
+          ]
+        },
+        "Neck": {
+          "rotation": [
+            "math.clamp(q.target_x_rotation, -20.0, 20.0) * 0.5 + math.cos(q.modified_distance_moved * 11.46) * 6.0 * q.modified_move_speed",
+            "math.clamp(q.target_y_rotation, -25.0, 25.0)",
+            0
+          ]
+        },
+        "Tail": {
+          "rotation": [
+            "q.modified_move_speed * 35.0",
+            "math.sin(q.life_time * 120.0) * 8.0",
+            0
+          ]
+        }
+      }
+    },
+    "animation.litius.capa.ondear": {
+      "loop": true,
+      "bones": {
+        "capa": {
+          "rotation": [
+            "8.0 + q.modified_move_speed * 40.0 + math.sin(q.life_time * 150.0) * 3.0",
+            0,
+            "math.sin(q.life_time * 95.0) * 2.0"
+          ]
+        }
+      }
     }
   }
 }

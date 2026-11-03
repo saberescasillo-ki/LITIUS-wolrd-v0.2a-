@@ -2,23 +2,14 @@
   "format_version": "1.8.0",
   "minecraft:spawn_rules": {
     "description": {
-      "identifier": "minecraft:vex",
-      "population_control": "monster"
+      "identifier": "litius:dummy",
+      "population_control": "creature"
     },
     "conditions": [
       {
         "minecraft:spawns_on_surface": {},
-        "minecraft:brightness_filter": {
-          "min": 0,
-          "max": 7,
-          "adjust_for_weather": true
-        },
-        "minecraft:difficulty_filter": {
-          "min": "easy",
-          "max": "hard"
-        },
         "minecraft:weight": {
-          "default": 8
+          "default": 3
         },
         "minecraft:herd": {
           "min_size": 1,
@@ -29,19 +20,34 @@
             {
               "test": "has_biome_tag",
               "operator": "==",
-              "value": "monster"
+              "value": "overworld"
             },
             {
               "any_of": [
                 {
                   "test": "has_biome_tag",
                   "operator": "==",
-                  "value": "cold"
+                  "value": "plains"
                 },
                 {
                   "test": "has_biome_tag",
                   "operator": "==",
-                  "value": "frozen"
+                  "value": "forest"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "==",
+                  "value": "meadow"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "==",
+                  "value": "savanna"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "==",
+                  "value": "taiga"
                 }
               ]
             }
