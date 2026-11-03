@@ -14,7 +14,7 @@
             2
           ],
           "default": 0,
-          "client_sync": false
+          "client_sync": true
         },
         "litius:tirada": {
           "type": "bool",
@@ -728,6 +728,16 @@
             }
           ]
         }
+      },
+      "litius:cueva": {
+        "minecraft:attack": {
+          "damage": 4,
+          "effect_name": "slowness",
+          "effect_duration": 4
+        },
+        "minecraft:knockback_resistance": {
+          "value": 0.3
+        }
       }
     },
     "events": {
@@ -750,6 +760,19 @@
             "add": {
               "component_groups": [
                 "litius:mejorado"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 2
+            },
+            "add": {
+              "component_groups": [
+                "litius:cueva"
               ]
             }
           }
@@ -781,6 +804,19 @@
                 "litius:mejorado"
               ]
             }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 2
+            },
+            "add": {
+              "component_groups": [
+                "litius:cueva"
+              ]
+            }
           }
         ]
       },
@@ -810,6 +846,19 @@
                 "litius:mejorado"
               ]
             }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 2
+            },
+            "add": {
+              "component_groups": [
+                "litius:cueva"
+              ]
+            }
           }
         ]
       },
@@ -832,6 +881,19 @@
             "add": {
               "component_groups": [
                 "litius:mejorado"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 2
+            },
+            "add": {
+              "component_groups": [
+                "litius:cueva"
               ]
             }
           }
@@ -863,6 +925,19 @@
                 "litius:mejorado"
               ]
             }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 2
+            },
+            "add": {
+              "component_groups": [
+                "litius:cueva"
+              ]
+            }
           }
         ]
       },
@@ -892,6 +967,19 @@
             "add": {
               "component_groups": [
                 "litius:mejorado"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 2
+            },
+            "add": {
+              "component_groups": [
+                "litius:cueva"
               ]
             }
           }
@@ -935,7 +1023,7 @@
             },
             "randomize": [
               {
-                "weight": 75,
+                "weight": 55,
                 "set_property": {
                   "litius:tirada": true
                 }
@@ -943,6 +1031,10 @@
               {
                 "weight": 25,
                 "trigger": "litius:mutar"
+              },
+              {
+                "weight": 20,
+                "trigger": "litius:mutar_escalador"
               }
             ]
           }
@@ -1003,6 +1095,19 @@
                 "litius:mejorado"
               ]
             }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 2
+            },
+            "add": {
+              "component_groups": [
+                "litius:cueva"
+              ]
+            }
           }
         ]
       },
@@ -1027,6 +1132,19 @@
                 "litius:mejorado"
               ]
             }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 2
+            },
+            "add": {
+              "component_groups": [
+                "litius:cueva"
+              ]
+            }
           }
         ]
       },
@@ -1044,6 +1162,33 @@
                 "litius:mejorado_vida",
                 "litius:mejorado_equipo",
                 "litius:mejorado"
+              ]
+            }
+          },
+          {
+            "trigger": "minecraft:melee_mode"
+          }
+        ]
+      },
+      "litius:mutar_escalador": {
+        "sequence": [
+          {
+            "set_property": {
+              "litius:mutacion": 2,
+              "litius:tirada": true
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "litius:cueva"
+              ]
+            }
+          },
+          {
+            "queue_command": {
+              "command": [
+                "replaceitem entity @s slot.weapon.mainhand 0 air"
               ]
             }
           },

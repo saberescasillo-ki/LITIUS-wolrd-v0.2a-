@@ -14,7 +14,7 @@
             2
           ],
           "default": 0,
-          "client_sync": false
+          "client_sync": true
         },
         "litius:tirada": {
           "type": "bool",

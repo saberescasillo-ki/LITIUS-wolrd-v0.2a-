@@ -1,0 +1,95 @@
+{
+  "format_version": "1.12.0",
+  "minecraft:geometry": [
+    {
+      "description": {
+        "identifier": "geometry.litius.cristal_ender",
+        "texture_width": 16,
+        "texture_height": 16,
+        "visible_bounds_width": 3,
+        "visible_bounds_height": 3.5,
+        "visible_bounds_offset": [
+          0,
+          1.25,
+          0
+        ]
+      },
+      "bones": [
+        {
+          "name": "body",
+          "pivot": [
+            0,
+            38,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -1.5,
+                31,
+                -2.6
+              ],
+              "size": [
+                3,
+                4,
+                1
+              ],
+              "uv": [
+                0,
+                0
+              ]
+            },
+            {
+              "origin": [
+                -0.5,
+                35,
+                -2.4
+              ],
+              "size": [
+                1,
+                1.5,
+                0.8
+              ],
+              "uv": [
+                0,
+                0
+              ]
+            },
+            {
+              "origin": [
+                -2.5,
+                31.5,
+                -2.4
+              ],
+              "size": [
+                1,
+                2,
+                0.8
+              ],
+              "uv": [
+                0,
+                0
+              ]
+            },
+            {
+              "origin": [
+                1.5,
+                32,
+                -2.4
+              ],
+              "size": [
+                1,
+                2,
+                0.8
+              ],
+              "uv": [
+                0,
+                0
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

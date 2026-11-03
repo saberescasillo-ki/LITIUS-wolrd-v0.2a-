@@ -87,12 +87,11 @@
         "minecraft:rideable": {
           "seat_count": 1,
           "family_types": [
-            "player",
             "zombie_rider",
             "baby_undead",
             "litius_jinete"
           ],
-          "interact_text": "action.interact.mount",
+          "interact_text": "",
           "seats": {
             "position": [
               0.0,
@@ -106,45 +105,6 @@
           "speed_multiplier": 1.5,
           "target_dist": 0.0,
           "track_target": true
-        },
-        "minecraft:tamemount": {
-          "min_temper": 0,
-          "max_temper": 100,
-          "feed_text": "action.interact.feed",
-          "ride_text": "action.interact.mount",
-          "feed_items": [
-            {
-              "item": "red_mushroom",
-              "temper_mod": 10
-            }
-          ],
-          "auto_reject_items": [
-            {
-              "item": "horsearmorleather"
-            },
-            {
-              "item": "horsearmoriron"
-            },
-            {
-              "item": "horsearmorgold"
-            },
-            {
-              "item": "horsearmordiamond"
-            },
-            {
-              "item": "minecraft:copper_horse_armor"
-            },
-            {
-              "item": "minecraft:netherite_horse_armor"
-            },
-            {
-              "item": "saddle"
-            }
-          ],
-          "tame_event": {
-            "event": "minecraft:on_tame",
-            "target": "self"
-          }
         }
       },
       "minecraft:horse_tamed": {
@@ -153,10 +113,9 @@
           "seat_count": 1,
           "crouching_skip_interact": true,
           "family_types": [
-            "player",
             "litius_jinete"
           ],
-          "interact_text": "action.interact.ride.horse",
+          "interact_text": "",
           "seats": {
             "position": [
               0.0,
@@ -301,9 +260,7 @@
       },
       "minecraft:horse_saddled": {
         "minecraft:is_saddled": {},
-        "minecraft:input_ground_controlled": {},
-        "minecraft:can_power_jump": {},
-        "minecraft:behavior.player_ride_tamed": {}
+        "minecraft:can_power_jump": {}
       },
       "minecraft:horse_wild_with_rider": {
         "minecraft:addrider": {
@@ -512,6 +469,36 @@
             "event": "minecraft:upgrade_to_1_21_130"
           }
         ]
+      },
+      "minecraft:area_attack": {
+        "damage_range": 0.4,
+        "damage_per_tick": 3,
+        "damage_cooldown": 1.5,
+        "cause": "entity_attack",
+        "entity_filter": {
+          "any_of": [
+            {
+              "test": "is_family",
+              "subject": "other",
+              "value": "player"
+            },
+            {
+              "test": "is_family",
+              "subject": "other",
+              "value": "irongolem"
+            },
+            {
+              "test": "is_family",
+              "subject": "other",
+              "value": "snowgolem"
+            },
+            {
+              "test": "is_family",
+              "subject": "other",
+              "value": "villager"
+            }
+          ]
+        }
       },
       "minecraft:attack": {
         "damage": 3

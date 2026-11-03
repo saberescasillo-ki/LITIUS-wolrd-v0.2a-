@@ -18,26 +18,33 @@ hay un **25 %** de que salga **mejorado**; el 75 % restante es el mob vanilla de
 | Zombie | +0.5 bloques de alto, +35 % de vida, algo más rápido. Más probable que lleve armadura y arma (no asegurado) y menos probable que las suelte (3 %). **No se convierte en ahogado**, nada y va algo más rápido que un jugador nadando. |
 | Zombie escalador | Sube bloques caminando, salta muros de 2 bloques y es más rápido. Su piel es un poco más pálida para reconocerlo. |
 | Ahogado | Lo mismo que el zombie mejorado pero adaptado: siempre con **tridente**, armadura posible, nada más rápido. |
-| Esqueleto | +0.4 bloques de alto, +25 % de vida, misma velocidad. **Usa espada en vez de arco**; puede llevar armadura; suelta poco lo que lleva (3 %). |
+| Esqueleto (55 % vanilla / 25 % mejorado / 20 % cueva) | Mejorado: +0.4 bloques de alto, +25 % de vida, misma velocidad. **Usa espada en vez de arco**; puede llevar armadura; suelta poco lo que lleva (3 %). |
+| Esqueleto de cueva | Sin armas, pelea cuerpo a cuerpo; aspecto de piedra con musgo y liquen y **estalactitas de dripstone** en hombros, cabeza, espalda y piernas. Sus golpes dan **Lentitud I 4 s**. |
 | Hoglin | +0.3 bloques, +35 % de velocidad, +10 % de vida; sus golpes dan **Lentitud I 5 s**. |
 | Lepisma (silverfish) | +0.5 bloques de alto (hitbox a la mitad), +50 % de vida y de daño; sus golpes dan **Lentitud I 3 s**. |
 | Endermite | Igual que la lepisma, con la hitbox un 25 % más pequeña. |
 | Blaze | +0.2 bloques, más vida, más rápido; dispara **ráfagas de 5 bolas de fuego** más seguidas (vanilla: 3). |
-| Enderman | +0.3 bloques, +30 % de vida, +20 % de velocidad (tranquilo y enojado). |
+| Enderman | +0.3 bloques, +30 % de vida, +20 % de velocidad. **Ojos verdes**, piel algo más pálida y un **cristal verde brillante** incrustado en el pecho. |
 | Piglin zombie | +0.3 bloques, +35 % de vida, algo más rápido, siempre espada de oro y armadura de oro posible (suelta poco). |
+| Vaca → Toro | Más grande y robusto, **cuernos grandes, joroba y anillo en la nariz**, pelaje oscuro (en las tres variantes de vaca). Si le pegas, **embiste**. |
 | Phantom | +0.5 bloques (el doble de tamaño, hitbox un 25 % más pequeña), más rápido, más vida, **mismo daño**. |
+
+### Creeper (todos)
+
+Explosión **+1** (4 normal, 7 cargado) y también ataca a **golems de hierro, de nieve, de cobre y lobos** (los gatos le siguen dando miedo).
 
 ### Jinetes (con huevo propio)
 
-El jinete y la montura **atacan los dos**, así que si uno muere el otro sigue peleando.
+El jinete y la montura **atacan los dos**: la montura pisotea a quien toque mientras lleva jinete y, si el jinete muere, sigue persiguiendo y atacando. **Los jugadores no pueden montar estas monturas.**
 Usan el comportamiento y el aspecto vanilla de cada mob; las monturas tienen **animaciones de ataque** (coz, cabezazo o mordisco) y bajan la cabeza al cargar. Las armas y armaduras se sueltan poco (3 %).
 
 | Mob | Montura | Detalles |
 |-----|---------|----------|
 | Esqueleto Espadachín en Araña (`litius:esqueleto_arana`) | Araña | Esqueleto con espada (sin arco), puede llevar armadura. Aparece de noche en el Overworld. |
-| Jinete Wither (`litius:jinete_wither`) | Caballo esqueleto color wither | Wither esqueleto con espada. Caballo **15 % más rápido que un hoglin corriendo**. Aparece en el Nether. |
+| Jinete Wither (`litius:jinete_wither`) | Caballo esqueleto color wither | Wither esqueleto con espada. Caballo del **color del wither esqueleto**, **15 % más rápido que un hoglin corriendo**. Aparece en el Nether. |
 | Jinete Zombie (`litius:jinete_zombie`) | Caballo zombie | Zombie con espada y armadura posible. Caballo **10 % más rápido que un jugador corriendo**. Aparece de noche en el Overworld. |
 | Jinete Esqueleto (`litius:jinete_esqueleto`) | Caballo esqueleto | Casco de hierro y espada (70 %); mutaciones del mismo huevo: **hacha** (15 %) o **arco** (15 %). Aparece de noche en el Overworld. |
+| Jinete Ancestro (`litius:jinete_ancestro`) | Sniffer zombificado | Zombie con **armadura de hierro completa** y espada. Mutaciones del mismo huevo: zombie con **lanza** (20 %) o un **esqueleto** en vez del zombie (20 %). El sniffer es más rápido que el jugador. |
 | Jinete Husk (`litius:jinete_husk`) | Camello zombie | Husk con espada y armadura posible. Camello **un poco más rápido que un jugador**. Aparece en desiertos. |
 
 > Las velocidades de las monturas se calcularon tomando que un hoglin corriendo va

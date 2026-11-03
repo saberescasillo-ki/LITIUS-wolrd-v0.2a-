@@ -14,7 +14,8 @@
         "minecraft:rideable": {
           "family_types": [
             "litius_jinete"
-          ]
+          ],
+          "interact_text": ""
         }
       },
       "minecraft:skeleton_horse_baby": {
@@ -46,12 +47,11 @@
         "minecraft:rideable": {
           "seat_count": 1,
           "family_types": [
-            "player",
             "skeleton",
             "zombie",
             "litius_jinete"
           ],
-          "interact_text": "action.interact.ride.horse",
+          "interact_text": "",
           "seats": {
             "position": [
               0.0,
@@ -157,12 +157,11 @@
       "minecraft:rideable": {
         "seat_count": 1,
         "family_types": [
-          "player",
           "skeleton",
           "zombie",
           "litius_jinete"
         ],
-        "interact_text": "action.interact.ride.horse",
+        "interact_text": "",
         "seats": {
           "position": [
             0.0,
@@ -180,8 +179,6 @@
         "target_dist": 4.0,
         "track_target": true
       },
-      "minecraft:behavior.player_ride_tamed": {},
-      "minecraft:input_ground_controlled": {},
       "minecraft:can_power_jump": {},
       "minecraft:balloonable": {},
       "minecraft:behavior.random_stroll": {
@@ -228,6 +225,36 @@
       },
       "minecraft:pushable_by_block": {},
       "minecraft:conditional_bandwidth_optimization": {},
+      "minecraft:area_attack": {
+        "damage_range": 0.4,
+        "damage_per_tick": 3,
+        "damage_cooldown": 1.5,
+        "cause": "entity_attack",
+        "entity_filter": {
+          "any_of": [
+            {
+              "test": "is_family",
+              "subject": "other",
+              "value": "player"
+            },
+            {
+              "test": "is_family",
+              "subject": "other",
+              "value": "irongolem"
+            },
+            {
+              "test": "is_family",
+              "subject": "other",
+              "value": "snowgolem"
+            },
+            {
+              "test": "is_family",
+              "subject": "other",
+              "value": "villager"
+            }
+          ]
+        }
+      },
       "minecraft:attack": {
         "damage": 3
       },

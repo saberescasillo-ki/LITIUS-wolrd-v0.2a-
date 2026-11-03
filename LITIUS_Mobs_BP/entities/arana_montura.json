@@ -126,7 +126,8 @@
             0.54,
             -0.1
           ]
-        }
+        },
+        "interact_text": ""
       },
       "minecraft:type_family": {
         "family": [
@@ -135,6 +136,36 @@
           "mob",
           "arthropod"
         ]
+      },
+      "minecraft:area_attack": {
+        "damage_range": 0.4,
+        "damage_per_tick": 3,
+        "damage_cooldown": 1.5,
+        "cause": "entity_attack",
+        "entity_filter": {
+          "any_of": [
+            {
+              "test": "is_family",
+              "subject": "other",
+              "value": "player"
+            },
+            {
+              "test": "is_family",
+              "subject": "other",
+              "value": "irongolem"
+            },
+            {
+              "test": "is_family",
+              "subject": "other",
+              "value": "snowgolem"
+            },
+            {
+              "test": "is_family",
+              "subject": "other",
+              "value": "villager"
+            }
+          ]
+        }
       },
       "minecraft:follow_range": {
         "value": 32,
@@ -272,7 +303,8 @@
               0.325,
               -0.1
             ]
-          }
+          },
+          "interact_text": ""
         }
       },
       "minecraft:spider_wither_jockey": {
@@ -295,7 +327,8 @@
               0.54,
               0.0
             ]
-          }
+          },
+          "interact_text": ""
         }
       },
       "minecraft:spider_neutral": {
@@ -333,7 +366,8 @@
               0.54,
               0.0
             ]
-          }
+          },
+          "interact_text": ""
         }
       },
       "minecraft:spider_stray_jockey": {
@@ -356,7 +390,8 @@
               0.54,
               0.0
             ]
-          }
+          },
+          "interact_text": ""
         }
       },
       "minecraft:spider_parched_jockey": {
@@ -379,7 +414,8 @@
               0.325,
               -0.1
             ]
-          }
+          },
+          "interact_text": ""
         }
       }
     },

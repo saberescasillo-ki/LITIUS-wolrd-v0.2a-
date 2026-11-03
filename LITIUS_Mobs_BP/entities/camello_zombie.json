@@ -163,12 +163,11 @@
       "minecraft:rideable": {
         "crouching_skip_interact": true,
         "family_types": [
-          "player",
           "parched",
           "husk_rider",
           "litius_jinete"
         ],
-        "interact_text": "action.interact.ride.horse",
+        "interact_text": "",
         "seat_count": 2,
         "seats": [
           {
@@ -202,6 +201,36 @@
         "base_value": 1.5625,
         "controlled_value": 1.5625,
         "jump_prevented_value": 0.5625
+      },
+      "minecraft:area_attack": {
+        "damage_range": 0.4,
+        "damage_per_tick": 3,
+        "damage_cooldown": 1.5,
+        "cause": "entity_attack",
+        "entity_filter": {
+          "any_of": [
+            {
+              "test": "is_family",
+              "subject": "other",
+              "value": "player"
+            },
+            {
+              "test": "is_family",
+              "subject": "other",
+              "value": "irongolem"
+            },
+            {
+              "test": "is_family",
+              "subject": "other",
+              "value": "snowgolem"
+            },
+            {
+              "test": "is_family",
+              "subject": "other",
+              "value": "villager"
+            }
+          ]
+        }
       },
       "minecraft:attack": {
         "damage": 4
@@ -261,15 +290,11 @@
     },
     "component_groups": {
       "minecraft:camel_husk_saddled": {
-        "minecraft:behavior.player_ride_tamed": {
-          "priority": 1
-        },
         "minecraft:dash_action": {
           "cooldown_time": 2.75,
           "horizontal_momentum": 20,
           "vertical_momentum": 0.6
         },
-        "minecraft:input_ground_controlled": {},
         "minecraft:is_saddled": {}
       },
       "minecraft:camel_husk_sitting": {
