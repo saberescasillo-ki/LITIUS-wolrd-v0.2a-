@@ -653,18 +653,6 @@
           ]
         }
       }
-    },
-    "animation.litius.capa.ondear": {
-      "loop": true,
-      "bones": {
-        "capa": {
-          "rotation": [
-            "8.0 + q.modified_move_speed * 40.0 + math.sin(q.life_time * 150.0) * 3.0",
-            0,
-            "math.sin(q.life_time * 95.0) * 2.0"
-          ]
-        }
-      }
     }
   }
 }

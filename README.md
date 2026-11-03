@@ -1,7 +1,7 @@
 # LITIUS-wolrd-v0.2a-
 LITIUS wolrd more serius
 
-## LITIUS Mobs 1.0 (addon para Minecraft Bedrock)
+## LITIUS Mobs 1.5 (addon para Minecraft Bedrock)
 
 Rehecho desde cero. Dos packs: `LITIUS_Mobs_BP` (comportamiento) y `LITIUS_Mobs_RP` (recursos).
 No necesita experimentos.
@@ -15,7 +15,7 @@ hay un **25 %** de que salga **mejorado**; el 75 % restante es el mob vanilla de
 
 | Mob | Mejora |
 |-----|--------|
-| Zombie | +0.5 bloques de alto, +35 % de vida, algo más rápido. Más probable que lleve armadura y arma (no asegurado) y menos probable que las suelte (3 %). **No se convierte en ahogado**, nada y va algo más rápido que un jugador nadando. |
+| Zombie | +0.5 bloques de alto, +35 % de vida, algo más rápido. Puede llevar armadura (con menos probabilidad que antes) y arma, y es poco probable que las suelte (3 %). **No se convierte en ahogado**, nada y va algo más rápido que un jugador nadando. |
 | Zombie escalador | Sube bloques caminando, salta muros de 2 bloques y es más rápido. Su piel es un poco más pálida para reconocerlo. |
 | Ahogado | Lo mismo que el zombie mejorado pero adaptado: siempre con **tridente**, armadura posible, nada más rápido. |
 | Esqueleto (55 % vanilla / 25 % mejorado / 20 % cueva) | Mejorado: +0.4 bloques de alto, +25 % de vida, misma velocidad. **Usa espada en vez de arco**; puede llevar armadura; suelta poco lo que lleva (3 %). |
@@ -27,15 +27,9 @@ hay un **25 %** de que salga **mejorado**; el 75 % restante es el mob vanilla de
 | Enderman | +0.3 bloques, +30 % de vida, +20 % de velocidad. **Ojos verdes**, piel algo más pálida y un **cristal verde brillante** incrustado en el pecho. |
 | Piglin zombie | +0.3 bloques, +35 % de vida, algo más rápido, siempre espada de oro y armadura de oro posible (suelta poco). |
 | Vaca → Toro | Modelo y texturas propios del toro, según el clima (templado, cálido o frío; cada toro elige uno de sus pelajes). **Siempre aparece con 3 vacas.** Se enfurece y te persigue 30 s si **le pegas a él o a una vaca cercana**. |
-| Stray | 25 %: dispara **3 flechas seguidas** de Lentitud y su paleta es algo más pálida. |
-| Bogged | 25 %: dispara **3 flechas seguidas** y tiene el **doble de vida**. |
-| Calamar | 25 %: +1 bloque, **aletas (timón)** en el manto, más rápido que un jugador nadando; solo ataca jugadores y deja **Ceguera 5 s**. |
-| Phantom de 4 alas | 10 %: dos pares de alas, +1 bloque, y su golpe **mata de un golpe sin armadura** (22 de daño). |
+| Stray | 25 %: dispara **3 flechas seguidas** de Lentitud, con poco tiempo entre ráfagas, y su paleta es algo más pálida. |
+| Bogged | 25 %: dispara **3 flechas seguidas**, con poco tiempo entre ráfagas, y tiene el **doble de vida**. |
 | Phantom | +0.5 bloques (el doble de tamaño, hitbox un 25 % más pequeña), más rápido, más vida, **mismo daño**. |
-
-### Dummies (`litius:dummy`, con huevo propio)
-
-Mobs con aspecto de jugador (Steve o Alex) y estadísticas de jugador: 20 de vida, velocidad de caminar/correr de un jugador, sin resistencia al empuje y puño de 1 de daño (más el arma que lleven). Del mismo huevo salen: **sin nada (25 %)**, que **recoge objetos y armaduras del suelo y se las pone**; o equipados con armadura completa de **cuero (25 %)**, **malla (20 %)**, **hierro (20 %)** o **diamante (10 %)** y su arma. Se defienden si les pegas y atacan a los monstruos. Aparecen a veces en llanuras, bosques, praderas, sabanas y taigas.
 
 ### Aparición natural
 
@@ -43,6 +37,7 @@ Mobs con aspecto de jugador (Steve o Alex) y estadísticas de jugador: 20 de vid
 - **Animales de granja** (cerdo, oveja, cabra, vaca, pollo, conejo, llama, caballo, burro, champiñaca): aparecen en manadas más grandes.
 - **Arañas:** pueden aparecer en grupos de hasta 3.
 - **Arañas de cueva:** aparecen naturalmente en cuevas (~25 % de los monstruos de cueva).
+- **Jinetes:** aparecen poco y nunca en grupo (máximo 2 de cada tipo en superficie y 1 bajo tierra cerca del jugador). El Jinete Wither es el más raro y el Jinete Husk el más común en su bioma.
 
 ### Creeper (todos)
 
@@ -55,10 +50,10 @@ Usan el comportamiento y el aspecto vanilla de cada mob; las monturas tienen **a
 
 | Mob | Montura | Detalles |
 |-----|---------|----------|
-| Esqueleto Espadachín en Araña (`litius:esqueleto_arana`) | Araña | Esqueleto con **capa** y espada (sin arco), puede llevar armadura. Aparece de noche en el Overworld. |
+| Esqueleto Espadachín en Araña (`litius:esqueleto_arana`) | Araña | Esqueleto con espada (sin arco), puede llevar armadura. Aparece de noche en el Overworld. |
 | Jinete Wither (`litius:jinete_wither`) | Caballo esqueleto color wither | Wither esqueleto con espada. Caballo del **color del wither esqueleto**, **15 % más rápido que un hoglin corriendo**. Aparece en el Nether. |
 | Jinete Zombie (`litius:jinete_zombie`) | Caballo zombie | Zombie con espada y armadura posible. Caballo **10 % más rápido que un jugador corriendo**. Aparece de noche en el Overworld. |
-| Jinete Esqueleto (`litius:jinete_esqueleto`) | Caballo esqueleto | Casco de hierro y espada (70 %); mutaciones del mismo huevo: **hacha** (15 %) o **arco** (15 %). Aparece de noche en el Overworld. |
+| Jinete Esqueleto (`litius:jinete_esqueleto`) | Caballo esqueleto | Casco de hierro y espada (70 %); mutaciones del mismo huevo: **hacha** (15 %) o **arco** (15 %, dispara cada 1.2–1.6 s). Aparece de noche en el Overworld. |
 | Jinete Husk (`litius:jinete_husk`) | Camello zombie | Husk con espada y armadura posible. Camello **un poco más rápido que un jugador**. Aparece en desiertos. |
 
 > Las velocidades de las monturas se calcularon tomando que un hoglin corriendo va
@@ -70,7 +65,8 @@ Usan el comportamiento y el aspecto vanilla de cada mob; las monturas tienen **a
 2. Activa el pack de comportamiento en el mundo (el de recursos se activa solo).
 
 Para probar: `/summon zombie` (repite hasta ver uno grande), `/summon litius:jinete_zombie`,
-`/summon litius:jinete_husk`, `/summon litius:jinete_wither`, `/summon litius:esqueleto_arana`.
+`/summon litius:jinete_husk`, `/summon litius:jinete_wither`, `/summon litius:esqueleto_arana`,
+`/summon litius:jinete_esqueleto`.
 
 ### Notas técnicas
 

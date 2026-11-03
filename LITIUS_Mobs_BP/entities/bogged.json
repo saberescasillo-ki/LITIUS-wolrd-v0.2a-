@@ -621,7 +621,7 @@
       },
       "litius:mejorado": {
         "minecraft:behavior.ranged_attack": {
-          "attack_interval": 3.0,
+          "attack_interval": 2.0,
           "attack_radius": 15.0,
           "burst_shots": 3,
           "burst_interval": 0.15,

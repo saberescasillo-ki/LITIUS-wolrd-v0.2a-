@@ -42,6 +42,10 @@
               "value": "ocean"
             }
           ]
+        },
+        "minecraft:density_limit": {
+          "surface": 2,
+          "underground": 1
         }
       }
     ]

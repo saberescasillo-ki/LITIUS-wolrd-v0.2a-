@@ -18,7 +18,7 @@
           "max": "hard"
         },
         "minecraft:weight": {
-          "default": 6
+          "default": 5
         },
         "minecraft:herd": {
           "min_size": 1,
@@ -37,6 +37,10 @@
               "value": "desert"
             }
           ]
+        },
+        "minecraft:density_limit": {
+          "surface": 2,
+          "underground": 1
         }
       }
     ]

@@ -37,6 +37,10 @@
               "value": "nether_wastes"
             }
           ]
+        },
+        "minecraft:density_limit": {
+          "surface": 2,
+          "underground": 1
         }
       }
     ]

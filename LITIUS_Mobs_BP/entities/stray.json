@@ -623,8 +623,8 @@
       "litius:mejorado": {
         "minecraft:behavior.ranged_attack": {
           "attack_interval": {
-            "min": 3.0,
-            "max": 3.0
+            "min": 1.8,
+            "max": 2.2
           },
           "attack_range": {
             "min": 0.0,

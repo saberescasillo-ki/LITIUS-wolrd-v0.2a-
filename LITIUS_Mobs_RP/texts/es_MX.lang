@@ -1,2 +1,15 @@
-entity.litius:dummy.name=Dummy
-item.spawn_egg.entity.litius:dummy.name=Generar Dummy
+entity.litius:jinete_zombie.name=Jinete Zombie
+entity.litius:jinete_husk.name=Jinete Husk
+entity.litius:jinete_wither.name=Jinete Wither
+entity.litius:esqueleto_arana.name=Esqueleto Espadachín en Araña
+entity.litius:jinete_esqueleto.name=Jinete Esqueleto
+entity.litius:caballo_zombie.name=Caballo Zombie
+entity.litius:caballo_wither.name=Caballo Wither
+entity.litius:caballo_esqueleto.name=Caballo Esqueleto
+entity.litius:camello_zombie.name=Camello Zombie
+entity.litius:arana_montura.name=Araña de Montura
+item.spawn_egg.entity.litius:jinete_zombie.name=Generar Jinete Zombie
+item.spawn_egg.entity.litius:jinete_husk.name=Generar Jinete Husk
+item.spawn_egg.entity.litius:jinete_wither.name=Generar Jinete Wither
+item.spawn_egg.entity.litius:esqueleto_arana.name=Generar Esqueleto Espadachín en Araña
+item.spawn_egg.entity.litius:jinete_esqueleto.name=Generar Jinete Esqueleto

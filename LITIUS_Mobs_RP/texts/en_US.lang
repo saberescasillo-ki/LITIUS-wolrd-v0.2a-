@@ -1,2 +1,15 @@
-entity.litius:dummy.name=Dummy
-item.spawn_egg.entity.litius:dummy.name=Spawn Dummy
+entity.litius:jinete_zombie.name=Zombie Rider
+entity.litius:jinete_husk.name=Husk Rider
+entity.litius:jinete_wither.name=Wither Rider
+entity.litius:esqueleto_arana.name=Spider Swordsman Skeleton
+entity.litius:jinete_esqueleto.name=Skeleton Horseman
+entity.litius:caballo_zombie.name=Zombie Horse
+entity.litius:caballo_wither.name=Wither Horse
+entity.litius:caballo_esqueleto.name=Skeleton Horse
+entity.litius:camello_zombie.name=Zombie Camel
+entity.litius:arana_montura.name=Mount Spider
+item.spawn_egg.entity.litius:jinete_zombie.name=Spawn Zombie Rider
+item.spawn_egg.entity.litius:jinete_husk.name=Spawn Husk Rider
+item.spawn_egg.entity.litius:jinete_wither.name=Spawn Wither Rider
+item.spawn_egg.entity.litius:esqueleto_arana.name=Spawn Spider Swordsman Skeleton
+item.spawn_egg.entity.litius:jinete_esqueleto.name=Spawn Skeleton Horseman
