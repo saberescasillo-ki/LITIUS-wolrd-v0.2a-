@@ -1,35 +1,32 @@
 {
-  "format_version": "1.10.0",
+  "format_version": "1.8.0",
   "minecraft:client_entity": {
     "description": {
       "identifier": "litius:arana_montura",
+      "min_engine_version": "1.8.0",
       "materials": {
-        "default": "entity_alphatest"
+        "default": "spider",
+        "invisible": "spider_invisible"
       },
       "textures": {
         "default": "textures/entity/spider/spider"
       },
       "geometry": {
-        "default": "geometry.litius.arana"
-      },
-      "scripts": {
-        "pre_animation": [
-          "v.speed = math.clamp(q.modified_move_speed * 2.0, 0.0, 1.0);"
-        ],
-        "animate": [
-          "patas"
-        ]
+        "default": "geometry.spider.v1.8"
       },
       "animations": {
-        "patas": "animation.litius.arana.patas"
+        "default_leg_pose": "animation.spider.default_leg_pose",
+        "look_at_target": "animation.spider.look_at_target",
+        "walk": "animation.spider.walk"
       },
-      "render_controllers": [
-        "controller.render.litius.base"
+      "animation_controllers": [
+        {
+          "move": "controller.animation.spider.move"
+        }
       ],
-      "spawn_egg": {
-        "base_color": "#342D27",
-        "overlay_color": "#A80E0E"
-      }
+      "render_controllers": [
+        "controller.render.spider"
+      ]
     }
   }
 }

@@ -1,9 +1,0 @@
-{
-  "resource_pack_name": "litius_mobs",
-  "texture_name": "atlas.items",
-  "texture_data": {
-    "litius_llave_islas": {
-      "textures": "textures/items/llave_islas"
-    }
-  }
-}

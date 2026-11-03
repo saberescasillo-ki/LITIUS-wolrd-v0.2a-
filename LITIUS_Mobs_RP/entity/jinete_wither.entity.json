@@ -1,8 +1,9 @@
 {
-  "format_version": "1.10.0",
+  "format_version": "1.8.0",
   "minecraft:client_entity": {
     "description": {
       "identifier": "litius:jinete_wither",
+      "min_engine_version": "1.8.0",
       "materials": {
         "default": "skeleton"
       },
@@ -14,21 +15,10 @@
       },
       "scripts": {
         "pre_animation": [
-          "variable.gliding_speed_value = 1.0;",
-          "variable.tcos0 = (math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;",
-          "variable.riding_y_offset = -1.0;",
-          "v.lanza = q.property('litius:lanza');"
-        ],
-        "animate": [
-          "look_at_target_controller",
-          "move_controller",
-          "riding_controller",
-          "holding_controller",
-          {
-            "attack_controller": "!v.lanza"
-          },
-          "bob_controller",
-          "lanza_ctrl"
+          "variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;",
+          "variable.riding_y_offset_with_respect_to_player = -1.0;",
+          "variable.riding_y_offset_on_vehicle_where_other_entites_can_stand = query.is_riding_any_entity_of_type('minecraft:minecart', 'minecraft:boat', 'minecraft:chest_boat') ? -3.0 : 0.0;",
+          "variable.riding_y_offset = variable.riding_y_offset_with_respect_to_player + variable.riding_y_offset_on_vehicle_where_other_entites_can_stand;"
         ]
       },
       "animations": {
@@ -38,28 +28,68 @@
         "move": "animation.humanoid.move",
         "riding.arms": "animation.humanoid.riding.arms",
         "riding.legs": "animation.humanoid.riding.legs",
-        "riding.body": "animation.humanoid.riding.body",
-        "attack.rotations": "animation.humanoid.attack.rotations",
-        "bob": "animation.humanoid.bob",
-        "look_at_target_controller": "controller.animation.humanoid.look_at_target",
-        "move_controller": "controller.animation.humanoid.move",
-        "riding_controller": "controller.animation.humanoid.riding",
-        "attack_controller": "controller.animation.humanoid.attack",
-        "bob_controller": "controller.animation.humanoid.bob",
         "holding": "animation.humanoid.holding",
-        "holding_controller": "controller.animation.humanoid.holding",
-        "lanza_pose": "animation.litius.lanza.pose",
-        "lanza_estocada": "animation.litius.lanza.estocada",
-        "lanza_ctrl": "controller.animation.litius.lanza"
+        "brandish_spear": "animation.humanoid.brandish_spear",
+        "charging": "animation.humanoid.charging",
+        "attack.rotations": "animation.humanoid.attack.rotations",
+        "sneaking": "animation.humanoid.sneaking",
+        "bob": "animation.humanoid.bob",
+        "damage_nearby_mobs": "animation.humanoid.damage_nearby_mobs",
+        "bow_and_arrow": "animation.humanoid.bow_and_arrow",
+        "use_item_progress": "animation.humanoid.use_item_progress",
+        "wither_skeleton_attack": "animation.wither_skeleton.attack",
+        "swimming": "animation.zombie.swimming",
+        "riding.body": "animation.humanoid.riding.body"
       },
-      "render_controllers": [
-        "controller.render.litius.base"
+      "animation_controllers": [
+        {
+          "look_at_target": "controller.animation.humanoid.look_at_target"
+        },
+        {
+          "move": "controller.animation.humanoid.move"
+        },
+        {
+          "riding": "controller.animation.humanoid.riding"
+        },
+        {
+          "holding": "controller.animation.humanoid.holding"
+        },
+        {
+          "brandish_spear": "controller.animation.humanoid.brandish_spear"
+        },
+        {
+          "charging": "controller.animation.humanoid.charging"
+        },
+        {
+          "attack": "controller.animation.humanoid.attack"
+        },
+        {
+          "sneaking": "controller.animation.humanoid.sneaking"
+        },
+        {
+          "damage_nearby_mobs": "controller.animation.humanoid.damage_nearby_mobs"
+        },
+        {
+          "bow_and_arrow": "controller.animation.humanoid.bow_and_arrow"
+        },
+        {
+          "use_item_progress": "controller.animation.humanoid.use_item_progress"
+        },
+        {
+          "wither_skeleton_attack": "controller.animation.wither_skeleton.attack"
+        },
+        {
+          "swimming": "controller.animation.zombie.swimming"
+        }
       ],
-      "enable_attachables": true,
+      "render_controllers": [
+        "controller.render.wither_skeleton"
+      ],
       "spawn_egg": {
         "base_color": "#141414",
-        "overlay_color": "#474D4D"
-      }
+        "overlay_color": "#3A3F3F"
+      },
+      "enable_attachables": true
     }
   }
 }

@@ -8,48 +8,35 @@
     "conditions": [
       {
         "minecraft:spawns_on_surface": {},
-        "minecraft:spawns_underground": {},
-        "minecraft:spawns_on_block_prevented_filter": [
-          "minecraft:nether_wart_block",
-          "minecraft:shroomlight"
-        ],
+        "minecraft:brightness_filter": {
+          "min": 0,
+          "max": 7,
+          "adjust_for_weather": true
+        },
         "minecraft:difficulty_filter": {
           "min": "easy",
           "max": "hard"
         },
         "minecraft:weight": {
-          "default": 3
+          "default": 2
         },
         "minecraft:herd": {
           "min_size": 1,
           "max_size": 1
         },
         "minecraft:biome_filter": {
-          "test": "has_biome_tag",
-          "value": "soulsand_valley"
-        }
-      },
-      {
-        "minecraft:spawns_on_surface": {},
-        "minecraft:spawns_underground": {},
-        "minecraft:spawns_on_block_prevented_filter": [
-          "minecraft:nether_wart_block",
-          "minecraft:shroomlight"
-        ],
-        "minecraft:difficulty_filter": {
-          "min": "easy",
-          "max": "hard"
-        },
-        "minecraft:weight": {
-          "default": 1
-        },
-        "minecraft:herd": {
-          "min_size": 1,
-          "max_size": 1
-        },
-        "minecraft:biome_filter": {
-          "test": "has_biome_tag",
-          "value": "nether_wastes"
+          "any_of": [
+            {
+              "test": "has_biome_tag",
+              "operator": "==",
+              "value": "soulsand_valley"
+            },
+            {
+              "test": "has_biome_tag",
+              "operator": "==",
+              "value": "nether_wastes"
+            }
+          ]
         }
       }
     ]

@@ -1,18 +1,18 @@
 {
   "format_version": 2,
   "header": {
-    "name": "LITIUS Mobs - Comportamiento",
-    "description": "Variantes de mobs para LITIUS World: Esqueleto Furtivo, Zombie Furtivo y Creeper +",
+    "name": "LITIUS Mobs (comportamiento)",
+    "description": "Mutaciones de mobs vanilla y nuevos jinetes",
     "uuid": "e318a59c-0e73-410a-8a69-e5473d394ffa",
     "version": [
+      1,
       0,
-      8,
       0
     ],
     "min_engine_version": [
       1,
-      21,
-      80
+      26,
+      0
     ]
   },
   "modules": [
@@ -20,19 +20,8 @@
       "type": "data",
       "uuid": "1d401569-a176-4066-ae1f-56149ce0241c",
       "version": [
+        1,
         0,
-        8,
-        0
-      ]
-    },
-    {
-      "type": "script",
-      "language": "javascript",
-      "entry": "scripts/main.js",
-      "uuid": "2ee7b6b5-2808-4d9e-8362-e19803eb8dc4",
-      "version": [
-        0,
-        8,
         0
       ]
     }
@@ -41,14 +30,10 @@
     {
       "uuid": "c021c092-f337-491c-ad38-2c5c18a36ad0",
       "version": [
+        1,
         0,
-        8,
         0
       ]
-    },
-    {
-      "module_name": "@minecraft/server",
-      "version": "beta"
     }
   ]
 }
