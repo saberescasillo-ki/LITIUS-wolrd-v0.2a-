@@ -91,7 +91,8 @@
                   "value": "copper_golem"
                 }
               ]
-            }
+            },
+            "max_dist": 21
           }
         ],
         "priority": 1
@@ -193,7 +194,7 @@
         "table": "loot_tables/entities/creeper.json"
       },
       "minecraft:movement": {
-        "value": 0.2
+        "value": 0.22
       },
       "minecraft:movement.basic": {},
       "minecraft:nameable": {},
@@ -233,6 +234,10 @@
           "monster",
           "mob"
         ]
+      },
+      "minecraft:follow_range": {
+        "value": 21,
+        "max": 21
       }
     },
     "component_groups": {

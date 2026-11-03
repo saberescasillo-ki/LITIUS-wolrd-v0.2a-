@@ -44,12 +44,13 @@
       },
       "minecraft:behavior.melee_box_attack": {
         "can_spread_on_fire": true,
-        "priority": 4
+        "priority": 4,
+        "horizontal_reach": 1.1
       },
       "minecraft:behavior.nearest_attackable_target": {
         "reselect_targets": true,
         "must_see": true,
-        "within_radius": 40,
+        "within_radius": 45,
         "entity_types": [
           {
             "filters": {
@@ -71,7 +72,7 @@
                 }
               ]
             },
-            "max_dist": 40
+            "max_dist": 45
           },
           {
             "filters": {
@@ -88,7 +89,7 @@
                 }
               ]
             },
-            "max_dist": 40,
+            "max_dist": 45,
             "must_see": false
           },
           {
@@ -106,7 +107,7 @@
                 }
               ]
             },
-            "max_dist": 40
+            "max_dist": 45
           }
         ],
         "priority": 2
@@ -536,8 +537,8 @@
         "value": 2
       },
       "minecraft:follow_range": {
-        "value": 48,
-        "max": 48
+        "value": 53,
+        "max": 53
       }
     },
     "component_groups": {

@@ -520,6 +520,9 @@
         },
         "minecraft:movement": {
           "value": 0.26
+        },
+        "minecraft:knockback_resistance": {
+          "value": 0.5
         }
       },
       "litius:mejorado_equipo": {

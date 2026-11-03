@@ -44,7 +44,7 @@
                 }
               ]
             },
-            "max_dist": 48
+            "max_dist": 53
           }
         ],
         "priority": 2
@@ -77,8 +77,8 @@
       "minecraft:fire_immune": {},
       "minecraft:freezing_vulnerable": {},
       "minecraft:follow_range": {
-        "max": 48,
-        "value": 48
+        "max": 53,
+        "value": 53
       },
       "minecraft:health": {
         "max": 20,
@@ -189,6 +189,9 @@
         },
         "minecraft:movement": {
           "value": 0.3
+        },
+        "minecraft:knockback_resistance": {
+          "value": 0.5
         }
       },
       "litius:mejorado_rafaga": {

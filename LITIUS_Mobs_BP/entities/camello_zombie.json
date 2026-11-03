@@ -30,7 +30,7 @@
       "minecraft:behavior.mount_pathing": {
         "priority": 3,
         "target_dist": 0,
-        "speed_multiplier": 4,
+        "speed_multiplier": 2.9,
         "track_target": true
       },
       "minecraft:behavior.random_look_around": {
@@ -51,7 +51,7 @@
       },
       "minecraft:behavior.random_stroll": {
         "priority": 7,
-        "speed_multiplier": 2
+        "speed_multiplier": 1.2
       },
       "minecraft:breathable": {
         "breathes_air": true,
@@ -151,7 +151,7 @@
         "table": "loot_tables/entities/camel_husk.json"
       },
       "minecraft:movement": {
-        "value": 0.315
+        "value": 0.1
       },
       "minecraft:movement.basic": {},
       "minecraft:nameable": {},
@@ -236,14 +236,14 @@
         "damage": 4
       },
       "minecraft:follow_range": {
-        "value": 48,
-        "max": 48
+        "value": 53,
+        "max": 53
       },
       "minecraft:behavior.nearest_attackable_target": {
         "priority": 2,
         "must_see": true,
         "reselect_targets": true,
-        "within_radius": 40,
+        "within_radius": 45,
         "entity_types": [
           {
             "filters": {
@@ -275,17 +275,21 @@
                 }
               ]
             },
-            "max_dist": 40
+            "max_dist": 45
           }
         ]
       },
       "minecraft:behavior.melee_box_attack": {
         "priority": 3,
-        "speed_multiplier": 1.0,
+        "speed_multiplier": 2.9,
         "track_target": true
       },
       "minecraft:behavior.hurt_by_target": {
         "priority": 1
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
       }
     },
     "component_groups": {
@@ -346,7 +350,7 @@
             "rabbit_foot"
           ],
           "priority": 4,
-          "speed_multiplier": 2.5
+          "speed_multiplier": 2.0
         },
         "minecraft:equippable": {
           "slots": [

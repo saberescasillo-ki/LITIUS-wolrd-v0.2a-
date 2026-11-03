@@ -52,7 +52,7 @@
       "minecraft:behavior.nearest_attackable_target": {
         "reselect_targets": true,
         "must_see": true,
-        "within_radius": 12,
+        "within_radius": 17,
         "must_see_forget_duration": 17,
         "persist_time": 0.5,
         "entity_types": [
@@ -98,7 +98,7 @@
                 }
               ]
             },
-            "max_dist": 20
+            "max_dist": 25
           },
           {
             "filters": {
@@ -132,7 +132,7 @@
                 }
               ]
             },
-            "max_dist": 20,
+            "max_dist": 25,
             "must_see": false
           },
           {
@@ -151,7 +151,7 @@
                 }
               ]
             },
-            "max_dist": 20
+            "max_dist": 25
           }
         ],
         "priority": 2
@@ -528,6 +528,10 @@
             "check_if_target_is_immersed_in_water": true
           }
         ]
+      },
+      "minecraft:follow_range": {
+        "value": 25,
+        "max": 25
       }
     },
     "component_groups": {
@@ -612,7 +616,7 @@
               "slot": "slot.weapon.offhand"
             }
           ],
-          "table": "loot_tables/entities/drowned_equipment.json"
+          "table": "loot_tables/entities/litius_equipo_ahogado.json"
         }
       },
       "minecraft:drowned_jockey": {
@@ -665,7 +669,7 @@
               "slot": "slot.weapon.offhand"
             }
           ],
-          "table": "loot_tables/entities/drowned_ranged_equipment.json"
+          "table": "loot_tables/entities/litius_equipo_ahogado_tridente.json"
         }
       },
       "minecraft:ranged_mode": {
@@ -715,6 +719,9 @@
         },
         "minecraft:underwater_movement": {
           "value": 0.08
+        },
+        "minecraft:knockback_resistance": {
+          "value": 0.5
         }
       },
       "litius:mejorado_equipo": {

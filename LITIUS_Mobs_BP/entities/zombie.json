@@ -15,7 +15,7 @@
           "type": "int",
           "range": [
             0,
-            2
+            3
           ],
           "default": 0,
           "client_sync": true
@@ -59,7 +59,7 @@
       "minecraft:behavior.nearest_attackable_target": {
         "reselect_targets": true,
         "must_see": true,
-        "within_radius": 25,
+        "within_radius": 30,
         "must_see_forget_duration": 17,
         "entity_types": [
           {
@@ -82,7 +82,7 @@
                 }
               ]
             },
-            "max_dist": 35
+            "max_dist": 40
           },
           {
             "filters": {
@@ -99,7 +99,7 @@
                 }
               ]
             },
-            "max_dist": 35,
+            "max_dist": 40,
             "must_see": false
           },
           {
@@ -117,7 +117,7 @@
                 }
               ]
             },
-            "max_dist": 35
+            "max_dist": 40
           }
         ],
         "priority": 2
@@ -536,6 +536,10 @@
           "monster",
           "mob"
         ]
+      },
+      "minecraft:follow_range": {
+        "value": 40,
+        "max": 40
       }
     },
     "component_groups": {
@@ -544,7 +548,7 @@
       },
       "minecraft:can_have_equipment": {
         "minecraft:equipment": {
-          "table": "loot_tables/entities/zombie_equipment.json"
+          "table": "loot_tables/entities/litius_equipo_zombie.json"
         }
       },
       "minecraft:zombie_adult": {
@@ -622,7 +626,7 @@
       },
       "minecraft:zombie_rider": {
         "minecraft:equipment": {
-          "table": "loot_tables/entities/zombie_rider_equipment.json"
+          "table": "loot_tables/entities/litius_equipo_zombie_jinete.json"
         },
         "minecraft:loot": {
           "table": "loot_tables/entities/zombie_rider.json"
@@ -821,6 +825,9 @@
         },
         "minecraft:underwater_movement": {
           "value": 0.09
+        },
+        "minecraft:knockback_resistance": {
+          "value": 0.5
         }
       },
       "litius:mejorado_equipo": {
@@ -860,6 +867,144 @@
         },
         "minecraft:jump.static": {
           "jump_power": 0.62
+        }
+      },
+      "litius:acorazado_leather": {
+        "minecraft:equipment": {
+          "table": "loot_tables/entities/litius_acorazado_leather.json",
+          "slot_drop_chance": [
+            {
+              "slot": "slot.armor.head",
+              "drop_chance": 0.1
+            },
+            {
+              "slot": "slot.armor.chest",
+              "drop_chance": 0.1
+            },
+            {
+              "slot": "slot.armor.legs",
+              "drop_chance": 0.1
+            },
+            {
+              "slot": "slot.armor.feet",
+              "drop_chance": 0.1
+            }
+          ]
+        }
+      },
+      "litius:acorazado_golden": {
+        "minecraft:equipment": {
+          "table": "loot_tables/entities/litius_acorazado_golden.json",
+          "slot_drop_chance": [
+            {
+              "slot": "slot.armor.head",
+              "drop_chance": 0.08
+            },
+            {
+              "slot": "slot.armor.chest",
+              "drop_chance": 0.08
+            },
+            {
+              "slot": "slot.armor.legs",
+              "drop_chance": 0.08
+            },
+            {
+              "slot": "slot.armor.feet",
+              "drop_chance": 0.08
+            }
+          ]
+        }
+      },
+      "litius:acorazado_chainmail": {
+        "minecraft:equipment": {
+          "table": "loot_tables/entities/litius_acorazado_chainmail.json",
+          "slot_drop_chance": [
+            {
+              "slot": "slot.armor.head",
+              "drop_chance": 0.06
+            },
+            {
+              "slot": "slot.armor.chest",
+              "drop_chance": 0.06
+            },
+            {
+              "slot": "slot.armor.legs",
+              "drop_chance": 0.06
+            },
+            {
+              "slot": "slot.armor.feet",
+              "drop_chance": 0.06
+            }
+          ]
+        }
+      },
+      "litius:acorazado_iron": {
+        "minecraft:equipment": {
+          "table": "loot_tables/entities/litius_acorazado_iron.json",
+          "slot_drop_chance": [
+            {
+              "slot": "slot.armor.head",
+              "drop_chance": 0.04
+            },
+            {
+              "slot": "slot.armor.chest",
+              "drop_chance": 0.04
+            },
+            {
+              "slot": "slot.armor.legs",
+              "drop_chance": 0.04
+            },
+            {
+              "slot": "slot.armor.feet",
+              "drop_chance": 0.04
+            }
+          ]
+        }
+      },
+      "litius:acorazado_diamond": {
+        "minecraft:equipment": {
+          "table": "loot_tables/entities/litius_acorazado_diamond.json",
+          "slot_drop_chance": [
+            {
+              "slot": "slot.armor.head",
+              "drop_chance": 0.02
+            },
+            {
+              "slot": "slot.armor.chest",
+              "drop_chance": 0.02
+            },
+            {
+              "slot": "slot.armor.legs",
+              "drop_chance": 0.02
+            },
+            {
+              "slot": "slot.armor.feet",
+              "drop_chance": 0.02
+            }
+          ]
+        }
+      },
+      "litius:acorazado_netherite": {
+        "minecraft:equipment": {
+          "table": "loot_tables/entities/litius_acorazado_netherite.json",
+          "slot_drop_chance": [
+            {
+              "slot": "slot.armor.head",
+              "drop_chance": 0.01
+            },
+            {
+              "slot": "slot.armor.chest",
+              "drop_chance": 0.01
+            },
+            {
+              "slot": "slot.armor.legs",
+              "drop_chance": 0.01
+            },
+            {
+              "slot": "slot.armor.feet",
+              "drop_chance": 0.01
+            }
+          ]
         }
       }
     },
@@ -980,18 +1125,22 @@
             },
             "randomize": [
               {
-                "weight": 50,
+                "weight": 45,
                 "set_property": {
                   "litius:tirada": true
                 }
               },
               {
-                "weight": 25,
+                "weight": 20,
                 "trigger": "litius:mutar"
               },
               {
-                "weight": 25,
+                "weight": 20,
                 "trigger": "litius:mutar_escalador"
+              },
+              {
+                "weight": 15,
+                "trigger": "litius:mutar_acorazado"
               }
             ]
           }
@@ -1370,18 +1519,6 @@
           }
         ]
       },
-      "litius:vanilla_start_transforming_into_drowned": {
-        "add": {
-          "component_groups": [
-            "minecraft:start_drowned_transformation"
-          ]
-        },
-        "remove": {
-          "component_groups": [
-            "minecraft:look_to_start_transformations"
-          ]
-        }
-      },
       "litius:vanilla_convert_to_drowned": {
         "sequence": [
           {
@@ -1419,6 +1556,18 @@
           }
         ]
       },
+      "litius:vanilla_start_transforming_into_drowned": {
+        "add": {
+          "component_groups": [
+            "minecraft:start_drowned_transformation"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "minecraft:look_to_start_transformations"
+          ]
+        }
+      },
       "litius:mutar": {
         "sequence": [
           {
@@ -1452,6 +1601,88 @@
                 "litius:escalador"
               ]
             }
+          }
+        ]
+      },
+      "litius:manada_mejorado": {
+        "sequence": [
+          {
+            "remove": {
+              "component_groups": [
+                "litius:escalador",
+                "litius:acorazado_leather",
+                "litius:acorazado_golden",
+                "litius:acorazado_chainmail",
+                "litius:acorazado_iron",
+                "litius:acorazado_diamond",
+                "litius:acorazado_netherite"
+              ]
+            }
+          },
+          {
+            "trigger": "litius:mutar"
+          }
+        ]
+      },
+      "litius:mutar_acorazado": {
+        "sequence": [
+          {
+            "set_property": {
+              "litius:mutacion": 3,
+              "litius:tirada": true
+            }
+          },
+          {
+            "randomize": [
+              {
+                "weight": 30,
+                "add": {
+                  "component_groups": [
+                    "litius:acorazado_leather"
+                  ]
+                }
+              },
+              {
+                "weight": 18,
+                "add": {
+                  "component_groups": [
+                    "litius:acorazado_golden"
+                  ]
+                }
+              },
+              {
+                "weight": 22,
+                "add": {
+                  "component_groups": [
+                    "litius:acorazado_chainmail"
+                  ]
+                }
+              },
+              {
+                "weight": 18,
+                "add": {
+                  "component_groups": [
+                    "litius:acorazado_iron"
+                  ]
+                }
+              },
+              {
+                "weight": 9,
+                "add": {
+                  "component_groups": [
+                    "litius:acorazado_diamond"
+                  ]
+                }
+              },
+              {
+                "weight": 3,
+                "add": {
+                  "component_groups": [
+                    "litius:acorazado_netherite"
+                  ]
+                }
+              }
+            ]
           }
         ]
       }

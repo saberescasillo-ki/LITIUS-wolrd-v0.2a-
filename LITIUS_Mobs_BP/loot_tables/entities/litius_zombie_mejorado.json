@@ -22,10 +22,6 @@
           "type": "item",
           "name": "minecraft:leather_helmet",
           "weight": 2
-        },
-        {
-          "type": "empty",
-          "weight": 14
         }
       ]
     },

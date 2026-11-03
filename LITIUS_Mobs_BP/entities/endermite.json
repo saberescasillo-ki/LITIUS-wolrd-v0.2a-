@@ -37,7 +37,7 @@
       },
       "minecraft:behavior.nearest_attackable_target": {
         "must_see": true,
-        "within_radius": 16,
+        "within_radius": 21,
         "entity_types": [
           {
             "filters": {
@@ -59,7 +59,8 @@
                   ]
                 }
               ]
-            }
+            },
+            "max_dist": 21
           }
         ],
         "priority": 5
@@ -125,6 +126,10 @@
           "monster",
           "mob"
         ]
+      },
+      "minecraft:follow_range": {
+        "value": 21,
+        "max": 21
       }
     },
     "events": {
@@ -190,6 +195,9 @@
           "damage": 3,
           "effect_name": "slowness",
           "effect_duration": 3
+        },
+        "minecraft:knockback_resistance": {
+          "value": 0.5
         }
       }
     }

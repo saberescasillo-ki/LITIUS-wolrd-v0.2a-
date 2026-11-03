@@ -65,7 +65,7 @@
         "reselect_targets": true,
         "scan_interval": 20,
         "target_search_height": 80,
-        "within_radius": 64,
+        "within_radius": 69,
         "must_see_forget_duration": 0.5,
         "entity_types": [
           {
@@ -79,7 +79,7 @@
                 }
               ]
             },
-            "max_dist": 64
+            "max_dist": 69
           }
         ],
         "priority": 1
@@ -106,8 +106,8 @@
         "on_death": "query.last_hit_by_player ? 5 : 0"
       },
       "minecraft:follow_range": {
-        "max": 64,
-        "value": 64
+        "max": 69,
+        "value": 69
       },
       "minecraft:game_event_movement_tracking": {
         "emit_flap": true
@@ -220,6 +220,9 @@
         },
         "minecraft:movement": {
           "value": 2.3
+        },
+        "minecraft:knockback_resistance": {
+          "value": 0.5
         }
       }
     }

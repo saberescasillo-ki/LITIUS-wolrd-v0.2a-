@@ -19,7 +19,7 @@
         },
         "minecraft:herd": {
           "min_size": 1,
-          "max_size": 6
+          "max_size": 5
         },
         "minecraft:biome_filter": {
           "any_of": [

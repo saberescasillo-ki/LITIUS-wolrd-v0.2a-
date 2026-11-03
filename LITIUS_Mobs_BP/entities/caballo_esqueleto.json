@@ -259,14 +259,14 @@
         "damage": 3
       },
       "minecraft:follow_range": {
-        "value": 48,
-        "max": 48
+        "value": 53,
+        "max": 53
       },
       "minecraft:behavior.nearest_attackable_target": {
         "priority": 2,
         "must_see": true,
         "reselect_targets": true,
-        "within_radius": 40,
+        "within_radius": 45,
         "entity_types": [
           {
             "filters": {
@@ -298,7 +298,7 @@
                 }
               ]
             },
-            "max_dist": 40
+            "max_dist": 45
           }
         ]
       },

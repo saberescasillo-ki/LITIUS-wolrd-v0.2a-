@@ -32,10 +32,6 @@
           "type": "item",
           "name": "minecraft:iron_helmet",
           "weight": 1
-        },
-        {
-          "type": "empty",
-          "weight": 8
         }
       ]
     },

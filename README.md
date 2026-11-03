@@ -1,7 +1,7 @@
 # LITIUS-wolrd-v0.2a-
 LITIUS wolrd more serius
 
-## LITIUS Mobs 1.7 (addon para Minecraft Bedrock)
+## LITIUS Mobs 1.8 (addon para Minecraft Bedrock)
 
 Rehecho desde cero. Dos packs: `LITIUS_Mobs_BP` (comportamiento) y `LITIUS_Mobs_RP` (recursos).
 No necesita experimentos.
@@ -10,34 +10,56 @@ No necesita experimentos.
 
 Cuando aparece uno de estos mobs vanilla (de forma natural, con su huevo o con `/summon`),
 hay un **25 %** de que salga **mejorado**; el 75 % restante es el mob vanilla de siempre
-(con sus variantes vanilla). **Los bebés nunca mutan.** El zombie tiene dos mutaciones:
-50 % vanilla, 25 % mejorado y 25 % escalador.
+(con sus variantes vanilla). **Los bebés nunca mutan.** El zombie tiene tres mutaciones:
+45 % vanilla, 20 % mejorado, 20 % escalador y 15 % acorazado. Las variantes mejoradas son **pesadas**
+(resisten la mitad del empuje de los golpes).
 
 | Mob | Mejora |
 |-----|--------|
 | Zombie | +0.5 bloques de alto, +35 % de vida, algo más rápido. Puede llevar armadura (con menos probabilidad que antes) y arma, y es poco probable que las suelte (3 %). **No se convierte en ahogado**, nada y va algo más rápido que un jugador nadando. |
+| Zombie acorazado | Siempre lleva **armadura completa** de un solo material: cuero (30 %), malla (22 %), oro (18 %), hierro (18 %), diamante (9 %) o netherita (3 %). Cada pieza se suelta con más probabilidad cuanto menos valiosa es: cuero 10 %, oro 8 %, malla 6 %, hierro 4 %, diamante 2 %, netherita 1 %. **Sí se puede ahogar** (se convierte en ahogado). |
 | Zombie escalador | Sube bloques caminando, salta muros de 2 bloques y es más rápido. Su piel es un poco más pálida para reconocerlo. |
 | Ahogado | Lo mismo que el zombie mejorado pero adaptado: siempre con **tridente**, armadura posible, nada más rápido. |
-| Esqueleto (55 % vanilla / 25 % mejorado / 20 % cueva) | Mejorado: +0.4 bloques de alto, +25 % de vida, misma velocidad. **Usa espada en vez de arco**; puede llevar armadura; suelta poco lo que lleva (3 %). |
+| Esqueleto (40 % vanilla / 18 % mejorado / 14 % cueva / 14 % lentitud / 14 % oscuridad) | Mejorado: +0.4 bloques de alto, +25 % de vida, misma velocidad. **Usa espada en vez de arco**; puede llevar armadura; suelta poco lo que lleva (3 %). |
 | Esqueleto de cueva | Sin armas, pelea cuerpo a cuerpo; aspecto de piedra con musgo y liquen y **estalactitas de dripstone** en hombros, cabeza, espalda y piernas. Sus golpes dan **Lentitud I 4 s**. |
+| Esqueleto de lentitud | Sus flechas dan **Lentitud I 2 s**. |
+| Esqueleto de oscuridad | Sus flechas dan **Oscuridad 2 s**. |
 | Hoglin | +0.3 bloques, +35 % de velocidad, +10 % de vida; sus golpes dan **Lentitud I 5 s**. |
 | Lepisma (silverfish) | +0.5 bloques de alto (hitbox a la mitad), +50 % de vida y de daño; sus golpes dan **Lentitud I 3 s**. |
 | Endermite | Igual que la lepisma, con la hitbox un 25 % más pequeña. |
 | Blaze | +0.2 bloques, más vida, más rápido; dispara **ráfagas de 5 bolas de fuego** más seguidas (vanilla: 3). |
 | Enderman | +0.3 bloques, +30 % de vida, +20 % de velocidad. **Ojos verdes**, piel algo más pálida y un **cristal verde brillante** incrustado en el pecho. |
 | Piglin zombie | +0.3 bloques, +35 % de vida, algo más rápido, siempre espada de oro y armadura de oro posible (suelta poco). |
-| Vaca → Toro | Modelo y texturas propios del toro, según el clima (templado, cálido o frío; cada toro elige uno de sus pelajes). **Siempre aparece con 3 vacas.** Se enfurece y te persigue 30 s si **le pegas a él o a una vaca cercana**. |
+| Vaca → Toro | **No se puede empujar.** Modelo y texturas propios del toro, según el clima (templado, cálido o frío; cada toro elige uno de sus pelajes). **Siempre aparece con 3 vacas.** Se enfurece y te persigue 30 s si **le pegas a él o a una vaca cercana**. |
 | Stray | 25 %: dispara **3 flechas seguidas** de Lentitud, con poco tiempo entre ráfagas, y su paleta es algo más pálida. |
 | Bogged | 25 %: dispara **3 flechas seguidas**, con poco tiempo entre ráfagas, y tiene el **doble de vida**. |
 | Phantom | +0.5 bloques (el doble de tamaño, hitbox un 25 % más pequeña), más rápido, más vida, **mismo daño**. |
 
+### Cambios generales
+
+- **Todos los mobs hostiles** detectan al jugador **5 bloques más lejos** (incluye arañas, husks, brujas, illagers, piglins, ghasts, slimes, etc.).
+- **No muertos con casco:** zombies, esqueletos, strays, bogged, ahogados, aldeanos zombie y los jinetes que se queman salen siempre con casco
+  (cuero 50 %, malla 20 %, hierro 15 %, oro 15 %), así no arden al sol. Los phantoms no pueden llevar casco y siguen ardiendo como en vanilla.
+- **Esqueletos, strays y bogged disparan más seguido:** cada 1.4–1.9 s (1.0–1.4 s en difícil); vanilla dispara cada 3 s (2 s en difícil).
+- **Creepers** un 10 % más rápidos.
+
 ### Aparición natural
 
-- **Bogged:** además de pantanos y manglares, aparece en junglas, bosques oscuros y cuevas frondosas.
-- **Animales de granja** (cerdo, oveja, cabra, vaca, pollo, conejo, llama, caballo, burro, champiñaca): aparecen en manadas más grandes.
-- **Arañas:** pueden aparecer en grupos de hasta 3.
-- **Arañas de cueva:** aparecen naturalmente en cuevas (~25 % de los monstruos de cueva).
-- **Jinetes:** aparecen poco y nunca en grupo (máximo 2 de cada tipo en superficie y 1 bajo tierra cerca del jugador). El Jinete Wither es el más raro y el Jinete Husk el más común en su bioma.
+| Mob | Peso | Grupo | Dónde |
+|-----|------|-------|-------|
+| Jinete Zombie | 4 | 1 | Overworld de noche (no desierto ni océano) |
+| Jinete Esqueleto | 3 | 1 | Overworld de noche (no océano) |
+| Esqueleto en Araña | 3 | 1 | Overworld de noche (no océano) |
+| Jinete Husk | 6 | 1 | Desiertos de noche |
+| Jinete Wither | 3 | 1 | Valle de almas y páramos del Nether |
+| Manada de zombies | 3 | 3 zombies + 1 zombie mejorado | Igual que el zombie (vanilla: peso 100, grupos de 2–4) |
+| Araña | 80 | 1–3 | Igual que vanilla (vanilla: peso 100, sola) |
+| Araña de cueva | 80 | 1–2 | Cuevas del Overworld (no Deep Dark) |
+| Bogged | 40 / 10 / 12 | 1–2 | Pantanos y manglares / junglas y bosques oscuros / cuevas frondosas |
+| Animales de granja | vanilla | vanilla +2 (mínimo 4) | Igual que vanilla |
+
+Cada jinete tiene un **límite de 2 en superficie y 1 bajo tierra** cerca del jugador. Como referencia, el zombie vanilla tiene peso 100
+y el esqueleto 80, así que cada jinete sale más o menos 1 de cada 25–35 monstruos.
 
 ### Animaciones de los esqueletos
 
@@ -51,7 +73,9 @@ Explosión **+1** (4 normal, 7 cargado) y también ataca a **golems de hierro, d
 
 ### Jinetes (con huevo propio)
 
-El jinete y la montura **atacan los dos**: la montura pisotea a quien toque mientras lleva jinete y, si el jinete muere, sigue persiguiendo y atacando. **Los jugadores no pueden montar estas monturas.** Jinetes y monturas detectan a 40 bloques.
+El jinete y la montura **atacan los dos**: la montura pisotea a quien toque mientras lleva jinete y, si el jinete muere, sigue persiguiendo y atacando. **Los jugadores no pueden montar estas monturas**, las monturas **no se queman con el sol** y las monturas zombie
+(caballo y camello) **no se pueden empujar**. Jinetes y monturas detectan a 45 bloques y los jinetes tienen **+0.3 bloques de alcance**
+cuerpo a cuerpo para llegar desde la montura.
 Usan el comportamiento y el aspecto vanilla de cada mob; las monturas tienen **animaciones de ataque** (coz, cabezazo o mordisco) y bajan la cabeza al cargar. Las armas y armaduras se sueltan poco (3 %).
 
 | Mob | Montura | Detalles |
@@ -60,7 +84,7 @@ Usan el comportamiento y el aspecto vanilla de cada mob; las monturas tienen **a
 | Jinete Wither (`litius:jinete_wither`) | Caballo esqueleto color wither | Wither esqueleto con espada. Caballo del **color del wither esqueleto**, **15 % más rápido que un hoglin corriendo**. Aparece en el Nether. |
 | Jinete Zombie (`litius:jinete_zombie`) | Caballo zombie | Zombie con espada y armadura posible. Caballo **10 % más rápido que un jugador corriendo**. Aparece de noche en el Overworld. |
 | Jinete Esqueleto (`litius:jinete_esqueleto`) | Caballo esqueleto | Casco de hierro y espada (70 %); mutaciones del mismo huevo: **hacha** (15 %) o **arco** (15 %, dispara cada 1.2–1.6 s). Aparece de noche en el Overworld. |
-| Jinete Husk (`litius:jinete_husk`) | Camello zombie | Husk con espada y armadura posible. Camello **un poco más rápido que un jugador**. Aparece en desiertos. |
+| Jinete Husk (`litius:jinete_husk`) | Camello zombie | Husk con espada y armadura posible. Camello **un poco más rápido que un jugador** (antes iba demasiado rápido). Aparece en desiertos. |
 
 > Las velocidades de las monturas se calcularon tomando que un hoglin corriendo va
 > más o menos tan rápido como un jugador corriendo.

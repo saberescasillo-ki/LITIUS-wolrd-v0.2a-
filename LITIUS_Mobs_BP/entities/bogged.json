@@ -71,14 +71,16 @@
               "test": "is_family",
               "subject": "other",
               "value": "player"
-            }
+            },
+            "max_dist": 21
           },
           {
             "filters": {
               "test": "is_family",
               "subject": "other",
               "value": "irongolem"
-            }
+            },
+            "max_dist": 21
           },
           {
             "filters": {
@@ -95,7 +97,8 @@
                   "value": true
                 }
               ]
-            }
+            },
+            "max_dist": 21
           }
         ],
         "priority": 2
@@ -165,7 +168,7 @@
         ]
       },
       "minecraft:equipment": {
-        "table": "loot_tables/entities/skeleton_gear.json"
+        "table": "loot_tables/entities/litius_equipo_esqueleto.json"
       },
       "minecraft:experience_reward": {
         "on_death": "query.last_hit_by_player ? 5 + (query.equipment_count * Math.Random(1,3)) : 0"
@@ -491,6 +494,10 @@
           "mob",
           "undead"
         ]
+      },
+      "minecraft:follow_range": {
+        "value": 21,
+        "max": 21
       }
     },
     "component_groups": {
@@ -532,7 +539,10 @@
       },
       "minecraft:ranged_attack": {
         "minecraft:behavior.ranged_attack": {
-          "attack_interval": 3.5,
+          "attack_interval": {
+            "min": 1.4,
+            "max": 1.9
+          },
           "attack_radius": 15.0,
           "priority": 0
         },
@@ -573,7 +583,10 @@
       },
       "minecraft:ranged_attack_hard": {
         "minecraft:behavior.ranged_attack": {
-          "attack_interval": 2.5,
+          "attack_interval": {
+            "min": 1.0,
+            "max": 1.4
+          },
           "attack_radius": 15.0,
           "priority": 0
         },
@@ -621,11 +634,17 @@
       },
       "litius:mejorado": {
         "minecraft:behavior.ranged_attack": {
-          "attack_interval": 2.0,
+          "attack_interval": {
+            "min": 1.6,
+            "max": 2.0
+          },
           "attack_radius": 15.0,
           "burst_shots": 3,
           "burst_interval": 0.15,
           "priority": 0
+        },
+        "minecraft:knockback_resistance": {
+          "value": 0.5
         }
       }
     },

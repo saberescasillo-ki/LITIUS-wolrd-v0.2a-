@@ -65,7 +65,7 @@
                 }
               ]
             },
-            "max_dist": 8
+            "max_dist": 13
           }
         ],
         "priority": 2
@@ -138,6 +138,10 @@
           "mob",
           "arthropod"
         ]
+      },
+      "minecraft:follow_range": {
+        "value": 16,
+        "max": 16
       }
     },
     "component_groups": {
@@ -184,6 +188,9 @@
           "damage": 1.5,
           "effect_name": "slowness",
           "effect_duration": 3
+        },
+        "minecraft:knockback_resistance": {
+          "value": 0.5
         }
       }
     },

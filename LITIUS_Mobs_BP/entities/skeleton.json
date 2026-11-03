@@ -11,7 +11,7 @@
           "type": "int",
           "range": [
             0,
-            2
+            4
           ],
           "default": 0,
           "client_sync": true
@@ -71,14 +71,16 @@
               "test": "is_family",
               "subject": "other",
               "value": "player"
-            }
+            },
+            "max_dist": 21
           },
           {
             "filters": {
               "test": "is_family",
               "subject": "other",
               "value": "irongolem"
-            }
+            },
+            "max_dist": 21
           },
           {
             "filters": {
@@ -94,7 +96,8 @@
                   "value": false
                 }
               ]
-            }
+            },
+            "max_dist": 21
           }
         ],
         "priority": 2
@@ -121,8 +124,8 @@
       },
       "minecraft:behavior.ranged_attack": {
         "attack_interval": {
-          "min": 3.0,
-          "max": 3.0
+          "min": 1.4,
+          "max": 1.9
         },
         "attack_range": {
           "min": 0.0,
@@ -178,7 +181,7 @@
         ]
       },
       "minecraft:equipment": {
-        "table": "loot_tables/entities/skeleton_gear.json"
+        "table": "loot_tables/entities/litius_equipo_esqueleto.json"
       },
       "minecraft:experience_reward": {
         "on_death": "query.last_hit_by_player ? 5 + (query.equipment_count * Math.Random(1,3)) : 0"
@@ -473,6 +476,10 @@
           "monster",
           "mob"
         ]
+      },
+      "minecraft:follow_range": {
+        "value": 21,
+        "max": 21
       }
     },
     "component_groups": {
@@ -591,8 +598,8 @@
       "minecraft:ranged_attack": {
         "minecraft:behavior.ranged_attack": {
           "attack_interval": {
-            "min": 3.0,
-            "max": 3.0
+            "min": 1.4,
+            "max": 1.9
           },
           "attack_range": {
             "min": 0.0,
@@ -640,8 +647,8 @@
       "minecraft:ranged_attack_hard": {
         "minecraft:behavior.ranged_attack": {
           "attack_interval": {
-            "min": 2.0,
-            "max": 2.0
+            "min": 1.0,
+            "max": 1.4
           },
           "attack_range": {
             "min": 0.0,
@@ -700,6 +707,9 @@
         "minecraft:collision_box": {
           "width": 0.73,
           "height": 2.3
+        },
+        "minecraft:knockback_resistance": {
+          "value": 0.5
         }
       },
       "litius:mejorado_equipo": {
@@ -738,6 +748,18 @@
         "minecraft:knockback_resistance": {
           "value": 0.3
         }
+      },
+      "litius:flecha_lenta": {
+        "minecraft:shooter": {
+          "def": "litius:flecha_lenta",
+          "sound": "bow"
+        }
+      },
+      "litius:flecha_oscura": {
+        "minecraft:shooter": {
+          "def": "litius:flecha_oscura",
+          "sound": "bow"
+        }
       }
     },
     "events": {
@@ -773,6 +795,32 @@
             "add": {
               "component_groups": [
                 "litius:cueva"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 3
+            },
+            "add": {
+              "component_groups": [
+                "litius:flecha_lenta"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 4
+            },
+            "add": {
+              "component_groups": [
+                "litius:flecha_oscura"
               ]
             }
           }
@@ -817,6 +865,32 @@
                 "litius:cueva"
               ]
             }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 3
+            },
+            "add": {
+              "component_groups": [
+                "litius:flecha_lenta"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 4
+            },
+            "add": {
+              "component_groups": [
+                "litius:flecha_oscura"
+              ]
+            }
           }
         ]
       },
@@ -859,6 +933,32 @@
                 "litius:cueva"
               ]
             }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 3
+            },
+            "add": {
+              "component_groups": [
+                "litius:flecha_lenta"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 4
+            },
+            "add": {
+              "component_groups": [
+                "litius:flecha_oscura"
+              ]
+            }
           }
         ]
       },
@@ -894,6 +994,32 @@
             "add": {
               "component_groups": [
                 "litius:cueva"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 3
+            },
+            "add": {
+              "component_groups": [
+                "litius:flecha_lenta"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 4
+            },
+            "add": {
+              "component_groups": [
+                "litius:flecha_oscura"
               ]
             }
           }
@@ -936,6 +1062,32 @@
             "add": {
               "component_groups": [
                 "litius:cueva"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 3
+            },
+            "add": {
+              "component_groups": [
+                "litius:flecha_lenta"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 4
+            },
+            "add": {
+              "component_groups": [
+                "litius:flecha_oscura"
               ]
             }
           }
@@ -982,6 +1134,32 @@
                 "litius:cueva"
               ]
             }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 3
+            },
+            "add": {
+              "component_groups": [
+                "litius:flecha_lenta"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 4
+            },
+            "add": {
+              "component_groups": [
+                "litius:flecha_oscura"
+              ]
+            }
           }
         ]
       },
@@ -1023,18 +1201,26 @@
             },
             "randomize": [
               {
-                "weight": 55,
+                "weight": 40,
                 "set_property": {
                   "litius:tirada": true
                 }
               },
               {
-                "weight": 25,
+                "weight": 18,
                 "trigger": "litius:mutar"
               },
               {
-                "weight": 20,
+                "weight": 14,
                 "trigger": "litius:mutar_escalador"
+              },
+              {
+                "weight": 14,
+                "trigger": "litius:mutar_lenta"
+              },
+              {
+                "weight": 14,
+                "trigger": "litius:mutar_oscura"
               }
             ]
           }
@@ -1108,6 +1294,32 @@
                 "litius:cueva"
               ]
             }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 3
+            },
+            "add": {
+              "component_groups": [
+                "litius:flecha_lenta"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 4
+            },
+            "add": {
+              "component_groups": [
+                "litius:flecha_oscura"
+              ]
+            }
           }
         ]
       },
@@ -1143,6 +1355,32 @@
             "add": {
               "component_groups": [
                 "litius:cueva"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 3
+            },
+            "add": {
+              "component_groups": [
+                "litius:flecha_lenta"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 4
+            },
+            "add": {
+              "component_groups": [
+                "litius:flecha_oscura"
               ]
             }
           }
@@ -1194,6 +1432,40 @@
           },
           {
             "trigger": "minecraft:melee_mode"
+          }
+        ]
+      },
+      "litius:mutar_lenta": {
+        "sequence": [
+          {
+            "set_property": {
+              "litius:mutacion": 3,
+              "litius:tirada": true
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "litius:flecha_lenta"
+              ]
+            }
+          }
+        ]
+      },
+      "litius:mutar_oscura": {
+        "sequence": [
+          {
+            "set_property": {
+              "litius:mutacion": 4,
+              "litius:tirada": true
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "litius:flecha_oscura"
+              ]
+            }
           }
         ]
       }

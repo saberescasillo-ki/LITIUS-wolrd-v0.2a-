@@ -24,7 +24,7 @@
         },
         "minecraft:herd": {
           "min_size": 2,
-          "max_size": 6
+          "max_size": 5
         },
         "minecraft:biome_filter": {
           "any_of": [
@@ -69,7 +69,7 @@
         },
         "minecraft:herd": {
           "min_size": 2,
-          "max_size": 6
+          "max_size": 5
         },
         "minecraft:biome_filter": {
           "any_of": [
@@ -102,7 +102,7 @@
         },
         "minecraft:herd": {
           "min_size": 2,
-          "max_size": 6
+          "max_size": 5
         },
         "minecraft:biome_filter": {
           "test": "has_biome_tag",
@@ -127,7 +127,7 @@
         },
         "minecraft:herd": {
           "min_size": 2,
-          "max_size": 9
+          "max_size": 8
         },
         "minecraft:biome_filter": {
           "any_of": [
@@ -157,7 +157,7 @@
         },
         "minecraft:herd": {
           "min_size": 2,
-          "max_size": 7
+          "max_size": 6
         },
         "minecraft:biome_filter": {
           "test": "has_biome_tag",

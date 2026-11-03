@@ -314,6 +314,9 @@
           ],
           "effect_name": "slowness",
           "effect_duration": 5
+        },
+        "minecraft:knockback_resistance": {
+          "value": 0.5
         }
       }
     },
@@ -339,7 +342,7 @@
       },
       "minecraft:behavior.nearest_attackable_target": {
         "priority": 4,
-        "within_radius": 16.0,
+        "within_radius": 21.0,
         "entity_types": [
           {
             "filters": {
@@ -357,7 +360,7 @@
                 }
               ]
             },
-            "max_dist": 16
+            "max_dist": 21
           }
         ],
         "must_see": true
@@ -467,7 +470,11 @@
       "minecraft:physics": {},
       "minecraft:pushable_by_entity": {},
       "minecraft:pushable_by_block": {},
-      "minecraft:conditional_bandwidth_optimization": {}
+      "minecraft:conditional_bandwidth_optimization": {},
+      "minecraft:follow_range": {
+        "value": 21.0,
+        "max": 21.0
+      }
     },
     "events": {
       "minecraft:entity_spawned": {

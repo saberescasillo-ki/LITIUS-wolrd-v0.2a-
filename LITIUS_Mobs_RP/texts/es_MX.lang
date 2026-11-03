@@ -13,3 +13,5 @@ item.spawn_egg.entity.litius:jinete_husk.name=Generar Jinete Husk
 item.spawn_egg.entity.litius:jinete_wither.name=Generar Jinete Wither
 item.spawn_egg.entity.litius:esqueleto_arana.name=Generar Esqueleto Espadachín en Araña
 item.spawn_egg.entity.litius:jinete_esqueleto.name=Generar Jinete Esqueleto
+entity.litius:flecha_lenta.name=Flecha de Lentitud
+entity.litius:flecha_oscura.name=Flecha de Oscuridad
