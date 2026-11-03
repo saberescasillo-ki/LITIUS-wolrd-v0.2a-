@@ -6,17 +6,15 @@
       "min_engine_version": "1.8.0",
       "materials": {
         "default": "enderman",
-        "invisible": "enderman_invisible",
-        "capa_extra": "entity_alphatest"
+        "invisible": "enderman_invisible"
       },
       "textures": {
         "default": "textures/entity/enderman/enderman",
-        "mejorado": "textures/entity/litius/enderman_mejorado",
-        "cristal": "textures/entity/litius/cristal_ender"
+        "mejorado": "textures/entity/litius/enderman_mejorado"
       },
       "geometry": {
         "default": "geometry.enderman.v1.8",
-        "cristal": "geometry.litius.cristal_ender"
+        "mejorado": "geometry.litius.enderman_mejorado"
       },
       "scripts": {
         "pre_animation": [
@@ -59,8 +57,7 @@
         }
       ],
       "render_controllers": [
-        "controller.render.litius.enderman",
-        "controller.render.litius.cristal"
+        "controller.render.litius.enderman"
       ],
       "spawn_egg": {
         "texture": "spawn_egg_enderman"

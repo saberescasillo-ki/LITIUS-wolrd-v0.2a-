@@ -112,31 +112,29 @@
       ]
     },
     "controller.render.litius.skeleton": {
-      "geometry": "Geometry.default",
+      "geometry": "Array.geos[query.property('litius:mutacion') == 2]",
       "materials": [
         {
           "*": "Material.default"
         }
       ],
       "textures": [
-        "query.property('litius:mutacion') == 2 ? Texture.cueva : Texture.default"
-      ]
-    },
-    "controller.render.litius.estalactitas": {
-      "geometry": "Geometry.estalactitas",
-      "materials": [
-        {
-          "*": "Material.capa_extra"
-        }
+        "Array.texs[query.property('litius:mutacion') == 2]"
       ],
-      "textures": [
-        "Texture.estalactitas"
-      ],
-      "part_visibility": [
-        {
-          "*": "query.property('litius:mutacion') == 2"
+      "arrays": {
+        "geometries": {
+          "Array.geos": [
+            "Geometry.default",
+            "Geometry.cueva"
+          ]
+        },
+        "textures": {
+          "Array.texs": [
+            "Texture.default",
+            "Texture.cueva"
+          ]
         }
-      ]
+      }
     },
     "controller.render.litius.enderman": {
       "arrays": {
@@ -145,33 +143,28 @@
             "Material.default",
             "Material.invisible"
           ]
+        },
+        "geometries": {
+          "Array.geos": [
+            "Geometry.default",
+            "Geometry.mejorado"
+          ]
+        },
+        "textures": {
+          "Array.texs": [
+            "Texture.default",
+            "Texture.mejorado"
+          ]
         }
       },
-      "geometry": "Geometry.default",
+      "geometry": "Array.geos[query.property('litius:mutacion') == 1]",
       "materials": [
         {
           "*": "Array.materials[query.is_invisible]"
         }
       ],
       "textures": [
-        "query.property('litius:mutacion') == 1 ? Texture.mejorado : Texture.default"
-      ]
-    },
-    "controller.render.litius.cristal": {
-      "geometry": "Geometry.cristal",
-      "materials": [
-        {
-          "*": "Material.capa_extra"
-        }
-      ],
-      "textures": [
-        "Texture.cristal"
-      ],
-      "ignore_lighting": true,
-      "part_visibility": [
-        {
-          "*": "query.property('litius:mutacion') == 1 && !query.is_invisible"
-        }
+        "Array.texs[query.property('litius:mutacion') == 1]"
       ]
     },
     "controller.render.litius.cow": {

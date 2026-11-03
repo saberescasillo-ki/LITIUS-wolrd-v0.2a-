@@ -1,7 +1,7 @@
 # LITIUS-wolrd-v0.2a-
 LITIUS wolrd more serius
 
-## LITIUS Mobs 1.5 (addon para Minecraft Bedrock)
+## LITIUS Mobs 1.6 (addon para Minecraft Bedrock)
 
 Rehecho desde cero. Dos packs: `LITIUS_Mobs_BP` (comportamiento) y `LITIUS_Mobs_RP` (recursos).
 No necesita experimentos.

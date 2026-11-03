@@ -5,17 +5,15 @@
       "identifier": "minecraft:skeleton",
       "min_engine_version": "1.8.0",
       "materials": {
-        "default": "skeleton",
-        "capa_extra": "entity_alphatest"
+        "default": "skeleton"
       },
       "textures": {
         "default": "textures/entity/skeleton/skeleton",
-        "cueva": "textures/entity/litius/esqueleto_cueva",
-        "estalactitas": "textures/entity/litius/estalactitas"
+        "cueva": "textures/entity/litius/esqueleto_cueva"
       },
       "geometry": {
         "default": "geometry.skeleton.v1.8",
-        "estalactitas": "geometry.litius.estalactitas"
+        "cueva": "geometry.litius.esqueleto_cueva"
       },
       "spawn_egg": {
         "texture": "spawn_egg_skeleton"
@@ -93,8 +91,7 @@
         }
       ],
       "render_controllers": [
-        "controller.render.litius.skeleton",
-        "controller.render.litius.estalactitas"
+        "controller.render.litius.skeleton"
       ],
       "enable_attachables": true
     }
