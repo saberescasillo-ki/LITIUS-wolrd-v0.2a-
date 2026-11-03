@@ -18,7 +18,7 @@
             2
           ],
           "default": 0,
-          "client_sync": false
+          "client_sync": true
         },
         "litius:tirada": {
           "type": "bool",
@@ -980,17 +980,17 @@
             },
             "randomize": [
               {
-                "weight": 70,
+                "weight": 50,
                 "set_property": {
                   "litius:tirada": true
                 }
               },
               {
-                "weight": 20,
+                "weight": 25,
                 "trigger": "litius:mutar"
               },
               {
-                "weight": 10,
+                "weight": 25,
                 "trigger": "litius:mutar_escalador"
               }
             ]
@@ -1370,6 +1370,18 @@
           }
         ]
       },
+      "litius:vanilla_start_transforming_into_drowned": {
+        "add": {
+          "component_groups": [
+            "minecraft:start_drowned_transformation"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "minecraft:look_to_start_transformations"
+          ]
+        }
+      },
       "litius:vanilla_convert_to_drowned": {
         "sequence": [
           {
@@ -1406,18 +1418,6 @@
             }
           }
         ]
-      },
-      "litius:vanilla_start_transforming_into_drowned": {
-        "add": {
-          "component_groups": [
-            "minecraft:start_drowned_transformation"
-          ]
-        },
-        "remove": {
-          "component_groups": [
-            "minecraft:look_to_start_transformations"
-          ]
-        }
       },
       "litius:mutar": {
         "sequence": [

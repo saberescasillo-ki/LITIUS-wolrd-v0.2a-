@@ -1,0 +1,115 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.litius.caballo_wither": {
+      "part_visibility": [
+        {
+          "Saddle": false
+        },
+        {
+          "Bit*": false
+        },
+        {
+          "Bridle": false
+        },
+        {
+          "Reins*": false
+        },
+        {
+          "Bag*": false
+        },
+        {
+          "MuleEar*": false
+        }
+      ],
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Texture.skeleton",
+        "Texture.markings_none",
+        "Texture.armor_none"
+      ]
+    },
+    "controller.render.litius.caballo_esqueleto": {
+      "part_visibility": [
+        {
+          "Saddle": false
+        },
+        {
+          "Bit*": false
+        },
+        {
+          "Bridle": false
+        },
+        {
+          "Reins*": false
+        },
+        {
+          "Bag*": false
+        },
+        {
+          "MuleEar*": false
+        }
+      ],
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Texture.skeleton",
+        "Texture.markings_none",
+        "Texture.armor_none"
+      ]
+    },
+    "controller.render.litius.caballo_zombie": {
+      "part_visibility": [
+        {
+          "Saddle": false
+        },
+        {
+          "Bit*": false
+        },
+        {
+          "Bridle": false
+        },
+        {
+          "Reins*": false
+        },
+        {
+          "Bag*": false
+        },
+        {
+          "MuleEar*": false
+        }
+      ],
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Texture.zombie",
+        "Texture.markings_none",
+        "Texture.armor_none"
+      ]
+    },
+    "controller.render.litius.zombie": {
+      "geometry": "query.is_baby ? Geometry.baby : Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "query.is_baby ? Texture.baby : (query.property('litius:mutacion') == 2 ? Texture.escalador : Texture.default)"
+      ]
+    }
+  }
+}

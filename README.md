@@ -11,12 +11,12 @@ No necesita experimentos.
 Cuando aparece uno de estos mobs vanilla (de forma natural, con su huevo o con `/summon`),
 hay un **25 %** de que salga **mejorado**; el 75 % restante es el mob vanilla de siempre
 (con sus variantes vanilla). **Los bebés nunca mutan.** El zombie tiene dos mutaciones:
-70 % vanilla, 20 % mejorado y 10 % escalador.
+50 % vanilla, 25 % mejorado y 25 % escalador.
 
 | Mob | Mejora |
 |-----|--------|
 | Zombie | +0.5 bloques de alto, +35 % de vida, algo más rápido. Más probable que lleve armadura y arma (no asegurado) y menos probable que las suelte (3 %). **No se convierte en ahogado**, nada y va algo más rápido que un jugador nadando. |
-| Zombie escalador | Sube bloques caminando, salta muros de 2 bloques y es más rápido. |
+| Zombie escalador | Sube bloques caminando, salta muros de 2 bloques y es más rápido. Su piel es un poco más pálida para reconocerlo. |
 | Ahogado | Lo mismo que el zombie mejorado pero adaptado: siempre con **tridente**, armadura posible, nada más rápido. |
 | Esqueleto | +0.4 bloques de alto, +25 % de vida, misma velocidad. **Usa espada en vez de arco**; puede llevar armadura; suelta poco lo que lleva (3 %). |
 | Hoglin | +0.3 bloques, +35 % de velocidad, +10 % de vida; sus golpes dan **Lentitud I 5 s**. |

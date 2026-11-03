@@ -10,15 +10,12 @@
       "textures": {
         "skeleton": "textures/entity/horse2/horse_skeleton",
         "markings_none": "textures/entity/horse2/horse_markings_none",
-        "armor_none": "textures/entity/horse2/armor/horse_armor_none",
-        "baby_skeleton": "textures/entity/horse2/horse_skeleton_baby"
+        "armor_none": "textures/entity/horse2/armor/horse_armor_none"
       },
       "geometry": {
-        "default": "geometry.horse.v3",
-        "baby": "geometry.horse.baby"
+        "default": "geometry.horse.v3"
       },
       "animations": {
-        "baby_transform": "animation.horse.v3.baby_transform",
         "walk": "animation.horse.v3.walk",
         "eat": "animation.horse.v3.eat",
         "rear": "animation.horse.v3.rear",
@@ -52,11 +49,10 @@
             "tail": "variable.shake_tail"
           },
           "litius_ctrl"
-        ],
-        "scale": "query.is_baby ? 2.0 : 1.0"
+        ]
       },
       "render_controllers": [
-        "controller.render.skeleton_horse.v4"
+        "controller.render.litius.caballo_esqueleto"
       ]
     }
   }
