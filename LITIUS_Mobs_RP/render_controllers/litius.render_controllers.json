@@ -173,9 +173,15 @@
             "Texture.cold"
           ],
           "Array.toro": [
-            "Texture.toro_default",
-            "Texture.toro_warm",
-            "Texture.toro_cold"
+            "Texture.toro_1",
+            "Texture.toro_3",
+            "Texture.toro_7",
+            "Texture.toro_2",
+            "Texture.toro_4",
+            "Texture.toro_8",
+            "Texture.toro_5",
+            "Texture.toro_6",
+            "Texture.toro_5"
           ],
           "Array.baby_textures": [
             "Texture.baby_default",
@@ -191,25 +197,25 @@
           ]
         }
       },
-      "geometry": "query.is_baby ? Geometry.baby : Array.geos[v.index]",
+      "geometry": "query.is_baby ? Geometry.baby : (query.property('litius:mutacion') == 1 ? Geometry.toro : Array.geos[v.index])",
       "materials": [
         {
           "*": "v.is_cold ? Material.cold : Material.default"
         }
       ],
       "textures": [
-        "query.is_baby ? Array.baby_textures[v.index] : (query.property('litius:mutacion') == 1 ? Array.toro[v.index] : Array.textures[v.index])"
+        "query.is_baby ? Array.baby_textures[v.index] : (query.property('litius:mutacion') == 1 ? Array.toro[v.index * 3 + query.property('litius:pelaje')] : Array.textures[v.index])"
       ]
     },
-    "controller.render.litius.toro": {
-      "geometry": "Geometry.toro",
+    "controller.render.litius.base": {
+      "geometry": "Geometry.default",
       "materials": [
         {
-          "*": "Material.toro"
+          "*": "Material.default"
         }
       ],
       "textures": [
-        "Texture.toro_capa"
+        "Texture.default"
       ]
     }
   }

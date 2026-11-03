@@ -7,8 +7,7 @@
         "default": "sniffer"
       },
       "textures": {
-        "default": "textures/entity/litius/sniffer_zombi",
-        "baby": "textures/entity/sniffer/snifflet"
+        "default": "textures/entity/litius/sniffer_zombi"
       },
       "scripts": {
         "pre_animation": [
@@ -17,8 +16,7 @@
         "scale": "query.is_baby ? (1 / 0.45) : 1.0"
       },
       "geometry": {
-        "default": "geometry.sniffer",
-        "baby": "geometry.sniffer.baby"
+        "default": "geometry.sniffer"
       },
       "animations": {
         "baby_transform": "animation.sniffer.baby_transform",
@@ -58,7 +56,7 @@
         }
       ],
       "render_controllers": [
-        "controller.render.sniffer.v2"
+        "controller.render.litius.base"
       ],
       "sound_effects": {
         "drop_seed": "mob.sniffer.drop_seed",

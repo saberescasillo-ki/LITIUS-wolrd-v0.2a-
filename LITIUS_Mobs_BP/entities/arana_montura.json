@@ -168,14 +168,14 @@
         }
       },
       "minecraft:follow_range": {
-        "value": 32,
-        "max": 32
+        "value": 48,
+        "max": 48
       },
       "minecraft:behavior.nearest_attackable_target": {
         "priority": 2,
         "must_see": true,
         "reselect_targets": true,
-        "within_radius": 24,
+        "within_radius": 40,
         "entity_types": [
           {
             "filters": {
@@ -207,7 +207,7 @@
                 }
               ]
             },
-            "max_dist": 24
+            "max_dist": 40
           }
         ]
       },
@@ -264,10 +264,12 @@
                     "value": "irongolem"
                   }
                 ]
-              }
+              },
+              "max_dist": 40
             }
           ],
-          "priority": 2
+          "priority": 2,
+          "within_radius": 40
         },
         "minecraft:environment_sensor": {
           "triggers": {

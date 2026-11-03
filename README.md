@@ -26,8 +26,14 @@ hay un **25 %** de que salga **mejorado**; el 75 % restante es el mob vanilla de
 | Blaze | +0.2 bloques, más vida, más rápido; dispara **ráfagas de 5 bolas de fuego** más seguidas (vanilla: 3). |
 | Enderman | +0.3 bloques, +30 % de vida, +20 % de velocidad. **Ojos verdes**, piel algo más pálida y un **cristal verde brillante** incrustado en el pecho. |
 | Piglin zombie | +0.3 bloques, +35 % de vida, algo más rápido, siempre espada de oro y armadura de oro posible (suelta poco). |
-| Vaca → Toro | Más grande y robusto, **cuernos grandes, joroba y anillo en la nariz**, pelaje oscuro (en las tres variantes de vaca). Si le pegas, **embiste**. |
+| Vaca → Toro | Modelo y texturas propios del toro, según el clima (templado, cálido o frío; cada toro elige uno de sus pelajes). **Siempre aparece con 3 vacas.** Se enfurece y te persigue 30 s si **le pegas a él o a una vaca cercana**. |
+| Stray | 25 %: dispara **3 flechas seguidas** de Lentitud. |
 | Phantom | +0.5 bloques (el doble de tamaño, hitbox un 25 % más pequeña), más rápido, más vida, **mismo daño**. |
+
+### Aparición natural
+
+- **Bogged:** además de pantanos y manglares, aparece en junglas, bosques oscuros y cuevas frondosas.
+- **Vex:** aparece de noche en biomas fríos y nevados.
 
 ### Creeper (todos)
 
@@ -35,7 +41,7 @@ Explosión **+1** (4 normal, 7 cargado) y también ataca a **golems de hierro, d
 
 ### Jinetes (con huevo propio)
 
-El jinete y la montura **atacan los dos**: la montura pisotea a quien toque mientras lleva jinete y, si el jinete muere, sigue persiguiendo y atacando. **Los jugadores no pueden montar estas monturas.**
+El jinete y la montura **atacan los dos**: la montura pisotea a quien toque mientras lleva jinete y, si el jinete muere, sigue persiguiendo y atacando. **Los jugadores no pueden montar estas monturas.** Jinetes y monturas detectan a 40 bloques.
 Usan el comportamiento y el aspecto vanilla de cada mob; las monturas tienen **animaciones de ataque** (coz, cabezazo o mordisco) y bajan la cabeza al cargar. Las armas y armaduras se sueltan poco (3 %).
 
 | Mob | Montura | Detalles |

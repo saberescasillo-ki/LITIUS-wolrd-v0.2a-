@@ -39,6 +39,15 @@
           "type": "bool",
           "default": false,
           "client_sync": false
+        },
+        "litius:pelaje": {
+          "type": "int",
+          "range": [
+            0,
+            2
+          ],
+          "default": 0,
+          "client_sync": true
         }
       }
     },
@@ -151,13 +160,6 @@
         }
       },
       "litius:mejorado": {
-        "minecraft:scale": {
-          "value": 1.192
-        },
-        "minecraft:collision_box": {
-          "width": 1.07,
-          "height": 1.55
-        },
         "minecraft:movement": {
           "value": 0.27
         },
@@ -175,6 +177,35 @@
         "minecraft:behavior.panic": {
           "priority": 9,
           "speed_multiplier": 1.0
+        },
+        "minecraft:collision_box": {
+          "width": 1.4,
+          "height": 1.6
+        }
+      },
+      "litius:furia": {
+        "minecraft:behavior.nearest_attackable_target": {
+          "priority": 2,
+          "must_see": false,
+          "within_radius": 20,
+          "entity_types": [
+            {
+              "filters": {
+                "test": "is_family",
+                "subject": "other",
+                "value": "player"
+              },
+              "max_dist": 20
+            }
+          ]
+        },
+        "minecraft:timer": {
+          "looping": false,
+          "time": 30,
+          "time_down_event": {
+            "event": "litius:calmar",
+            "target": "self"
+          }
         }
       }
     },
@@ -281,7 +312,22 @@
       "minecraft:physics": {},
       "minecraft:pushable_by_entity": {},
       "minecraft:pushable_by_block": {},
-      "minecraft:conditional_bandwidth_optimization": {}
+      "minecraft:conditional_bandwidth_optimization": {},
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "on_damage": {
+              "filters": {
+                "test": "is_family",
+                "subject": "other",
+                "value": "player"
+              },
+              "event": "litius:alertar",
+              "target": "self"
+            }
+          }
+        ]
+      }
     },
     "events": {
       "minecraft:entity_spawned": {
@@ -496,6 +542,86 @@
               "component_groups": [
                 "litius:mejorado_vida",
                 "litius:mejorado"
+              ]
+            }
+          },
+          {
+            "trigger": "litius:toro_extra"
+          }
+        ]
+      },
+      "litius:alertar": {
+        "queue_command": {
+          "command": [
+            "event entity @e[type=cow,r=16] litius:enfurecer"
+          ]
+        }
+      },
+      "litius:enfurecer": {
+        "sequence": [
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "value": 1
+            },
+            "add": {
+              "component_groups": [
+                "litius:furia"
+              ]
+            }
+          }
+        ]
+      },
+      "litius:calmar": {
+        "remove": {
+          "component_groups": [
+            "litius:furia"
+          ]
+        }
+      },
+      "litius:vaca_manada": {
+        "sequence": [
+          {
+            "set_property": {
+              "litius:tirada": true
+            }
+          },
+          {
+            "trigger": "minecraft:spawn_adult"
+          }
+        ]
+      },
+      "litius:toro_extra": {
+        "sequence": [
+          {
+            "randomize": [
+              {
+                "weight": 1,
+                "set_property": {
+                  "litius:pelaje": 0
+                }
+              },
+              {
+                "weight": 1,
+                "set_property": {
+                  "litius:pelaje": 1
+                }
+              },
+              {
+                "weight": 1,
+                "set_property": {
+                  "litius:pelaje": 2
+                }
+              }
+            ]
+          },
+          {
+            "queue_command": {
+              "command": [
+                "summon cow ~2 ~ ~1 0 0 litius:vaca_manada",
+                "summon cow ~-2 ~ ~1 0 0 litius:vaca_manada",
+                "summon cow ~0 ~ ~-2 0 0 litius:vaca_manada"
               ]
             }
           }

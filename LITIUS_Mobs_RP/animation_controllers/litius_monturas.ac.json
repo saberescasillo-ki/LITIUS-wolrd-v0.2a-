@@ -103,6 +103,33 @@
           "blend_transition": 0.1
         }
       }
+    },
+    "controller.animation.litius.toro": {
+      "initial_state": "normal",
+      "states": {
+        "normal": {
+          "animations": [
+            "toro_andar"
+          ],
+          "transitions": [
+            {
+              "embiste": "(v.attack_time ?? 0.0) > 0.0"
+            }
+          ]
+        },
+        "embiste": {
+          "animations": [
+            "toro_andar",
+            "toro_embestida"
+          ],
+          "transitions": [
+            {
+              "normal": "q.any_animation_finished"
+            }
+          ],
+          "blend_transition": 0.1
+        }
+      }
     }
   }
 }

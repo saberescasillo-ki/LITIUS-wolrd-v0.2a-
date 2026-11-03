@@ -47,7 +47,7 @@
       "minecraft:behavior.nearest_attackable_target": {
         "reselect_targets": true,
         "must_see": true,
-        "within_radius": 25,
+        "within_radius": 40,
         "must_see_forget_duration": 17,
         "entity_types": [
           {
@@ -70,7 +70,7 @@
                 }
               ]
             },
-            "max_dist": 35
+            "max_dist": 40
           },
           {
             "filters": {
@@ -87,7 +87,7 @@
                 }
               ]
             },
-            "max_dist": 35,
+            "max_dist": 40,
             "must_see": false
           },
           {
@@ -105,7 +105,7 @@
                 }
               ]
             },
-            "max_dist": 35
+            "max_dist": 40
           }
         ],
         "priority": 2
@@ -525,6 +525,10 @@
           "mob",
           "litius_jinete"
         ]
+      },
+      "minecraft:follow_range": {
+        "value": 48,
+        "max": 48
       }
     },
     "component_groups": {
