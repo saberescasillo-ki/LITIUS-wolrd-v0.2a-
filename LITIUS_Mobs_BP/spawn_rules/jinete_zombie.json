@@ -18,7 +18,7 @@
           "max": "hard"
         },
         "minecraft:weight": {
-          "default": 4
+          "default": 18
         },
         "minecraft:herd": {
           "min_size": 1,
@@ -49,7 +49,7 @@
           ]
         },
         "minecraft:density_limit": {
-          "surface": 2,
+          "surface": 3,
           "underground": 1
         }
       }

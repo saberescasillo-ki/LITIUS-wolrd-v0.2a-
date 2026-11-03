@@ -47,19 +47,19 @@ hay un **25 %** de que salga **mejorado**; el 75 % restante es el mob vanilla de
 
 | Mob | Peso | Grupo | Dónde |
 |-----|------|-------|-------|
-| Jinete Zombie | 4 | 1 | Overworld de noche (no desierto ni océano) |
-| Jinete Esqueleto | 3 | 1 | Overworld de noche (no océano) |
-| Esqueleto en Araña | 3 | 1 | Overworld de noche (no océano) |
-| Jinete Husk | 6 | 1 | Desiertos de noche |
-| Jinete Wither | 3 | 1 | Valle de almas y páramos del Nether |
+| Jinete Zombie | 18 | 1 | Overworld de noche (no desierto ni océano) |
+| Jinete Esqueleto | 14 | 1 | Overworld de noche (no océano) |
+| Esqueleto en Araña | 14 | 1 | Overworld de noche (no océano) |
+| Jinete Husk | 70 | 1 | Desiertos de noche (allí hay muchos más husks) |
+| Jinete Wither | 25 / 11 | 1 | Páramos del Nether / valle de almas |
 | Manada de zombies | 3 | 3 zombies + 1 zombie mejorado | Igual que el zombie (vanilla: peso 100, grupos de 2–4) |
 | Araña | 80 | 1–3 | Igual que vanilla (vanilla: peso 100, sola) |
 | Araña de cueva | 80 | 1–2 | Cuevas del Overworld (no Deep Dark) |
 | Bogged | 40 / 10 / 12 | 1–2 | Pantanos y manglares / junglas y bosques oscuros / cuevas frondosas |
 | Animales de granja | vanilla | vanilla +2 (mínimo 4) | Igual que vanilla |
 
-Cada jinete tiene un **límite de 2 en superficie y 1 bajo tierra** cerca del jugador. Como referencia, el zombie vanilla tiene peso 100
-y el esqueleto 80, así que cada jinete sale más o menos 1 de cada 25–35 monstruos.
+Entre todos los jinetes sale **más o menos 1 de cada 15–18 monstruos** en cada zona (Overworld, desierto y Nether).
+Cada tipo de jinete tiene un **límite de 3** cerca del jugador.
 
 ### Animaciones de los esqueletos
 
