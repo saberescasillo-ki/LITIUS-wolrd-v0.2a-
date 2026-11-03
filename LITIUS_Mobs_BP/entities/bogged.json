@@ -11,7 +11,7 @@
           "type": "int",
           "range": [
             0,
-            2
+            5
           ],
           "default": 0,
           "client_sync": false
@@ -637,6 +637,36 @@
         "minecraft:knockback_resistance": {
           "value": 0.5
         }
+      },
+      "litius:soldado_equipo": {
+        "minecraft:equipment": {
+          "table": "loot_tables/entities/litius_soldado.json",
+          "slot_drop_chance": [
+            {
+              "slot": "slot.weapon.mainhand",
+              "drop_chance": 0.03
+            },
+            {
+              "slot": "slot.armor.head",
+              "drop_chance": 0.03
+            },
+            {
+              "slot": "slot.armor.chest",
+              "drop_chance": 0.03
+            },
+            {
+              "slot": "slot.armor.legs",
+              "drop_chance": 0.03
+            },
+            {
+              "slot": "slot.armor.feet",
+              "drop_chance": 0.03
+            }
+          ]
+        }
+      },
+      "litius:desaparecer": {
+        "minecraft:instant_despawn": {}
       }
     },
     "events": {
@@ -733,14 +763,18 @@
             },
             "randomize": [
               {
-                "weight": 75,
+                "weight": 60,
                 "set_property": {
                   "litius:tirada": true
                 }
               },
               {
-                "weight": 25,
+                "weight": 22,
                 "trigger": "litius:mutar"
+              },
+              {
+                "weight": 18,
+                "trigger": "litius:a_bogged_soldado"
               }
             ]
           }
@@ -873,6 +907,54 @@
               "component_groups": [
                 "litius:mejorado_vida",
                 "litius:mejorado"
+              ]
+            }
+          }
+        ]
+      },
+      "litius:mutar_soldado": {
+        "sequence": [
+          {
+            "set_property": {
+              "litius:mutacion": 5,
+              "litius:tirada": true
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "litius:soldado_equipo"
+              ]
+            }
+          },
+          {
+            "trigger": "minecraft:melee_mode"
+          }
+        ]
+      },
+      "litius:quitar": {
+        "add": {
+          "component_groups": [
+            "litius:desaparecer"
+          ]
+        }
+      },
+      "litius:a_bogged_soldado": {
+        "sequence": [
+          {
+            "set_property": {
+              "litius:tirada": true
+            }
+          },
+          {
+            "filters": {
+              "test": "is_riding",
+              "value": false
+            },
+            "queue_command": {
+              "command": [
+                "summon litius:bogged_soldado ~ ~ ~",
+                "event entity @s litius:quitar"
               ]
             }
           }

@@ -1,10 +1,16 @@
 # LITIUS-wolrd-v0.2a-
 LITIUS wolrd more serius
 
-## LITIUS Mobs 1.8 (addon para Minecraft Bedrock)
+## LITIUS Mobs 1.9 (addon para Minecraft Bedrock)
 
 Rehecho desde cero. Dos packs: `LITIUS_Mobs_BP` (comportamiento) y `LITIUS_Mobs_RP` (recursos).
-No necesita experimentos.
+No necesita experimentos. Requiere Minecraft **1.26.60** o más nuevo.
+
+**Compatible con packs de texturas y de animaciones:** el addon no reemplaza ningún archivo de aspecto
+(cliente) de los mobs vanilla. Las mutaciones que tienen aspecto propio (zombie escalador, esqueletos
+mejorado/de cueva/soldado, stray mejorado/soldado, bogged soldado, enderman mejorado y toro) son mobs
+aparte que usan el comportamiento del mob vanilla. Así, un pack que randomiza texturas o cambia las
+animaciones de los mobs vanilla funciona igual con este addon.
 
 ### Mutaciones directas (sin huevo propio)
 
@@ -13,26 +19,31 @@ hay un **25 %** de que salga **mejorado**; el 75 % restante es el mob vanilla de
 (con sus variantes vanilla). **Los bebés nunca mutan.** El zombie tiene tres mutaciones:
 45 % vanilla, 20 % mejorado, 20 % escalador y 15 % acorazado. Las variantes mejoradas son **pesadas**
 (resisten la mitad del empuje de los golpes).
+El husk: 50 % vanilla, 25 % mejorado y 25 % con espada y casco.
 
 | Mob | Mejora |
 |-----|--------|
 | Zombie | +0.5 bloques de alto, +35 % de vida, algo más rápido. Puede llevar armadura (con menos probabilidad que antes) y arma, y es poco probable que las suelte (3 %). **No se convierte en ahogado**, nada y va algo más rápido que un jugador nadando. |
 | Zombie acorazado | Siempre lleva **armadura completa** de un solo material: cuero (30 %), malla (22 %), oro (18 %), hierro (18 %), diamante (9 %) o netherita (3 %). Cada pieza se suelta con más probabilidad cuanto menos valiosa es: cuero 10 %, oro 8 %, malla 6 %, hierro 4 %, diamante 2 %, netherita 1 %. **Sí se puede ahogar** (se convierte en ahogado). |
 | Zombie escalador | Sube bloques caminando, salta muros de 2 bloques y es más rápido. Su piel es un poco más pálida para reconocerlo. |
+| Husk mejorado | Igual que el zombie mejorado (+0.5 bloques, +35 % de vida, algo más rápido, armadura y arma posibles). |
+| Husk con espada y casco | Siempre lleva **espada** (hierro, piedra u oro) y **casco**. |
 | Ahogado | Lo mismo que el zombie mejorado pero adaptado: siempre con **tridente**, armadura posible, nada más rápido. |
-| Esqueleto (40 % vanilla / 18 % mejorado / 14 % cueva / 14 % lentitud / 14 % oscuridad) | Mejorado: +0.4 bloques de alto, +25 % de vida, misma velocidad. **Usa espada en vez de arco**; puede llevar armadura; suelta poco lo que lleva (3 %). |
+| Esqueleto (35 % vanilla / 15 % mejorado / 12 % cueva / 12 % lentitud / 12 % oscuridad / 14 % soldado) | Mejorado: +0.4 bloques de alto, +25 % de vida, misma velocidad. **Usa espada en vez de arco**; puede llevar armadura; suelta poco lo que lleva (3 %). |
 | Esqueleto de cueva | Sin armas, pelea cuerpo a cuerpo; aspecto de piedra con musgo y liquen y **estalactitas de dripstone** en hombros, cabeza, espalda y piernas. Sus golpes dan **Lentitud I 4 s**. |
 | Esqueleto de lentitud | Sus flechas dan **Lentitud I 2 s**. |
 | Esqueleto de oscuridad | Sus flechas dan **Oscuridad 2 s**. |
+| Esqueleto / Stray / Bogged soldado | Siempre con **espada y casco**; pelea cuerpo a cuerpo con animaciones de espada. |
+| Esqueleto wither | 20 %: soldado con **espada de hierro y casco**. |
 | Hoglin | +0.3 bloques, +35 % de velocidad, +10 % de vida; sus golpes dan **Lentitud I 5 s**. |
 | Lepisma (silverfish) | +0.5 bloques de alto (hitbox a la mitad), +50 % de vida y de daño; sus golpes dan **Lentitud I 3 s**. |
 | Endermite | Igual que la lepisma, con la hitbox un 25 % más pequeña. |
 | Blaze | +0.2 bloques, más vida, más rápido; dispara **ráfagas de 5 bolas de fuego** más seguidas (vanilla: 3). |
 | Enderman | +0.3 bloques, +30 % de vida, +20 % de velocidad. **Ojos verdes**, piel algo más pálida y un **cristal verde brillante** incrustado en el pecho. |
 | Piglin zombie | +0.3 bloques, +35 % de vida, algo más rápido, siempre espada de oro y armadura de oro posible (suelta poco). |
-| Vaca → Toro | **No se puede empujar.** Modelo y texturas propios del toro, según el clima (templado, cálido o frío; cada toro elige uno de sus pelajes). **Siempre aparece con 3 vacas.** Se enfurece y te persigue 30 s si **le pegas a él o a una vaca cercana**. |
-| Stray | 25 %: dispara **3 flechas seguidas** de Lentitud, con poco tiempo entre ráfagas, y su paleta es algo más pálida. |
-| Bogged | 25 %: dispara **3 flechas seguidas**, con poco tiempo entre ráfagas, y tiene el **doble de vida**. |
+| Toro | **No se puede empujar.** Modelo y texturas propios del toro, según el clima (templado, cálido o frío; cada toro elige uno de sus pelajes). En la naturaleza sale en manadas de **1 toro + 3 vacas** o **2 toros + 4 vacas**; una vaca con huevo o `/summon` tiene un 25 % de ser toro, y entonces viene con 3 vacas. Se enfurece y te persigue 30 s si **le pegas a él o a una vaca cercana**. |
+| Stray (60 % vanilla / 22 % mejorado / 18 % soldado) | Mejorado: dispara **3 flechas seguidas** de Lentitud, con poco tiempo entre ráfagas, y su paleta es algo más pálida. |
+| Bogged (60 % vanilla / 22 % mejorado / 18 % soldado) | Mejorado: dispara **3 flechas seguidas**, con poco tiempo entre ráfagas, y tiene el **doble de vida**. |
 | Phantom | +0.5 bloques (el doble de tamaño, hitbox un 25 % más pequeña), más rápido, más vida, **mismo daño**. |
 
 ### Cambios generales
@@ -52,11 +63,12 @@ hay un **25 %** de que salga **mejorado**; el 75 % restante es el mob vanilla de
 | Esqueleto en Araña | 14 | 1 | Overworld de noche (no océano) |
 | Jinete Husk | 70 | 1 | Desiertos de noche (allí hay muchos más husks) |
 | Jinete Wither | 25 / 11 | 1 | Páramos del Nether / valle de almas |
+| Vacas | 8 / 2 / 1 | 2–3 vacas / 1 toro + 3 vacas / 2 toros + 4 vacas | Igual que vanilla |
 | Manada de zombies | 3 | 3 zombies + 1 zombie mejorado | Igual que el zombie (vanilla: peso 100, grupos de 2–4) |
 | Araña | 80 | 1–3 | Igual que vanilla (vanilla: peso 100, sola) |
 | Araña de cueva | 80 | 1–2 | Cuevas del Overworld (no Deep Dark) |
 | Bogged | 40 / 10 / 12 | 1–2 | Pantanos y manglares / junglas y bosques oscuros / cuevas frondosas |
-| Animales de granja | vanilla | vanilla +2 (mínimo 4) | Igual que vanilla |
+| Otros animales de granja | vanilla | vanilla +2 (mínimo 4) | Igual que vanilla |
 
 Entre todos los jinetes sale **más o menos 1 de cada 15–18 monstruos** en cada zona (Overworld, desierto y Nether).
 Cada tipo de jinete tiene un **límite de 3** cerca del jugador.

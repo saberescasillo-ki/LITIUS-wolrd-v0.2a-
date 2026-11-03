@@ -10,6 +10,20 @@
           "client_sync": false,
           "default": false,
           "type": "bool"
+        },
+        "litius:mutacion": {
+          "type": "int",
+          "range": [
+            0,
+            2
+          ],
+          "default": 0,
+          "client_sync": false
+        },
+        "litius:tirada": {
+          "type": "bool",
+          "default": false,
+          "client_sync": false
         }
       },
       "spawn_category": "monster"
@@ -779,11 +793,117 @@
           "into": "minecraft:zombie<minecraft:as_baby>",
           "transformation_sound": "mob.husk.convert_to_zombie"
         }
+      },
+      "litius:mejorado_vida": {
+        "minecraft:health": {
+          "value": 27,
+          "max": 27
+        }
+      },
+      "litius:mejorado": {
+        "minecraft:scale": {
+          "value": 1.263
+        },
+        "minecraft:collision_box": {
+          "width": 0.76,
+          "height": 2.4
+        },
+        "minecraft:movement": {
+          "value": 0.26
+        },
+        "minecraft:knockback_resistance": {
+          "value": 0.5
+        }
+      },
+      "litius:mejorado_equipo": {
+        "minecraft:equipment": {
+          "table": "loot_tables/entities/litius_zombie_mejorado.json",
+          "slot_drop_chance": [
+            {
+              "slot": "slot.weapon.mainhand",
+              "drop_chance": 0.03
+            },
+            {
+              "slot": "slot.armor.head",
+              "drop_chance": 0.03
+            },
+            {
+              "slot": "slot.armor.chest",
+              "drop_chance": 0.03
+            },
+            {
+              "slot": "slot.armor.legs",
+              "drop_chance": 0.03
+            },
+            {
+              "slot": "slot.armor.feet",
+              "drop_chance": 0.03
+            }
+          ]
+        }
+      },
+      "litius:espada": {},
+      "litius:espada_equipo": {
+        "minecraft:equipment": {
+          "table": "loot_tables/entities/litius_husk_espada.json",
+          "slot_drop_chance": [
+            {
+              "slot": "slot.weapon.mainhand",
+              "drop_chance": 0.03
+            },
+            {
+              "slot": "slot.armor.head",
+              "drop_chance": 0.03
+            },
+            {
+              "slot": "slot.armor.chest",
+              "drop_chance": 0.03
+            },
+            {
+              "slot": "slot.armor.legs",
+              "drop_chance": 0.03
+            },
+            {
+              "slot": "slot.armor.feet",
+              "drop_chance": 0.03
+            }
+          ]
+        }
       }
     },
     "events": {
       "minecraft:entity_born": {
-        "trigger": "minecraft:as_baby"
+        "sequence": [
+          {
+            "trigger": "minecraft:as_baby"
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 1
+            },
+            "add": {
+              "component_groups": [
+                "litius:mejorado"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 2
+            },
+            "add": {
+              "component_groups": [
+                "litius:espada"
+              ]
+            }
+          }
+        ]
       },
       "minecraft:entity_spawned": {
         "sequence": [
@@ -821,107 +941,356 @@
         ]
       },
       "minecraft:as_adult": {
-        "add": {
-          "component_groups": [
-            "minecraft:zombie_husk_adult",
-            "minecraft:not_on_camel_husk"
-          ]
-        }
-      },
-      "minecraft:as_baby_jockey": {
-        "add": {
-          "component_groups": [
-            "minecraft:zombie_husk_baby",
-            "minecraft:zombie_husk_jockey",
-            "minecraft:not_on_camel_husk"
-          ]
-        }
-      },
-      "minecraft:as_baby": {
-        "add": {
-          "component_groups": [
-            "minecraft:zombie_husk_baby",
-            "minecraft:not_on_camel_husk"
-          ]
-        }
-      },
-      "minecraft:spawn_as_rider": {
-        "add": {
-          "component_groups": [
-            "minecraft:zombie_husk_adult",
-            "minecraft:zombie_husk_rider",
-            "minecraft:on_camel_husk"
-          ]
-        },
-        "set_property": {
-          "minecraft:is_riding_camel_husk": true
-        }
-      },
-      "minecraft:on_start_riding_camel_husk": {
-        "add": {
-          "component_groups": [
-            "minecraft:on_camel_husk"
-          ]
-        },
-        "set_property": {
-          "minecraft:is_riding_camel_husk": true
-        },
-        "remove": {
-          "component_groups": [
-            "minecraft:not_on_camel_husk"
-          ]
-        }
-      },
-      "minecraft:on_stop_riding_camel_husk": {
-        "add": {
-          "component_groups": [
-            "minecraft:not_on_camel_husk"
-          ]
-        },
-        "set_property": {
-          "minecraft:is_riding_camel_husk": false
-        },
-        "remove": {
-          "component_groups": [
-            "minecraft:on_camel_husk"
-          ]
-        }
-      },
-      "minecraft:start_transforming_into_zombie": {
-        "add": {
-          "component_groups": [
-            "minecraft:start_zombie_transformation"
-          ]
-        },
-        "remove": {
-          "component_groups": [
-            "minecraft:look_to_start_transformations"
-          ]
-        }
-      },
-      "minecraft:stop_transforming": {
-        "add": {
-          "component_groups": [
-            "minecraft:look_to_start_transformations"
-          ]
-        },
-        "remove": {
-          "component_groups": [
-            "minecraft:start_zombie_transformation"
-          ]
-        }
-      },
-      "minecraft:convert_to_zombie": {
         "sequence": [
           {
+            "add": {
+              "component_groups": [
+                "minecraft:zombie_husk_adult",
+                "minecraft:not_on_camel_husk"
+              ]
+            }
+          },
+          {
             "filters": {
-              "test": "has_component",
-              "operator": "not",
-              "value": "minecraft:is_baby"
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 1
             },
             "add": {
               "component_groups": [
-                "minecraft:convert_to_zombie"
+                "litius:mejorado"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 2
+            },
+            "add": {
+              "component_groups": [
+                "litius:espada"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "bool_property",
+              "domain": "litius:tirada",
+              "operator": "==",
+              "value": false
+            },
+            "randomize": [
+              {
+                "weight": 50,
+                "set_property": {
+                  "litius:tirada": true
+                }
+              },
+              {
+                "weight": 25,
+                "trigger": "litius:mutar"
+              },
+              {
+                "weight": 25,
+                "trigger": "litius:mutar_escalador"
+              }
+            ]
+          }
+        ]
+      },
+      "minecraft:as_baby_jockey": {
+        "sequence": [
+          {
+            "add": {
+              "component_groups": [
+                "minecraft:zombie_husk_baby",
+                "minecraft:zombie_husk_jockey",
+                "minecraft:not_on_camel_husk"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 1
+            },
+            "add": {
+              "component_groups": [
+                "litius:mejorado"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 2
+            },
+            "add": {
+              "component_groups": [
+                "litius:espada"
+              ]
+            }
+          },
+          {
+            "set_property": {
+              "litius:mutacion": 0,
+              "litius:tirada": true
+            }
+          },
+          {
+            "remove": {
+              "component_groups": [
+                "litius:mejorado_vida",
+                "litius:mejorado",
+                "litius:mejorado_equipo",
+                "litius:espada"
+              ]
+            }
+          }
+        ]
+      },
+      "minecraft:as_baby": {
+        "sequence": [
+          {
+            "add": {
+              "component_groups": [
+                "minecraft:zombie_husk_baby",
+                "minecraft:not_on_camel_husk"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 1
+            },
+            "add": {
+              "component_groups": [
+                "litius:mejorado"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 2
+            },
+            "add": {
+              "component_groups": [
+                "litius:espada"
+              ]
+            }
+          },
+          {
+            "set_property": {
+              "litius:mutacion": 0,
+              "litius:tirada": true
+            }
+          },
+          {
+            "remove": {
+              "component_groups": [
+                "litius:mejorado_vida",
+                "litius:mejorado",
+                "litius:mejorado_equipo",
+                "litius:espada"
+              ]
+            }
+          }
+        ]
+      },
+      "minecraft:spawn_as_rider": {
+        "sequence": [
+          {
+            "add": {
+              "component_groups": [
+                "minecraft:zombie_husk_adult",
+                "minecraft:zombie_husk_rider",
+                "minecraft:on_camel_husk"
+              ]
+            },
+            "set_property": {
+              "minecraft:is_riding_camel_husk": true
+            }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 1
+            },
+            "add": {
+              "component_groups": [
+                "litius:mejorado"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 2
+            },
+            "add": {
+              "component_groups": [
+                "litius:espada"
+              ]
+            }
+          }
+        ]
+      },
+      "minecraft:on_start_riding_camel_husk": {
+        "sequence": [
+          {
+            "add": {
+              "component_groups": [
+                "minecraft:on_camel_husk"
+              ]
+            },
+            "set_property": {
+              "minecraft:is_riding_camel_husk": true
+            },
+            "remove": {
+              "component_groups": [
+                "minecraft:not_on_camel_husk"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 1
+            },
+            "add": {
+              "component_groups": [
+                "litius:mejorado"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 2
+            },
+            "add": {
+              "component_groups": [
+                "litius:espada"
+              ]
+            }
+          }
+        ]
+      },
+      "minecraft:on_stop_riding_camel_husk": {
+        "sequence": [
+          {
+            "add": {
+              "component_groups": [
+                "minecraft:not_on_camel_husk"
+              ]
+            },
+            "set_property": {
+              "minecraft:is_riding_camel_husk": false
+            },
+            "remove": {
+              "component_groups": [
+                "minecraft:on_camel_husk"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 1
+            },
+            "add": {
+              "component_groups": [
+                "litius:mejorado"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 2
+            },
+            "add": {
+              "component_groups": [
+                "litius:espada"
+              ]
+            }
+          }
+        ]
+      },
+      "minecraft:start_transforming_into_zombie": {
+        "sequence": [
+          {
+            "add": {
+              "component_groups": [
+                "minecraft:start_zombie_transformation"
+              ]
+            },
+            "remove": {
+              "component_groups": [
+                "minecraft:look_to_start_transformations"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 1
+            },
+            "add": {
+              "component_groups": [
+                "litius:mejorado"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 2
+            },
+            "add": {
+              "component_groups": [
+                "litius:espada"
+              ]
+            }
+          }
+        ]
+      },
+      "minecraft:stop_transforming": {
+        "sequence": [
+          {
+            "add": {
+              "component_groups": [
+                "minecraft:look_to_start_transformations"
               ]
             },
             "remove": {
@@ -932,17 +1301,137 @@
           },
           {
             "filters": {
-              "test": "has_component",
-              "value": "minecraft:is_baby"
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 1
             },
             "add": {
               "component_groups": [
-                "minecraft:convert_to_baby_zombie"
+                "litius:mejorado"
               ]
+            }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 2
             },
-            "remove": {
+            "add": {
               "component_groups": [
-                "minecraft:start_zombie_transformation"
+                "litius:espada"
+              ]
+            }
+          }
+        ]
+      },
+      "minecraft:convert_to_zombie": {
+        "sequence": [
+          {
+            "sequence": [
+              {
+                "filters": {
+                  "test": "has_component",
+                  "operator": "not",
+                  "value": "minecraft:is_baby"
+                },
+                "add": {
+                  "component_groups": [
+                    "minecraft:convert_to_zombie"
+                  ]
+                },
+                "remove": {
+                  "component_groups": [
+                    "minecraft:start_zombie_transformation"
+                  ]
+                }
+              },
+              {
+                "filters": {
+                  "test": "has_component",
+                  "value": "minecraft:is_baby"
+                },
+                "add": {
+                  "component_groups": [
+                    "minecraft:convert_to_baby_zombie"
+                  ]
+                },
+                "remove": {
+                  "component_groups": [
+                    "minecraft:start_zombie_transformation"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 1
+            },
+            "add": {
+              "component_groups": [
+                "litius:mejorado"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 2
+            },
+            "add": {
+              "component_groups": [
+                "litius:espada"
+              ]
+            }
+          }
+        ]
+      },
+      "litius:mutar": {
+        "sequence": [
+          {
+            "set_property": {
+              "litius:mutacion": 1,
+              "litius:tirada": true
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "litius:mejorado_vida",
+                "litius:mejorado_equipo",
+                "litius:mejorado"
+              ]
+            }
+          }
+        ]
+      },
+      "litius:mutar_escalador": {
+        "sequence": [
+          {
+            "set_property": {
+              "litius:mutacion": 2,
+              "litius:tirada": true
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "litius:espada"
+              ]
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "litius:espada_equipo"
               ]
             }
           }

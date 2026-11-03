@@ -19,7 +19,59 @@
         },
         "minecraft:herd": {
           "min_size": 2,
-          "max_size": 5
+          "max_size": 3,
+          "event": "litius:vaca_manada",
+          "event_skip_count": 0
+        },
+        "minecraft:biome_filter": {
+          "test": "has_biome_tag",
+          "operator": "==",
+          "value": "animal"
+        }
+      },
+      {
+        "minecraft:spawns_on_surface": {},
+        "minecraft:spawns_on_block_filter": "minecraft:grass_block",
+        "minecraft:brightness_filter": {
+          "min": 7,
+          "max": 15,
+          "adjust_for_weather": false
+        },
+        "minecraft:weight": {
+          "default": 2
+        },
+        "minecraft:herd": {
+          "min_size": 4,
+          "max_size": 4,
+          "initial_event": "litius:ser_toro",
+          "initial_event_count": 1,
+          "event": "litius:vaca_manada",
+          "event_skip_count": 1
+        },
+        "minecraft:biome_filter": {
+          "test": "has_biome_tag",
+          "operator": "==",
+          "value": "animal"
+        }
+      },
+      {
+        "minecraft:spawns_on_surface": {},
+        "minecraft:spawns_on_block_filter": "minecraft:grass_block",
+        "minecraft:brightness_filter": {
+          "min": 7,
+          "max": 15,
+          "adjust_for_weather": false
+        },
+        "minecraft:weight": {
+          "default": 1
+        },
+        "minecraft:herd": {
+          "min_size": 6,
+          "max_size": 6,
+          "initial_event": "litius:ser_toro",
+          "initial_event_count": 2,
+          "event": "litius:vaca_manada",
+          "event_skip_count": 2
         },
         "minecraft:biome_filter": {
           "test": "has_biome_tag",

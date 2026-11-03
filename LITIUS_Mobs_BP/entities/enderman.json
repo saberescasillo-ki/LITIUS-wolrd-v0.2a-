@@ -114,6 +114,9 @@
         "minecraft:movement": {
           "value": 0.54
         }
+      },
+      "litius:desaparecer": {
+        "minecraft:instant_despawn": {}
       }
     },
     "components": {
@@ -357,7 +360,7 @@
               },
               {
                 "weight": 25,
-                "trigger": "litius:mutar"
+                "trigger": "litius:a_enderman_mejorado"
               }
             ]
           }
@@ -501,6 +504,34 @@
             "add": {
               "component_groups": [
                 "litius:mejorado_calma"
+              ]
+            }
+          }
+        ]
+      },
+      "litius:quitar": {
+        "add": {
+          "component_groups": [
+            "litius:desaparecer"
+          ]
+        }
+      },
+      "litius:a_enderman_mejorado": {
+        "sequence": [
+          {
+            "set_property": {
+              "litius:tirada": true
+            }
+          },
+          {
+            "filters": {
+              "test": "is_riding",
+              "value": false
+            },
+            "queue_command": {
+              "command": [
+                "summon litius:enderman_mejorado ~ ~ ~",
+                "event entity @s litius:quitar"
               ]
             }
           }

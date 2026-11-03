@@ -2,7 +2,7 @@
   "format_version": "1.8.0",
   "minecraft:client_entity": {
     "description": {
-      "identifier": "minecraft:enderman",
+      "identifier": "litius:enderman_mejorado",
       "min_engine_version": "1.8.0",
       "materials": {
         "default": "enderman",

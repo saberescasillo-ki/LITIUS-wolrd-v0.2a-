@@ -596,7 +596,54 @@
       }
     },
     "events": {
-      "minecraft:entity_spawned": {}
+      "minecraft:entity_spawned": {
+        "sequence": [
+          {
+            "randomize": [
+              {
+                "weight": 80
+              },
+              {
+                "weight": 20,
+                "add": {
+                  "component_groups": [
+                    "litius:soldado_equipo"
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "component_groups": {
+      "litius:soldado_equipo": {
+        "minecraft:equipment": {
+          "table": "loot_tables/entities/litius_soldado_wither.json",
+          "slot_drop_chance": [
+            {
+              "slot": "slot.weapon.mainhand",
+              "drop_chance": 0.03
+            },
+            {
+              "slot": "slot.armor.head",
+              "drop_chance": 0.03
+            },
+            {
+              "slot": "slot.armor.chest",
+              "drop_chance": 0.03
+            },
+            {
+              "slot": "slot.armor.legs",
+              "drop_chance": 0.03
+            },
+            {
+              "slot": "slot.armor.feet",
+              "drop_chance": 0.03
+            }
+          ]
+        }
+      }
     }
   }
 }

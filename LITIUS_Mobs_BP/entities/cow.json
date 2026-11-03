@@ -223,6 +223,9 @@
             "target": "self"
           }
         }
+      },
+      "litius:desaparecer": {
+        "minecraft:instant_despawn": {}
       }
     },
     "components": {
@@ -510,7 +513,7 @@
               },
               {
                 "weight": 25,
-                "trigger": "litius:mutar"
+                "trigger": "litius:a_toro"
               }
             ]
           }
@@ -549,31 +552,10 @@
           }
         ]
       },
-      "litius:mutar": {
-        "sequence": [
-          {
-            "set_property": {
-              "litius:mutacion": 1,
-              "litius:tirada": true
-            }
-          },
-          {
-            "add": {
-              "component_groups": [
-                "litius:mejorado_vida",
-                "litius:mejorado"
-              ]
-            }
-          },
-          {
-            "trigger": "litius:toro_extra"
-          }
-        ]
-      },
       "litius:alertar": {
         "queue_command": {
           "command": [
-            "event entity @e[type=cow,r=16] litius:enfurecer"
+            "event entity @e[type=litius:toro,r=16] litius:enfurecer"
           ]
         }
       },
@@ -608,40 +590,50 @@
             }
           },
           {
-            "trigger": "minecraft:spawn_adult"
+            "trigger": "minecraft:entity_spawned"
           }
         ]
       },
-      "litius:toro_extra": {
+      "litius:quitar": {
+        "add": {
+          "component_groups": [
+            "litius:desaparecer"
+          ]
+        }
+      },
+      "litius:a_toro": {
         "sequence": [
           {
-            "randomize": [
-              {
-                "weight": 1,
-                "set_property": {
-                  "litius:pelaje": 0
-                }
-              },
-              {
-                "weight": 1,
-                "set_property": {
-                  "litius:pelaje": 1
-                }
-              },
-              {
-                "weight": 1,
-                "set_property": {
-                  "litius:pelaje": 2
-                }
-              }
-            ]
+            "set_property": {
+              "litius:tirada": true
+            }
+          },
+          {
+            "filters": {
+              "test": "is_riding",
+              "value": false
+            },
+            "queue_command": {
+              "command": [
+                "summon litius:toro ~ ~ ~",
+                "event entity @s litius:quitar"
+              ]
+            }
+          }
+        ]
+      },
+      "litius:ser_toro": {
+        "sequence": [
+          {
+            "set_property": {
+              "litius:tirada": true
+            }
           },
           {
             "queue_command": {
               "command": [
-                "summon cow ~2 ~ ~1 0 0 litius:vaca_manada",
-                "summon cow ~-2 ~ ~1 0 0 litius:vaca_manada",
-                "summon cow ~0 ~ ~-2 0 0 litius:vaca_manada"
+                "summon litius:toro ~ ~ ~ 0 0 litius:toro_manada",
+                "event entity @s litius:quitar"
               ]
             }
           }

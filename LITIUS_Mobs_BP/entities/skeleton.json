@@ -11,7 +11,7 @@
           "type": "int",
           "range": [
             0,
-            4
+            5
           ],
           "default": 0,
           "client_sync": true
@@ -760,6 +760,36 @@
           "def": "litius:flecha_oscura",
           "sound": "bow"
         }
+      },
+      "litius:soldado_equipo": {
+        "minecraft:equipment": {
+          "table": "loot_tables/entities/litius_soldado.json",
+          "slot_drop_chance": [
+            {
+              "slot": "slot.weapon.mainhand",
+              "drop_chance": 0.03
+            },
+            {
+              "slot": "slot.armor.head",
+              "drop_chance": 0.03
+            },
+            {
+              "slot": "slot.armor.chest",
+              "drop_chance": 0.03
+            },
+            {
+              "slot": "slot.armor.legs",
+              "drop_chance": 0.03
+            },
+            {
+              "slot": "slot.armor.feet",
+              "drop_chance": 0.03
+            }
+          ]
+        }
+      },
+      "litius:desaparecer": {
+        "minecraft:instant_despawn": {}
       }
     },
     "events": {
@@ -1201,26 +1231,30 @@
             },
             "randomize": [
               {
-                "weight": 40,
+                "weight": 35,
                 "set_property": {
                   "litius:tirada": true
                 }
               },
               {
-                "weight": 18,
-                "trigger": "litius:mutar"
+                "weight": 15,
+                "trigger": "litius:a_esqueleto_mejorado"
               },
               {
-                "weight": 14,
-                "trigger": "litius:mutar_escalador"
+                "weight": 12,
+                "trigger": "litius:a_esqueleto_cueva"
               },
               {
-                "weight": 14,
+                "weight": 12,
                 "trigger": "litius:mutar_lenta"
               },
               {
-                "weight": 14,
+                "weight": 12,
                 "trigger": "litius:mutar_oscura"
+              },
+              {
+                "weight": 14,
+                "trigger": "litius:a_esqueleto_soldado"
               }
             ]
           }
@@ -1464,6 +1498,96 @@
             "add": {
               "component_groups": [
                 "litius:flecha_oscura"
+              ]
+            }
+          }
+        ]
+      },
+      "litius:mutar_soldado": {
+        "sequence": [
+          {
+            "set_property": {
+              "litius:mutacion": 5,
+              "litius:tirada": true
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "litius:soldado_equipo"
+              ]
+            }
+          },
+          {
+            "trigger": "minecraft:melee_mode"
+          }
+        ]
+      },
+      "litius:quitar": {
+        "add": {
+          "component_groups": [
+            "litius:desaparecer"
+          ]
+        }
+      },
+      "litius:a_esqueleto_mejorado": {
+        "sequence": [
+          {
+            "set_property": {
+              "litius:tirada": true
+            }
+          },
+          {
+            "filters": {
+              "test": "is_riding",
+              "value": false
+            },
+            "queue_command": {
+              "command": [
+                "summon litius:esqueleto_mejorado ~ ~ ~",
+                "event entity @s litius:quitar"
+              ]
+            }
+          }
+        ]
+      },
+      "litius:a_esqueleto_cueva": {
+        "sequence": [
+          {
+            "set_property": {
+              "litius:tirada": true
+            }
+          },
+          {
+            "filters": {
+              "test": "is_riding",
+              "value": false
+            },
+            "queue_command": {
+              "command": [
+                "summon litius:esqueleto_cueva ~ ~ ~",
+                "event entity @s litius:quitar"
+              ]
+            }
+          }
+        ]
+      },
+      "litius:a_esqueleto_soldado": {
+        "sequence": [
+          {
+            "set_property": {
+              "litius:tirada": true
+            }
+          },
+          {
+            "filters": {
+              "test": "is_riding",
+              "value": false
+            },
+            "queue_command": {
+              "command": [
+                "summon litius:esqueleto_soldado ~ ~ ~",
+                "event entity @s litius:quitar"
               ]
             }
           }

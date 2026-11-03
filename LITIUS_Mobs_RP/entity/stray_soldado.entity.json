@@ -2,21 +2,23 @@
   "format_version": "1.8.0",
   "minecraft:client_entity": {
     "description": {
-      "identifier": "minecraft:skeleton",
+      "identifier": "litius:stray_soldado",
       "min_engine_version": "1.8.0",
       "materials": {
-        "default": "skeleton"
+        "default": "stray",
+        "overlay": "stray_clothes"
       },
       "textures": {
-        "default": "textures/entity/skeleton/skeleton",
-        "cueva": "textures/entity/litius/esqueleto_cueva"
+        "default": "textures/entity/skeleton/stray",
+        "overlay": "textures/entity/skeleton/stray_overlay",
+        "mutado": "textures/entity/litius/stray_mutado"
       },
       "geometry": {
-        "default": "geometry.skeleton.v1.8",
-        "cueva": "geometry.litius.esqueleto_cueva"
+        "default": "geometry.skeleton.stray.v1.8",
+        "overlay": "geometry.stray.armor.v1.8"
       },
       "spawn_egg": {
-        "texture": "spawn_egg_skeleton"
+        "texture": "spawn_egg_stray"
       },
       "scripts": {
         "pre_animation": [
@@ -94,7 +96,8 @@
         }
       ],
       "render_controllers": [
-        "controller.render.litius.skeleton"
+        "controller.render.stray_clothes",
+        "controller.render.litius.stray"
       ],
       "enable_attachables": true
     }

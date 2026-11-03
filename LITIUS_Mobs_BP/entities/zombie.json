@@ -1006,6 +1006,9 @@
             }
           ]
         }
+      },
+      "litius:desaparecer": {
+        "minecraft:instant_despawn": {}
       }
     },
     "events": {
@@ -1136,7 +1139,7 @@
               },
               {
                 "weight": 20,
-                "trigger": "litius:mutar_escalador"
+                "trigger": "litius:a_zombie_escalador"
               },
               {
                 "weight": 15,
@@ -1607,17 +1610,12 @@
       "litius:manada_mejorado": {
         "sequence": [
           {
-            "remove": {
-              "component_groups": [
-                "litius:escalador",
-                "litius:acorazado_leather",
-                "litius:acorazado_golden",
-                "litius:acorazado_chainmail",
-                "litius:acorazado_iron",
-                "litius:acorazado_diamond",
-                "litius:acorazado_netherite"
-              ]
+            "set_property": {
+              "litius:tirada": true
             }
+          },
+          {
+            "trigger": "minecraft:as_adult"
           },
           {
             "trigger": "litius:mutar"
@@ -1683,6 +1681,34 @@
                 }
               }
             ]
+          }
+        ]
+      },
+      "litius:quitar": {
+        "add": {
+          "component_groups": [
+            "litius:desaparecer"
+          ]
+        }
+      },
+      "litius:a_zombie_escalador": {
+        "sequence": [
+          {
+            "set_property": {
+              "litius:tirada": true
+            }
+          },
+          {
+            "filters": {
+              "test": "is_riding",
+              "value": false
+            },
+            "queue_command": {
+              "command": [
+                "summon litius:zombie_escalador ~ ~ ~",
+                "event entity @s litius:quitar"
+              ]
+            }
           }
         ]
       }
