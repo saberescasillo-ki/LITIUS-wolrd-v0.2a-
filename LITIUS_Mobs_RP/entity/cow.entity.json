@@ -48,7 +48,7 @@
           },
           "look_at_target",
           {
-            "toro_ctrl": "query.property('litius:mutacion') == 1"
+            "toro_ctrl": "(query.has_property('litius:mutacion') ? query.property('litius:mutacion') : 0) == 1"
           }
         ],
         "pre_animation": [

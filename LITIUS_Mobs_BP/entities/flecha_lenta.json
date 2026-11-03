@@ -64,11 +64,15 @@
             "shake_time": 0.35
           },
           "mob_effect": {
-            "effect": "slowness",
-            "durationeasy": 40,
-            "durationnormal": 40,
-            "durationhard": 40,
-            "amplifier": 0
+            "effects": [
+              {
+                "effect": "slowness",
+                "durationeasy": 40,
+                "durationnormal": 40,
+                "durationhard": 40,
+                "amplifier": 0
+              }
+            ]
           }
         },
         "offset": [
@@ -109,11 +113,15 @@
               "shake_time": 0.35
             },
             "mob_effect": {
-              "effect": "slowness",
-              "durationeasy": 40,
-              "durationnormal": 40,
-              "durationhard": 40,
-              "amplifier": 0
+              "effects": [
+                {
+                  "effect": "slowness",
+                  "durationeasy": 40,
+                  "durationnormal": 40,
+                  "durationhard": 40,
+                  "amplifier": 0
+                }
+              ]
             }
           },
           "offset": [
@@ -152,11 +160,15 @@
               "shake_time": 0.35
             },
             "mob_effect": {
-              "effect": "slowness",
-              "durationeasy": 40,
-              "durationnormal": 40,
-              "durationhard": 40,
-              "amplifier": 0
+              "effects": [
+                {
+                  "effect": "slowness",
+                  "durationeasy": 40,
+                  "durationnormal": 40,
+                  "durationhard": 40,
+                  "amplifier": 0
+                }
+              ]
             }
           },
           "offset": [
@@ -196,11 +208,15 @@
               "shake_time": 0.35
             },
             "mob_effect": {
-              "effect": "slowness",
-              "durationeasy": 40,
-              "durationnormal": 40,
-              "durationhard": 40,
-              "amplifier": 0
+              "effects": [
+                {
+                  "effect": "slowness",
+                  "durationeasy": 40,
+                  "durationnormal": 40,
+                  "durationhard": 40,
+                  "amplifier": 0
+                }
+              ]
             }
           },
           "offset": [
@@ -239,11 +255,15 @@
               "shake_time": 0.35
             },
             "mob_effect": {
-              "effect": "slowness",
-              "durationeasy": 40,
-              "durationnormal": 40,
-              "durationhard": 40,
-              "amplifier": 0
+              "effects": [
+                {
+                  "effect": "slowness",
+                  "durationeasy": 40,
+                  "durationnormal": 40,
+                  "durationhard": 40,
+                  "amplifier": 0
+                }
+              ]
             }
           },
           "offset": [

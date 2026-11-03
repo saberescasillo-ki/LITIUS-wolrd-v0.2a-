@@ -38,8 +38,8 @@ hay un **25 %** de que salga **mejorado**; el 75 % restante es el mob vanilla de
 ### Cambios generales
 
 - **Todos los mobs hostiles** detectan al jugador **5 bloques más lejos** (incluye arañas, husks, brujas, illagers, piglins, ghasts, slimes, etc.).
-- **No muertos con casco:** zombies, esqueletos, strays, bogged, ahogados, aldeanos zombie y los jinetes que se queman salen siempre con casco
-  (cuero 50 %, malla 20 %, hierro 15 %, oro 15 %), así no arden al sol. Los phantoms no pueden llevar casco y siguen ardiendo como en vanilla.
+- **No muertos con casco:** zombies, esqueletos, strays, bogged, ahogados, aldeanos zombie y los jinetes que se queman tienen un **45 %** de salir con casco
+  (cuero 50 %, malla 20 %, hierro 15 %, oro 15 %); con casco no arden al sol. El zombie acorazado y el Jinete Esqueleto siempre lo llevan. Los phantoms no pueden llevar casco y siguen ardiendo como en vanilla.
 - **Esqueletos, strays y bogged disparan más seguido:** cada 1.4–1.9 s (1.0–1.4 s en difícil); vanilla dispara cada 3 s (2 s en difícil).
 - **Creepers** un 10 % más rápidos.
 

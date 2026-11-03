@@ -108,18 +108,18 @@
         }
       ],
       "textures": [
-        "query.is_baby ? Texture.baby : (query.property('litius:mutacion') == 2 ? Texture.escalador : Texture.default)"
+        "query.is_baby ? Texture.baby : ((query.has_property('litius:mutacion') ? query.property('litius:mutacion') : 0) == 2 ? Texture.escalador : Texture.default)"
       ]
     },
     "controller.render.litius.skeleton": {
-      "geometry": "Array.geos[query.property('litius:mutacion') == 2]",
+      "geometry": "Array.geos[(query.has_property('litius:mutacion') ? query.property('litius:mutacion') : 0) == 2]",
       "materials": [
         {
           "*": "Material.default"
         }
       ],
       "textures": [
-        "Array.texs[query.property('litius:mutacion') == 2]"
+        "Array.texs[(query.has_property('litius:mutacion') ? query.property('litius:mutacion') : 0) == 2]"
       ],
       "arrays": {
         "geometries": {
@@ -157,14 +157,14 @@
           ]
         }
       },
-      "geometry": "Array.geos[query.property('litius:mutacion') == 1]",
+      "geometry": "Array.geos[(query.has_property('litius:mutacion') ? query.property('litius:mutacion') : 0) == 1]",
       "materials": [
         {
           "*": "Array.materials[query.is_invisible]"
         }
       ],
       "textures": [
-        "Array.texs[query.property('litius:mutacion') == 1]"
+        "Array.texs[(query.has_property('litius:mutacion') ? query.property('litius:mutacion') : 0) == 1]"
       ]
     },
     "controller.render.litius.cow": {
@@ -200,14 +200,14 @@
           ]
         }
       },
-      "geometry": "query.is_baby ? Geometry.baby : (query.property('litius:mutacion') == 1 ? Geometry.toro : Array.geos[v.index])",
+      "geometry": "query.is_baby ? Geometry.baby : ((query.has_property('litius:mutacion') ? query.property('litius:mutacion') : 0) == 1 ? Geometry.toro : Array.geos[v.index])",
       "materials": [
         {
           "*": "v.is_cold ? Material.cold : Material.default"
         }
       ],
       "textures": [
-        "query.is_baby ? Array.baby_textures[v.index] : (query.property('litius:mutacion') == 1 ? Array.toro[v.index * 3 + query.property('litius:pelaje')] : Array.textures[v.index])"
+        "query.is_baby ? Array.baby_textures[v.index] : ((query.has_property('litius:mutacion') ? query.property('litius:mutacion') : 0) == 1 ? Array.toro[v.index * 3 + (query.has_property('litius:pelaje') ? query.property('litius:pelaje') : 0)] : Array.textures[v.index])"
       ]
     },
     "controller.render.litius.base": {
@@ -261,7 +261,7 @@
         }
       ],
       "textures": [
-        "query.property('litius:mutacion') == 1 ? Texture.mutado : Texture.default"
+        "(query.has_property('litius:mutacion') ? query.property('litius:mutacion') : 0) == 1 ? Texture.mutado : Texture.default"
       ]
     }
   }

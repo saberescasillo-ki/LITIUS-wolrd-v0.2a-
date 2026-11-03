@@ -54,6 +54,10 @@
           "type": "item",
           "name": "minecraft:golden_helmet",
           "weight": 15
+        },
+        {
+          "type": "empty",
+          "weight": 122
         }
       ]
     }
