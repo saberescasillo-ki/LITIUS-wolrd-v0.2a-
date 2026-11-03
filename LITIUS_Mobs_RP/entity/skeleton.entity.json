@@ -23,7 +23,9 @@
           "variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;",
           "variable.riding_y_offset_with_respect_to_player = 0.5;",
           "variable.riding_y_offset_on_vehicle_where_other_entites_can_stand = query.is_riding_any_entity_of_type('minecraft:minecart', 'minecraft:boat', 'minecraft:chest_boat') ? -3.0 : 0.0;",
-          "variable.riding_y_offset = variable.riding_y_offset_with_respect_to_player + variable.riding_y_offset_on_vehicle_where_other_entites_can_stand;"
+          "variable.riding_y_offset = variable.riding_y_offset_with_respect_to_player + variable.riding_y_offset_on_vehicle_where_other_entites_can_stand;",
+          "variable.litius_arco = query.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:bow');",
+          "variable.litius_armado = !variable.litius_arco && query.is_item_equipped(0);"
         ]
       },
       "animations": {
@@ -44,7 +46,8 @@
         "swimming": "animation.zombie.swimming",
         "use_item_progress": "animation.humanoid.use_item_progress",
         "skeleton_attack": "animation.skeleton.attack",
-        "riding.body": "animation.humanoid.riding.body"
+        "riding.body": "animation.humanoid.riding.body",
+        "litius_guardia": "animation.litius.esqueleto.guardia"
       },
       "animation_controllers": [
         {
@@ -78,7 +81,7 @@
           "damage_nearby_mobs": "controller.animation.humanoid.damage_nearby_mobs"
         },
         {
-          "bow_and_arrow": "controller.animation.humanoid.bow_and_arrow"
+          "bow_and_arrow": "controller.animation.litius.esqueleto.arco"
         },
         {
           "swimming": "controller.animation.zombie.swimming"
@@ -87,7 +90,7 @@
           "use_item_progress": "controller.animation.humanoid.use_item_progress"
         },
         {
-          "skeleton_attack": "controller.animation.skeleton.attack"
+          "litius_combate": "controller.animation.litius.esqueleto.combate"
         }
       ],
       "render_controllers": [

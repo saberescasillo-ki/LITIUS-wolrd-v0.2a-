@@ -1,0 +1,75 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.litius.esqueleto.arco": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "apuntar": "query.has_target && variable.litius_arco"
+            }
+          ]
+        },
+        "apuntar": {
+          "animations": [
+            "bow_and_arrow"
+          ],
+          "transitions": [
+            {
+              "default": "!(query.has_target && variable.litius_arco)"
+            }
+          ]
+        }
+      }
+    },
+    "controller.animation.litius.esqueleto.combate": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "cerca": "query.has_target && variable.litius_arco && !query.facing_target_to_range_attack"
+            },
+            {
+              "punos": "query.has_target && !variable.litius_arco && !variable.litius_armado"
+            },
+            {
+              "espada": "query.has_target && variable.litius_armado"
+            }
+          ]
+        },
+        "cerca": {
+          "animations": [
+            "skeleton_attack"
+          ],
+          "transitions": [
+            {
+              "default": "!(query.has_target && variable.litius_arco && !query.facing_target_to_range_attack)"
+            }
+          ]
+        },
+        "punos": {
+          "animations": [
+            "skeleton_attack"
+          ],
+          "transitions": [
+            {
+              "default": "!(query.has_target && !variable.litius_arco && !variable.litius_armado)"
+            }
+          ]
+        },
+        "espada": {
+          "animations": [
+            "litius_guardia"
+          ],
+          "transitions": [
+            {
+              "default": "!(query.has_target && variable.litius_armado)"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

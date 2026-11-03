@@ -1,0 +1,24 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.litius.esqueleto.guardia": {
+      "loop": true,
+      "bones": {
+        "rightarm": {
+          "rotation": [
+            -28.0,
+            -6.0,
+            0.0
+          ]
+        },
+        "leftarm": {
+          "rotation": [
+            -14.0,
+            6.0,
+            0.0
+          ]
+        }
+      }
+    }
+  }
+}

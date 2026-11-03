@@ -1,7 +1,7 @@
 # LITIUS-wolrd-v0.2a-
 LITIUS wolrd more serius
 
-## LITIUS Mobs 1.6 (addon para Minecraft Bedrock)
+## LITIUS Mobs 1.7 (addon para Minecraft Bedrock)
 
 Rehecho desde cero. Dos packs: `LITIUS_Mobs_BP` (comportamiento) y `LITIUS_Mobs_RP` (recursos).
 No necesita experimentos.
@@ -38,6 +38,12 @@ hay un **25 %** de que salga **mejorado**; el 75 % restante es el mob vanilla de
 - **Arañas:** pueden aparecer en grupos de hasta 3.
 - **Arañas de cueva:** aparecen naturalmente en cuevas (~25 % de los monstruos de cueva).
 - **Jinetes:** aparecen poco y nunca en grupo (máximo 2 de cada tipo en superficie y 1 bajo tierra cerca del jugador). El Jinete Wither es el más raro y el Jinete Husk el más común en su bioma.
+
+### Animaciones de los esqueletos
+
+Todos los esqueletos (normales, mutados y jinetes) se animan según lo que llevan en la mano:
+con **arco** apuntan como en vanilla; con **espada o hacha** se ponen en guardia y dan tajos con el arma;
+**sin arma** (esqueleto de cueva) atacan con los brazos al frente.
 
 ### Creeper (todos)
 
