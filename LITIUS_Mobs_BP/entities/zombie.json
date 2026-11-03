@@ -11,7 +11,16 @@
           "default": false,
           "type": "bool"
         },
-        "litius:mejorado": {
+        "litius:mutacion": {
+          "type": "int",
+          "range": [
+            0,
+            2
+          ],
+          "default": 0,
+          "client_sync": false
+        },
+        "litius:tirada": {
           "type": "bool",
           "default": false,
           "client_sync": false
@@ -801,6 +810,17 @@
         },
         "minecraft:movement": {
           "value": 0.26
+        },
+        "minecraft:navigation.walk": {
+          "can_break_doors": true,
+          "is_amphibious": true,
+          "can_pass_doors": true,
+          "can_walk": true,
+          "can_swim": true,
+          "can_sink": false
+        },
+        "minecraft:underwater_movement": {
+          "value": 0.09
         }
       },
       "litius:mejorado_equipo": {
@@ -829,6 +849,18 @@
             }
           ]
         }
+      },
+      "litius:escalador": {
+        "minecraft:movement": {
+          "value": 0.3
+        },
+        "minecraft:variable_max_auto_step": {
+          "base_value": 1.0625,
+          "jump_prevented_value": 1.0625
+        },
+        "minecraft:jump.static": {
+          "jump_power": 0.62
+        }
       }
     },
     "events": {
@@ -839,14 +871,27 @@
           },
           {
             "filters": {
-              "test": "bool_property",
-              "domain": "litius:mejorado",
+              "test": "int_property",
+              "domain": "litius:mutacion",
               "operator": "==",
-              "value": true
+              "value": 1
             },
             "add": {
               "component_groups": [
                 "litius:mejorado"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 2
+            },
+            "add": {
+              "component_groups": [
+                "litius:escalador"
               ]
             }
           }
@@ -855,56 +900,35 @@
       "minecraft:entity_spawned": {
         "sequence": [
           {
-            "sequence": [
+            "randomize": [
               {
-                "randomize": [
-                  {
-                    "trigger": "minecraft:as_adult",
-                    "weight": 9500
-                  },
-                  {
-                    "trigger": "minecraft:as_baby",
-                    "weight": 425
-                  },
-                  {
-                    "trigger": "minecraft:as_baby_jockey",
-                    "weight": 75
-                  }
-                ]
+                "trigger": "minecraft:as_adult",
+                "weight": 9500
               },
               {
-                "randomize": [
-                  {
-                    "add": {
-                      "component_groups": [
-                        "minecraft:can_break_doors"
-                      ]
-                    },
-                    "weight": 10
-                  },
-                  {
-                    "weight": 90
-                  }
-                ]
+                "trigger": "minecraft:as_baby",
+                "weight": 425
+              },
+              {
+                "trigger": "minecraft:as_baby_jockey",
+                "weight": 75
               }
             ]
           },
           {
             "randomize": [
               {
-                "weight": 75
+                "add": {
+                  "component_groups": [
+                    "minecraft:can_break_doors"
+                  ]
+                },
+                "weight": 10
               },
               {
-                "weight": 25,
-                "trigger": "litius:mutar"
+                "weight": 90
               }
-            ],
-            "filters": {
-              "test": "is_baby",
-              "subject": "self",
-              "operator": "==",
-              "value": false
-            }
+            ]
           }
         ]
       },
@@ -923,16 +947,53 @@
           },
           {
             "filters": {
-              "test": "bool_property",
-              "domain": "litius:mejorado",
+              "test": "int_property",
+              "domain": "litius:mutacion",
               "operator": "==",
-              "value": true
+              "value": 1
             },
             "add": {
               "component_groups": [
                 "litius:mejorado"
               ]
             }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 2
+            },
+            "add": {
+              "component_groups": [
+                "litius:escalador"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "bool_property",
+              "domain": "litius:tirada",
+              "operator": "==",
+              "value": false
+            },
+            "randomize": [
+              {
+                "weight": 70,
+                "set_property": {
+                  "litius:tirada": true
+                }
+              },
+              {
+                "weight": 20,
+                "trigger": "litius:mutar"
+              },
+              {
+                "weight": 10,
+                "trigger": "litius:mutar_escalador"
+              }
+            ]
           }
         ]
       },
@@ -950,14 +1011,43 @@
           },
           {
             "filters": {
-              "test": "bool_property",
-              "domain": "litius:mejorado",
+              "test": "int_property",
+              "domain": "litius:mutacion",
               "operator": "==",
-              "value": true
+              "value": 1
             },
             "add": {
               "component_groups": [
                 "litius:mejorado"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 2
+            },
+            "add": {
+              "component_groups": [
+                "litius:escalador"
+              ]
+            }
+          },
+          {
+            "set_property": {
+              "litius:mutacion": 0,
+              "litius:tirada": true
+            }
+          },
+          {
+            "remove": {
+              "component_groups": [
+                "litius:mejorado_vida",
+                "litius:mejorado",
+                "litius:mejorado_equipo",
+                "litius:escalador"
               ]
             }
           }
@@ -978,14 +1068,43 @@
           },
           {
             "filters": {
-              "test": "bool_property",
-              "domain": "litius:mejorado",
+              "test": "int_property",
+              "domain": "litius:mutacion",
               "operator": "==",
-              "value": true
+              "value": 1
             },
             "add": {
               "component_groups": [
                 "litius:mejorado"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 2
+            },
+            "add": {
+              "component_groups": [
+                "litius:escalador"
+              ]
+            }
+          },
+          {
+            "set_property": {
+              "litius:mutacion": 0,
+              "litius:tirada": true
+            }
+          },
+          {
+            "remove": {
+              "component_groups": [
+                "litius:mejorado_vida",
+                "litius:mejorado",
+                "litius:mejorado_equipo",
+                "litius:escalador"
               ]
             }
           }
@@ -1007,14 +1126,27 @@
           },
           {
             "filters": {
-              "test": "bool_property",
-              "domain": "litius:mejorado",
+              "test": "int_property",
+              "domain": "litius:mutacion",
               "operator": "==",
-              "value": true
+              "value": 1
             },
             "add": {
               "component_groups": [
                 "litius:mejorado"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 2
+            },
+            "add": {
+              "component_groups": [
+                "litius:escalador"
               ]
             }
           }
@@ -1039,14 +1171,27 @@
           },
           {
             "filters": {
-              "test": "bool_property",
-              "domain": "litius:mejorado",
+              "test": "int_property",
+              "domain": "litius:mutacion",
               "operator": "==",
-              "value": true
+              "value": 1
             },
             "add": {
               "component_groups": [
                 "litius:mejorado"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 2
+            },
+            "add": {
+              "component_groups": [
+                "litius:escalador"
               ]
             }
           }
@@ -1071,14 +1216,27 @@
           },
           {
             "filters": {
-              "test": "bool_property",
-              "domain": "litius:mejorado",
+              "test": "int_property",
+              "domain": "litius:mutacion",
               "operator": "==",
-              "value": true
+              "value": 1
             },
             "add": {
               "component_groups": [
                 "litius:mejorado"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 2
+            },
+            "add": {
+              "component_groups": [
+                "litius:escalador"
               ]
             }
           }
@@ -1087,27 +1245,41 @@
       "minecraft:start_transforming_into_drowned": {
         "sequence": [
           {
+            "sequence": [
+              {
+                "filters": {
+                  "test": "int_property",
+                  "domain": "litius:mutacion",
+                  "operator": "!=",
+                  "value": 1
+                },
+                "trigger": "litius:vanilla_start_transforming_into_drowned"
+              }
+            ]
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 1
+            },
             "add": {
               "component_groups": [
-                "minecraft:start_drowned_transformation"
-              ]
-            },
-            "remove": {
-              "component_groups": [
-                "minecraft:look_to_start_transformations"
+                "litius:mejorado"
               ]
             }
           },
           {
             "filters": {
-              "test": "bool_property",
-              "domain": "litius:mejorado",
+              "test": "int_property",
+              "domain": "litius:mutacion",
               "operator": "==",
-              "value": true
+              "value": 2
             },
             "add": {
               "component_groups": [
-                "litius:mejorado"
+                "litius:escalador"
               ]
             }
           }
@@ -1129,14 +1301,27 @@
           },
           {
             "filters": {
-              "test": "bool_property",
-              "domain": "litius:mejorado",
+              "test": "int_property",
+              "domain": "litius:mutacion",
               "operator": "==",
-              "value": true
+              "value": 1
             },
             "add": {
               "component_groups": [
                 "litius:mejorado"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 2
+            },
+            "add": {
+              "component_groups": [
+                "litius:escalador"
               ]
             }
           }
@@ -1148,59 +1333,98 @@
             "sequence": [
               {
                 "filters": {
-                  "test": "has_component",
+                  "test": "int_property",
+                  "domain": "litius:mutacion",
                   "operator": "!=",
-                  "value": "minecraft:is_baby"
+                  "value": 1
                 },
-                "add": {
-                  "component_groups": [
-                    "minecraft:convert_to_drowned"
-                  ]
-                },
-                "remove": {
-                  "component_groups": [
-                    "minecraft:start_drowned_transformation"
-                  ]
-                }
-              },
-              {
-                "filters": {
-                  "test": "has_component",
-                  "value": "minecraft:is_baby"
-                },
-                "add": {
-                  "component_groups": [
-                    "minecraft:convert_to_baby_drowned"
-                  ]
-                },
-                "remove": {
-                  "component_groups": [
-                    "minecraft:start_drowned_transformation"
-                  ]
-                }
+                "trigger": "litius:vanilla_convert_to_drowned"
               }
             ]
           },
           {
             "filters": {
-              "test": "bool_property",
-              "domain": "litius:mejorado",
+              "test": "int_property",
+              "domain": "litius:mutacion",
               "operator": "==",
-              "value": true
+              "value": 1
             },
             "add": {
               "component_groups": [
                 "litius:mejorado"
               ]
             }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "domain": "litius:mutacion",
+              "operator": "==",
+              "value": 2
+            },
+            "add": {
+              "component_groups": [
+                "litius:escalador"
+              ]
+            }
           }
         ]
+      },
+      "litius:vanilla_convert_to_drowned": {
+        "sequence": [
+          {
+            "filters": {
+              "test": "has_component",
+              "operator": "!=",
+              "value": "minecraft:is_baby"
+            },
+            "add": {
+              "component_groups": [
+                "minecraft:convert_to_drowned"
+              ]
+            },
+            "remove": {
+              "component_groups": [
+                "minecraft:start_drowned_transformation"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "has_component",
+              "value": "minecraft:is_baby"
+            },
+            "add": {
+              "component_groups": [
+                "minecraft:convert_to_baby_drowned"
+              ]
+            },
+            "remove": {
+              "component_groups": [
+                "minecraft:start_drowned_transformation"
+              ]
+            }
+          }
+        ]
+      },
+      "litius:vanilla_start_transforming_into_drowned": {
+        "add": {
+          "component_groups": [
+            "minecraft:start_drowned_transformation"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "minecraft:look_to_start_transformations"
+          ]
+        }
       },
       "litius:mutar": {
         "sequence": [
           {
             "set_property": {
-              "litius:mejorado": true
+              "litius:mutacion": 1,
+              "litius:tirada": true
             }
           },
           {
@@ -1209,6 +1433,23 @@
                 "litius:mejorado_vida",
                 "litius:mejorado_equipo",
                 "litius:mejorado"
+              ]
+            }
+          }
+        ]
+      },
+      "litius:mutar_escalador": {
+        "sequence": [
+          {
+            "set_property": {
+              "litius:mutacion": 2,
+              "litius:tirada": true
+            }
+          },
+          {
+            "add": {
+              "component_groups": [
+                "litius:escalador"
               ]
             }
           }

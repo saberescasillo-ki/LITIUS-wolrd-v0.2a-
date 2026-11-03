@@ -7,7 +7,16 @@
       "is_spawnable": true,
       "is_summonable": true,
       "properties": {
-        "litius:mejorado": {
+        "litius:mutacion": {
+          "type": "int",
+          "range": [
+            0,
+            2
+          ],
+          "default": 0,
+          "client_sync": false
+        },
+        "litius:tirada": {
           "type": "bool",
           "default": false,
           "client_sync": false
@@ -330,9 +339,18 @@
             }
           },
           {
+            "filters": {
+              "test": "bool_property",
+              "domain": "litius:tirada",
+              "operator": "==",
+              "value": false
+            },
             "randomize": [
               {
-                "weight": 75
+                "weight": 75,
+                "set_property": {
+                  "litius:tirada": true
+                }
               },
               {
                 "weight": 25,
@@ -358,10 +376,10 @@
           },
           {
             "filters": {
-              "test": "bool_property",
-              "domain": "litius:mejorado",
+              "test": "int_property",
+              "domain": "litius:mutacion",
               "operator": "==",
-              "value": true
+              "value": 1
             },
             "add": {
               "component_groups": [
@@ -388,10 +406,10 @@
           },
           {
             "filters": {
-              "test": "bool_property",
-              "domain": "litius:mejorado",
+              "test": "int_property",
+              "domain": "litius:mutacion",
               "operator": "==",
-              "value": true
+              "value": 1
             },
             "add": {
               "component_groups": [
@@ -418,10 +436,10 @@
           },
           {
             "filters": {
-              "test": "bool_property",
-              "domain": "litius:mejorado",
+              "test": "int_property",
+              "domain": "litius:mutacion",
               "operator": "==",
-              "value": true
+              "value": 1
             },
             "add": {
               "component_groups": [
@@ -447,10 +465,10 @@
           },
           {
             "filters": {
-              "test": "bool_property",
-              "domain": "litius:mejorado",
+              "test": "int_property",
+              "domain": "litius:mutacion",
               "operator": "==",
-              "value": true
+              "value": 1
             },
             "add": {
               "component_groups": [
@@ -464,7 +482,8 @@
         "sequence": [
           {
             "set_property": {
-              "litius:mejorado": true
+              "litius:mutacion": 1,
+              "litius:tirada": true
             }
           },
           {

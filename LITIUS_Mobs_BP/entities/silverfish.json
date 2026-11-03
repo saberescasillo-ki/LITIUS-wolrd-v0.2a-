@@ -7,7 +7,16 @@
       "is_spawnable": true,
       "spawn_category": "monster",
       "properties": {
-        "litius:mejorado": {
+        "litius:mutacion": {
+          "type": "int",
+          "range": [
+            0,
+            2
+          ],
+          "default": 0,
+          "client_sync": false
+        },
+        "litius:tirada": {
           "type": "bool",
           "default": false,
           "client_sync": false
@@ -168,8 +177,8 @@
           "value": 2.667
         },
         "minecraft:collision_box": {
-          "width": 1.07,
-          "height": 0.8
+          "width": 0.53,
+          "height": 0.4
         },
         "minecraft:attack": {
           "damage": 1.5,
@@ -193,10 +202,10 @@
           },
           {
             "filters": {
-              "test": "bool_property",
-              "domain": "litius:mejorado",
+              "test": "int_property",
+              "domain": "litius:mutacion",
               "operator": "==",
-              "value": true
+              "value": 1
             },
             "add": {
               "component_groups": [
@@ -217,9 +226,18 @@
             "remove": {}
           },
           {
+            "filters": {
+              "test": "bool_property",
+              "domain": "litius:tirada",
+              "operator": "==",
+              "value": false
+            },
             "randomize": [
               {
-                "weight": 75
+                "weight": 75,
+                "set_property": {
+                  "litius:tirada": true
+                }
               },
               {
                 "weight": 25,
@@ -243,10 +261,10 @@
           },
           {
             "filters": {
-              "test": "bool_property",
-              "domain": "litius:mejorado",
+              "test": "int_property",
+              "domain": "litius:mutacion",
               "operator": "==",
-              "value": true
+              "value": 1
             },
             "add": {
               "component_groups": [
@@ -260,7 +278,8 @@
         "sequence": [
           {
             "set_property": {
-              "litius:mejorado": true
+              "litius:mutacion": 1,
+              "litius:tirada": true
             }
           },
           {

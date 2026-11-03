@@ -29,7 +29,10 @@
         "eat": "animation.horse.v3.eat",
         "rear": "animation.horse.v3.rear",
         "tail": "animation.horse.v3.tail",
-        "look_at_player": "animation.horse.v3.look_at_player"
+        "look_at_player": "animation.horse.v3.look_at_player",
+        "litius_ataque": "animation.litius.caballo.coz",
+        "litius_ctrl": "controller.animation.litius.caballo",
+        "litius_carga": "animation.litius.caballo.carga"
       },
       "scripts": {
         "initialize": [
@@ -54,7 +57,8 @@
           },
           {
             "tail": "variable.shake_tail"
-          }
+          },
+          "litius_ctrl"
         ],
         "scale": "query.is_baby ? 2.0 : 1.0"
       },

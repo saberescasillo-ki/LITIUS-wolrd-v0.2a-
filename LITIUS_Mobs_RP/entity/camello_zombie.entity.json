@@ -26,7 +26,8 @@
         ],
         "animate": [
           "general_controller",
-          "idle_controller"
+          "idle_controller",
+          "litius_ctrl"
         ]
       },
       "animations": {
@@ -39,7 +40,10 @@
         "dashing_sound": "animation.camel.dash_sound",
         "idle": "animation.camel.idle",
         "general_controller": "controller.animation.camel_husk.general",
-        "idle_controller": "controller.animation.camel_husk.idle"
+        "idle_controller": "controller.animation.camel_husk.idle",
+        "litius_ataque": "animation.litius.camello.cabezazo",
+        "litius_ctrl": "controller.animation.litius.camello",
+        "litius_carga": "animation.litius.camello.carga"
       },
       "sound_effects": {
         "sit_down": "mob.camel_husk.sit",

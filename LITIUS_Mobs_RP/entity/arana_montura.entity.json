@@ -17,7 +17,9 @@
       "animations": {
         "default_leg_pose": "animation.spider.default_leg_pose",
         "look_at_target": "animation.spider.look_at_target",
-        "walk": "animation.spider.walk"
+        "walk": "animation.spider.walk",
+        "litius_ataque": "animation.litius.arana.mordisco",
+        "litius_ctrl": "controller.animation.litius.arana"
       },
       "animation_controllers": [
         {
@@ -26,7 +28,12 @@
       ],
       "render_controllers": [
         "controller.render.spider"
-      ]
+      ],
+      "scripts": {
+        "animate": [
+          "litius_ctrl"
+        ]
+      }
     }
   }
 }

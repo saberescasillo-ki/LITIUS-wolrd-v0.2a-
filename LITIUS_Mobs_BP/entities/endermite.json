@@ -8,7 +8,16 @@
       "is_spawnable": true,
       "spawn_category": "monster",
       "properties": {
-        "litius:mejorado": {
+        "litius:mutacion": {
+          "type": "int",
+          "range": [
+            0,
+            2
+          ],
+          "default": 0,
+          "client_sync": false
+        },
+        "litius:tirada": {
           "type": "bool",
           "default": false,
           "client_sync": false
@@ -123,7 +132,8 @@
         "sequence": [
           {
             "set_property": {
-              "litius:mejorado": true
+              "litius:mutacion": 1,
+              "litius:tirada": true
             }
           },
           {
@@ -139,9 +149,18 @@
       "minecraft:entity_spawned": {
         "sequence": [
           {
+            "filters": {
+              "test": "bool_property",
+              "domain": "litius:tirada",
+              "operator": "==",
+              "value": false
+            },
             "randomize": [
               {
-                "weight": 75
+                "weight": 75,
+                "set_property": {
+                  "litius:tirada": true
+                }
               },
               {
                 "weight": 25,
@@ -164,8 +183,8 @@
           "value": 2.667
         },
         "minecraft:collision_box": {
-          "width": 1.07,
-          "height": 0.8
+          "width": 0.8,
+          "height": 0.6
         },
         "minecraft:attack": {
           "damage": 3,

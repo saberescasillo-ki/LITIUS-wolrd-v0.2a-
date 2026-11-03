@@ -1,0 +1,108 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.litius.caballo": {
+      "initial_state": "normal",
+      "states": {
+        "normal": {
+          "transitions": [
+            {
+              "ataque": "(v.attack_time ?? 0.0) > 0.0"
+            },
+            {
+              "carga": "q.has_target"
+            }
+          ]
+        },
+        "ataque": {
+          "animations": [
+            "litius_ataque"
+          ],
+          "transitions": [
+            {
+              "normal": "q.any_animation_finished"
+            }
+          ],
+          "blend_transition": 0.1
+        },
+        "carga": {
+          "animations": [
+            "litius_carga"
+          ],
+          "transitions": [
+            {
+              "ataque": "(v.attack_time ?? 0.0) > 0.0"
+            },
+            {
+              "normal": "!q.has_target"
+            }
+          ],
+          "blend_transition": 0.3
+        }
+      }
+    },
+    "controller.animation.litius.camello": {
+      "initial_state": "normal",
+      "states": {
+        "normal": {
+          "transitions": [
+            {
+              "ataque": "(v.attack_time ?? 0.0) > 0.0"
+            },
+            {
+              "carga": "q.has_target"
+            }
+          ]
+        },
+        "ataque": {
+          "animations": [
+            "litius_ataque"
+          ],
+          "transitions": [
+            {
+              "normal": "q.any_animation_finished"
+            }
+          ],
+          "blend_transition": 0.1
+        },
+        "carga": {
+          "animations": [
+            "litius_carga"
+          ],
+          "transitions": [
+            {
+              "ataque": "(v.attack_time ?? 0.0) > 0.0"
+            },
+            {
+              "normal": "!q.has_target"
+            }
+          ],
+          "blend_transition": 0.3
+        }
+      }
+    },
+    "controller.animation.litius.arana": {
+      "initial_state": "normal",
+      "states": {
+        "normal": {
+          "transitions": [
+            {
+              "ataque": "(v.attack_time ?? 0.0) > 0.0"
+            }
+          ]
+        },
+        "ataque": {
+          "animations": [
+            "litius_ataque"
+          ],
+          "transitions": [
+            {
+              "normal": "q.any_animation_finished"
+            }
+          ],
+          "blend_transition": 0.1
+        }
+      }
+    }
+  }
+}
