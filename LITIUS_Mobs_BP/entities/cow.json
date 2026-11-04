@@ -181,22 +181,6 @@
         "minecraft:collision_box": {
           "width": 1.4,
           "height": 1.6
-        },
-        "minecraft:pushable_by_entity": {
-          "presets": [
-            {
-              "filters": {
-                "none_of": [
-                  {
-                    "test": "is_family",
-                    "subject": "other",
-                    "value": "litius_nadie"
-                  }
-                ]
-              },
-              "push_mode": "none"
-            }
-          ]
         }
       },
       "litius:furia": {

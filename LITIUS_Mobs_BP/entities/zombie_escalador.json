@@ -1499,6 +1499,18 @@
           }
         ]
       },
+      "litius:vanilla_start_transforming_into_drowned": {
+        "add": {
+          "component_groups": [
+            "minecraft:start_drowned_transformation"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "minecraft:look_to_start_transformations"
+          ]
+        }
+      },
       "litius:vanilla_convert_to_drowned": {
         "sequence": [
           {
@@ -1535,18 +1547,6 @@
             }
           }
         ]
-      },
-      "litius:vanilla_start_transforming_into_drowned": {
-        "add": {
-          "component_groups": [
-            "minecraft:start_drowned_transformation"
-          ]
-        },
-        "remove": {
-          "component_groups": [
-            "minecraft:look_to_start_transformations"
-          ]
-        }
       },
       "litius:mutar": {
         "sequence": [

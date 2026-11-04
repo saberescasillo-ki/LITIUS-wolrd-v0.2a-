@@ -5,51 +5,26 @@
       "identifier": "litius:toro",
       "min_engine_version": "1.8.0",
       "materials": {
-        "default": "cow",
-        "cold": "cow_cold"
+        "default": "cow"
       },
       "textures": {
-        "default": "textures/entity/cow/cow_v2",
-        "warm": "textures/entity/cow/cow_warm",
-        "cold": "textures/entity/cow/cow_cold",
-        "baby_default": "textures/entity/cow/cow_temperate_baby",
-        "baby_cold": "textures/entity/cow/cow_cold_baby",
-        "baby_warm": "textures/entity/cow/cow_warm_baby",
         "toro_1": "textures/entity/litius/toro_1",
         "toro_2": "textures/entity/litius/toro_2",
-        "toro_3": "textures/entity/litius/toro_3",
-        "toro_4": "textures/entity/litius/toro_4",
         "toro_5": "textures/entity/litius/toro_5",
         "toro_6": "textures/entity/litius/toro_6",
-        "toro_7": "textures/entity/litius/toro_7",
         "toro_8": "textures/entity/litius/toro_8"
       },
       "geometry": {
-        "default": "geometry.cow.v2",
-        "warm": "geometry.cow.warm",
-        "cold": "geometry.cow.cold",
-        "baby": "geometry.cow.baby",
-        "toro": "geometry.litius.toro"
+        "default": "geometry.litius.toro"
       },
       "animations": {
-        "setup": "animation.cow.setup",
-        "walk": "animation.quadruped.walk",
-        "look_at_target": "animation.common.look_at_target",
-        "baby_transform": "animation.cow.baby_transform",
         "toro_andar": "animation.litius.toro.andar",
         "toro_embestida": "animation.litius.toro.embestida",
         "toro_ctrl": "controller.animation.litius.toro"
       },
       "scripts": {
         "animate": [
-          "setup",
-          {
-            "walk": "query.modified_move_speed"
-          },
-          "look_at_target",
-          {
-            "toro_ctrl": "(query.has_property('litius:mutacion') ? query.property('litius:mutacion') : 0) == 1"
-          }
+          "toro_ctrl"
         ],
         "pre_animation": [
           "t.variant = query.property('minecraft:climate_variant');",
@@ -59,11 +34,8 @@
         "scale": "query.is_baby ? 2.0 : 1.0"
       },
       "render_controllers": [
-        "controller.render.litius.cow"
-      ],
-      "spawn_egg": {
-        "texture": "spawn_egg_cow"
-      }
+        "controller.render.litius.toro"
+      ]
     }
   }
 }
